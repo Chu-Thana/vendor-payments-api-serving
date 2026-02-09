@@ -13,6 +13,12 @@ class MonthlySalesItem(BaseModel):
     total_sales : float
     total_profit : float
 
+class MonthlySort(str, Enum):
+    month_asc = "month_asc"
+    month_desc = "month_desc"
+    sales_desc = "sales_desc"
+    profit_desc = "profit_desc"
+
 class MonthlySalesResponse(BaseModel):
     generated_at : str
     query_ms : float
@@ -20,27 +26,35 @@ class MonthlySalesResponse(BaseModel):
     start : str
     end : str
     decimals : int
-
+    sort: MonthlySort
     limit : int
-    offset : int
-    page : int
 
-    prev_page : Optional[int]
-    next_page : Optional[int]
-
-    count : int
+    cursor : Optional[str] = None
     has_more : bool
+    next_cursor : Optional[str] = None
+    next_curl: Optional[str] = None
 
-    total_count : int
-    total_pages : int
+    next_cursor: str | None
+    next_url: str | None
 
+class MonthlySalesCursorResponse(BaseModel):
+    generated_at : str
+    query_ms : float
+
+    start : str
+    end : str
+    decimals : int
+    limit : int
+    sort : MonthlySort
+
+    cursor: Optional[str] = None
+    has_more: bool
+    next_cursor: Optional[str] = None
+    next_curl: Optional[str] = None
+    next_url: Optional[str] = None
+
+    count: int
     data : List[MonthlySalesItem]
-
-class MonthlySort(str, Enum):
-    month_asc = "month_asc"
-    month_desc = "month_desc"
-    sales_desc = "sales_desc"
-    profit_desc = "profit_desc"
 
 class HealthDBResponse(BaseModel):
     status : str
