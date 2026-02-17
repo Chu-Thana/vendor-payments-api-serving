@@ -2,6 +2,9 @@
 
 **Status:** Feature-complete backend prototype with production-style API design.
 
+**Design Goal:**
+Deployment-ready structure designed for containerization, cloud deployment, and future streaming integration.
+
 A production-style analytics backend built with FastAPI on a cleaned Superstore dataset.
 
 This project demonstrates backend API design, validation strategies, pagination patterns, middleware logging, and clean architecture separation.
