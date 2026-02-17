@@ -1,6 +1,6 @@
 # Superstore Analytics API
 
-**Status:** Production-ready feature-complete backend prototype.
+**Status:** Feature-complete backend prototype with production-style API design.
 
 A production-style analytics backend built with FastAPI on a cleaned Superstore dataset.
 
