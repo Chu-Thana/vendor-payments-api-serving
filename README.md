@@ -34,6 +34,7 @@ Key objectives:
 
 ## 📂 Project Structure
 
+```text
 superstore-fastapi-analytics/
 │
 ├── main.py              # API layer & middleware
@@ -46,8 +47,7 @@ superstore-fastapi-analytics/
 ├── docker-compose.yml   # Multi-service orchestration
 ├── Dockerfile
 └── requirements.txt
-
----
+```
 
 ## 🏗 Architecture Overview
 
