@@ -1,5 +1,13 @@
 # Superstore Analytics API
 
+# Superstore Analytics API
+
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Production--Style-green)
+![Docker](https://img.shields.io/badge/Docker-Enabled-blue)
+![Redis](https://img.shields.io/badge/Cache-Redis-red)
+![PostgreSQL](https://img.shields.io/badge/Logs-PostgreSQL-blue)
+
 Production-style FastAPI analytics backend with Redis caching, PostgreSQL run logs, structured middleware observability, operational metrics, and containerized deployment.
 
 ---
