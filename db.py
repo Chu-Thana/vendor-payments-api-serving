@@ -1,61 +1,15 @@
-from database import get_conn
 import json
 import base64
-from typing import Optional, Any, Tuple, List, Dict
+from database import get_conn
+from typing import Optional, Any
 from fastapi import HTTPException
-from schemas import ETLStatus, MonthlySort, RegionSort, CategorySort
-from datetime import datetime, timezone
-
-# ============================================================
-# ETL Run Logging (Monitoring & Observability Layer)
-# ------------------------------------------------------------
-# This section handles API execution logging for monitoring,
-# debugging, and performance tracking purposes.
-#
-# Logs include:
-# - Execution timestamp (UTC)
-# - Status (SUCCESS / FAILED)
-# - Rows processed (if applicable)
-# - Additional message/context
-# ============================================================
-
-def log_etl_run(
-        status: ETLStatus,
-        rows_processed: int,
-        message: str
-) -> None:
-
-    """
-    Insert a record into etl_run_log table.ฏ
-    Used for API monitoring and execution tracking.
-    """
-
-    with get_conn() as conn:
-        cursor = conn.cursor()
-        cursor.execute("""
-            INSERT INTO api_run_log (
-                run_at,
-                status,
-                rows_processed,
-                message
-            )
-            VALUES (?, ?, ?, ?)
-        """, (
-            datetime.now(timezone.utc).isoformat(),
-            status.value,
-            rows_processed,
-            message,
-        ))
-        conn.commit()
-
+from schemas import MonthlySort, RegionSort, CategorySort
 
 # ===============================
 # Cursor Utilities (Internal)
 # ===============================
 
-def _encode_cursor(
-        payload: Dict[str, Any]
-) -> str:
+def _encode_cursor(payload: dict[str, Any]) -> str:
     """
     Encodes a cursor payload into a URL-safe Base64 string.
     Used for stateless cursor-based pagination.
@@ -63,9 +17,8 @@ def _encode_cursor(
     raw = json.dumps(payload, separators=(",", ":")).encode("utf-8")
     return base64.urlsafe_b64encode(raw).decode("utf-8").rstrip("=")
 
-def _decode_cursor(
-        cursor: str
-) -> Dict[str, Any]:
+
+def _decode_cursor(cursor: str) -> dict[str, Any]:
     """
     Decode base64 cursor string back into payload dictionary.
 
@@ -160,7 +113,7 @@ def get_sales_monthly(
     sort: MonthlySort,
     limit: int,
     offset: int,
-) -> Tuple[List[dict], bool, int, int, int]:
+) -> tuple[list[dict], bool, int, int, int]:
 
     """
     Retrieves offset-based paginated monthly sales summary
@@ -180,7 +133,10 @@ def get_sales_monthly(
             MonthlySort.profit_desc: "total_profit DESC",
         }
         # sort validated by enum in API layer
-        order_by = order_by_map[sort]
+        try:
+            order_by = order_by_map[sort]
+        except KeyError:
+            raise ValueError("Invalid sort option")
 
         # Fetch limit+1 rows to determine has_more (offset pagination)
         base_sql = f"""
@@ -237,7 +193,7 @@ def get_sales_monthly_cursor(
     sort: MonthlySort,
     limit: int,
     cursor: Optional[str],
-) -> Tuple[List[dict], bool, Optional[str]]:
+) -> tuple[list[dict], bool, Optional[str]]:
     """
     Cursor-based monthly aggregation endpoint.
     Uses last-seen row keys instead of OFFSET for efficient pagination.
@@ -379,6 +335,7 @@ def get_sales_monthly_cursor(
 
     return data, has_more, next_cursor
 
+
 def get_sales_by_region(
     start: str,
     end: str,
@@ -386,7 +343,7 @@ def get_sales_by_region(
     sort: RegionSort,
     limit: int,
     offset: int,
-) -> Tuple[List[dict], bool, int, int]:
+) -> tuple[list[dict], bool, int, int]:
     """
     Retrieves offset-based paginated sales aggregates grouped by region.
     """
@@ -439,7 +396,7 @@ def get_sales_by_region(
     has_more = len(rows) > limit
     rows = rows[:limit]
 
-    total_pages = (total_count + limit - 1) // limit
+    total_pages = max(1, (total_count + limit - 1) // limit)
 
     # Build response items with requested rounding precision
     data = [
@@ -462,7 +419,7 @@ def get_sales_by_category(
     sort: CategorySort,
     limit: int,
     offset: int,
-) -> Tuple[List[dict], bool, int, int]:
+) -> tuple[list[dict], bool, int, int]:
     """
     Retrieves offset-based paginated sales aggregates by category.
     Sorting is restricted to predefined enum values.
@@ -475,7 +432,10 @@ def get_sales_by_category(
         CategorySort.profit_desc: "total_profit DESC",
     }
 
-    order_by = order_by_map[sort]
+    try:
+        order_by = order_by_map[sort]
+    except KeyError:
+        raise ValueError("Invalid sort option")
 
     # Base aggregation query grouped by category
     base_sql = """
@@ -513,7 +473,7 @@ def get_sales_by_category(
     has_more = len(rows) > limit
     rows = rows[:limit]
 
-    total_pages = (total_count + limit - 1) // limit
+    total_pages = max(1, (total_count + limit - 1) // limit)
 
     # Build response items with requested rounding precision
     data = [

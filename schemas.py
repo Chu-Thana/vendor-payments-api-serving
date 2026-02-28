@@ -1,8 +1,7 @@
 from enum import Enum
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 from datetime import date, datetime
-from typing import List, Optional
-from pydantic import Field
+from typing import Optional
 
 # ===============================
 # Enums
@@ -88,7 +87,7 @@ class CategorySalesItem(BaseModel):
     Aggregate sales metrics grouped by category.
     """
     category: str
-    total_sales: float = Field(..., description="Total sales amount for the category")
+    total_sales: float = Field(..., ge=0, description="Total sales amount for the category")
     total_profit: float = Field(..., description="Total profit amount for the category")
     total_orders: int = Field(..., ge=0, description="Total order amount for the category")
 
@@ -109,7 +108,7 @@ class DailySalesResponse(BaseModel):
         json_schema_extra={
             "example": {
                 "sales_date": "2011-11-09",
-                "total_order": 2,
+                "total_orders": 2,
                 "total_revenue": 1574.25
             }
         }
@@ -142,10 +141,15 @@ class MonthlySalesResponse(BaseModel):
     count: int = Field(..., ge=0, description="Number of items in this response page")
     has_more: bool = Field(..., description="Whether more items exist after this page")
     total_count: int = Field(..., ge=0, description="Total number of items across all pages")
-    total_pages: int = Field(..., ge=0, description="Total number of pages")
+    total_pages: int = Field(..., ge=1, description="Total number of pages")
 
     # Data
-    data: List[MonthlySalesItem] = Field(..., description="Monthly aggregated metrics")
+    data: list[MonthlySalesItem] = Field(..., description="Monthly aggregated metrics")
+
+    # HIT | MISS | BYPASS | ERROR
+    cache_status: Optional[str] = None
+
+
 
 class MonthlySalesCursorResponse(BaseModel):
     """
@@ -172,17 +176,20 @@ class MonthlySalesCursorResponse(BaseModel):
 
     # Results
     count: int = Field(..., ge=0, description="Number of records in this response")
-    data: List[MonthlySalesItem] = Field(..., description="Monthly aggregated sales metrics")
+    data: list[MonthlySalesItem] = Field(..., description="Monthly aggregated sales metrics")
+
+    # HIT | MISS | BYPASS | ERROR
+    cache_status: Optional[str] = None
 
 class RegionSalesResponse(BaseModel):
     """
-    Sorting options for sales grouped by region.
+    Response schema for /sales/by-region endpoint.
     Used by GET /sales/by-region endpoint.
     """
 
     # Metadata / observability
     generated_at: datetime = Field(..., description="UTC timestamp when the response was generated")
-    query_ms: float = Field(..., description="Database query execution time in milliseconds")
+    query_ms: float = Field(..., ge=0, description="Database query execution time in milliseconds")
 
     # Echo request parameters (useful for debugging and caching)
     start: str = Field(..., pattern=r"^\d{4}-(0[1-9]|1[0-2])$", description="Start month (YYYY-MM)")
@@ -198,23 +205,26 @@ class RegionSalesResponse(BaseModel):
     count: int = Field(...,ge=0 , description="Number of items in this response page")
     has_more: bool = Field(..., description="Whether more items exist after this page")
     total_count: int = Field(..., ge=0, description="Total number of items across all pages")
-    total_pages: int = Field(..., ge=0, description="Total number of pages")
+    total_pages: int = Field(..., ge=1, description="Total number of pages")
     page: int = Field(..., ge=1, description="Current page number (1-based)")
     prev_page: Optional[int] = Field(None, ge=1, description="Previous page number, if exists")
     next_page: Optional[int] = Field(None, ge=1, description="Next page number, if exists")
 
     # Data
-    data: List[RegionSalesItem] = Field(..., description="Monthly aggregated sales metrics")
+    data: list[RegionSalesItem] = Field(..., description="Monthly aggregated sales metrics")
+
+    # HIT | MISS | BYPASS | ERROR
+    cache_status: Optional[str] = None
 
 class CategorySalesResponse(BaseModel):
     """
-    Sorting options for sales grouped by category.
+    Response schema for /sales/by-category endpoint.
     Used by GET /sales/by-category endpoint.
     """
 
     # Metadata / observability
     generated_at: datetime = Field(..., description="UTC timestamp when the response was generated")
-    query_ms: float = Field(..., description="Database query execution time in milliseconds")
+    query_ms: float = Field(..., ge=0, description="Database query execution time in milliseconds")
 
     # Echo request parameters (useful for debugging and caching)
     start: str = Field(..., pattern=r"^\d{4}-(0[1-9]|1[0-2])$", description="Start month (YYYY-MM)")
@@ -230,10 +240,13 @@ class CategorySalesResponse(BaseModel):
     count: int = Field(...,ge=0 , description="Number of items in this response page")
     has_more: bool = Field(..., description="Whether more items exist after this page")
     total_count: int = Field(..., ge=0, description="Total number of items across all pages")
-    total_pages: int = Field(..., ge=0, description="Total number of pages")
+    total_pages: int = Field(..., ge=1, description="Total number of pages")
     page: int = Field(..., ge=1, description="Current page number (1-based)")
     prev_page: Optional[int] = Field(None, ge=1, description="Previous page number, if exists")
     next_page: Optional[int] = Field(None, ge=1, description="Next page number, if exists")
 
     # Data
-    data: List[CategorySalesItem] = Field(..., description="Monthly aggregated sales metrics")
+    data: list[CategorySalesItem] = Field(..., description="Monthly aggregated sales metrics")
+
+    # HIT | MISS | BYPASS | ERROR
+    cache_status: Optional[str] = None

@@ -1,77 +1,267 @@
-from typing import Optional
-from time import perf_counter
-from datetime import datetime, timezone, date
-from fastapi import FastAPI, HTTPException, Query, Request
-import db
-from urllib.parse import urlencode
-from schemas import (DailySalesResponse, HealthDBResponse, MonthlySort,MonthlySalesItem, MonthlySalesResponse,
-                     MonthlySalesCursorResponse, RegionSalesItem, RegionSalesResponse, RegionSort,
-                     CategorySalesItem, CategorySalesResponse, CategorySort, ETLStatus)
+# ===============================
+# Standard library
+# ===============================
+from __future__ import annotations
 
-app = FastAPI()
+from contextlib import asynccontextmanager
+from datetime import date, datetime, timezone
+from time import perf_counter
+from typing import Optional
+from urllib.parse import urlencode
+import uuid
+
+# ===============================
+# Third-party
+# ===============================
+
+
+from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi.encoders import jsonable_encoder
+from starlette.responses import Response
+
+# ===============================
+# Local modules
+# ===============================
+import db
+import db_pg
+from cache import cache_health, cache_try_get, cache_try_set, make_key
+from config import CACHE_ENABLED
+from logging_setup import setup_logging
+from schemas import (
+    CategorySalesItem,
+    CategorySalesResponse,
+    CategorySort,
+    DailySalesResponse,
+    HealthDBResponse,
+    MonthlySalesCursorResponse,
+    MonthlySalesItem,
+    MonthlySalesResponse,
+    MonthlySort,
+    RegionSalesItem,
+    RegionSalesResponse,
+    RegionSort,
+)
+
+# ===============================
+# Logging Setup
+# ===============================
+# Initialize structured logging configuration (formatters, handlers, levels)
+logger = setup_logging()
+
+# ===============================
+# Application Lifecycle
+# ===============================
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    """
+    Application lifecycle handler.
+
+    Startup:
+    - Ensure api_run_log table exists (Postgres)
+    - Emit startup logs
+
+    Shutdown:
+    - Emit shutdown logs
+    """
+    # Startup
+    try:
+        db_pg.init_api_run_log_pg()
+        logger.info("api_run_log initialized")
+    except Exception as e:
+        # Logging infra must never prevent the API from starting
+        logger.warning("api_run_log init failed: %s", repr(e))
+
+    logger.info("API started")
+    logger.debug("DEBUG is enabled")
+
+    yield
+
+    # Shutdown
+    logger.info("API shutdown")
+
+
+app = FastAPI(
+    title="Superstore Analytics API",
+    version="0.1.0",
+    lifespan=lifespan,
+)
 
 # ===============================
 # Middleware
 # ===============================
-@app.middleware("http")
-async def etl_run_log_middleware(request: Request, call_next):
-    """
-    Global request logging middleware (writes to etl_run_log).
-    Endpoints may attach extra metadata via request.state:
-      - rows_processed: int
-      - query_ms: float
-      - log_message: str
-    """
-    t0 = perf_counter()
-    endpoint = request.url.path
-    method = request.method
-    query_string = str(request.url.query)
 
+@app.middleware("http")
+async def api_run_log_middleware(request: Request, call_next):
+    """
+    Global API request logging middleware.
+
+    Captures:
+    - request_ms (total request time)
+    - query_ms, rows_processed, log_message (from request.state)
+    - request_id (trace)
+    - SUCCESS / FAILED based on status_code (>=400 => FAILED)
+
+    Guarantees:
+    - Never breaks the API even if DB logging fails
+    """
+
+    t0 = perf_counter()
+
+    # Trace ID
+    request_id = str(uuid.uuid4())
+    request.state.request_id = request_id
+
+    # default state (กันลืม set จาก endpoint)
+    request.state.query_ms = None
+    request.state.rows_processed = 0
+    request.state.log_message = ""
+    request.state.cache_status = None
+    request.state.cache_key = None
+
+    method = request.method
+    endpoint = request.url.path
+    query_string = str(request.url.query)
+    qs_part = f"?{query_string}" if query_string else ""
+
+    def build_msg(code: int, duration_ms: float, err_text: str | None = None) -> str:
+        qms = getattr(request.state, "query_ms", None)
+        extra = getattr(request.state, "log_message", "")
+
+        message = f"{method} {endpoint} {code} request_ms={duration_ms:.2f} qs={qs_part}"
+        if qms is not None:
+            message += f" | query_ms={float(qms):.2f}"
+        if extra:
+            message += f" | {extra}"
+        if err_text:
+            message += f" | err={err_text}"
+        return message
+
+    def safe_db_log(
+            *,
+            log_status: str,
+            msg_text: str,
+            request_ms: float,
+            http_status_code: int,
+            err_text: str | None = None,
+    ) -> None:
+        try:
+            db_pg.log_api_run_pg(
+                status=log_status,
+                rows_processed=getattr(request.state, "rows_processed", 0),
+                request_ms=request_ms,
+                query_ms=getattr(request.state, "query_ms", None),
+                status_code=http_status_code,
+                request_id=request_id,
+                endpoint=endpoint,
+                method=method,
+                query_string=query_string,
+                message=msg_text,
+                error=err_text,
+                cache_status=getattr(request.state, "cache_status", None),
+                cache_key=getattr(request.state, "cache_key", None),
+            )
+        except Exception as exc:
+            logger.exception(
+                "api_run_log_write_failed_unexpected",
+                extra={
+                    "request_id": request_id,
+                    "method": method,
+                    "endpoint": endpoint,
+                    "err": str(exc),
+                },
+            )
+
+    def attach_headers(resp: Response) -> None:
+        resp.headers["X-Request-ID"] = request_id
+
+        qms = getattr(request.state, "query_ms", None)
+        if qms is not None:
+            resp.headers["X-Query-MS"] = f"{float(qms):.2f}"
+
+        cache_status = getattr(request.state, "cache_status", None)
+        if cache_status is not None:
+            resp.headers["X-Cache"] = str(cache_status)
+
+        cache_key = getattr(request.state, "cache_key", None)
+        if cache_key is not None:
+            resp.headers["X-Cache-Key"] = str(cache_key)
+
+    # ---- main ----
     try:
         response = await call_next(request)
-        request_ms = round((perf_counter() - t0) * 1000, 2)
+        elapsed_ms = (perf_counter() - t0) * 1000.0
 
-        rows_processed = getattr(request.state, "rows_processed", 0)
-        query_ms = getattr(request.state, "query_ms", None)
-        extra = getattr(request.state, "log_message", "")
+        attach_headers(response)
 
-        msg = (
-            f"{method} {endpoint} {response.status_code} "
-            f"request_ms={request_ms} qs={query_string}"
+        status_code = response.status_code
+        status = "SUCCESS" if status_code < 400 else "FAILED"
+
+        log_message = build_msg(status_code, elapsed_ms)
+        safe_db_log(
+            log_status=status,
+            msg_text=log_message,
+            request_ms=elapsed_ms,
+            http_status_code=status_code,
         )
-        if query_ms is not None:
-            msg += f" | query_ms={query_ms}"
-        if extra:
-            msg += f" | {extra}"
-
-        db.log_etl_run(status=ETLStatus.SUCCESS, rows_processed=rows_processed, message=msg)
         return response
 
-    except Exception as e:
-        request_ms = round((perf_counter() - t0) * 1000, 2)
+    except HTTPException as e:
+        # Preserve original HTTPException semantics
+        elapsed_ms = (perf_counter() - t0) * 1000.0
 
-        rows_processed = getattr(request.state, "rows_processed", 0)
-        query_ms = getattr(request.state, "query_ms", None)
-        extra = getattr(request.state, "log_message", "")
-
-        msg = (
-            f"{method} {endpoint} ERROR "
-            f"request_ms={request_ms} qs={query_string} "
-            f"err={type(e).__name__}: {e}"
+        error_text = f"{type(e).__name__}: {e.detail}"
+        log_message = build_msg(e.status_code, elapsed_ms, error_text)
+        safe_db_log(
+            log_status="FAILED",
+            msg_text=log_message,
+            request_ms=elapsed_ms,
+            http_status_code=e.status_code,
+            err_text=error_text,
         )
-        if query_ms is not None:
-            msg += f" | query_ms={query_ms}"
-        if extra:
-            msg += f" | {extra}"
-
-        db.log_etl_run(status=ETLStatus.FAILED, rows_processed=rows_processed, message=msg)
         raise
 
+    except Exception as e:
+        elapsed_ms = (perf_counter() - t0) * 1000.0
 
+        error_text = f"{type(e).__name__}: {e}"
+        log_message = build_msg(500, elapsed_ms, error_text)
+        safe_db_log(
+            log_status="FAILED",
+            msg_text=log_message,
+            request_ms=elapsed_ms,
+            http_status_code=500,
+            err_text=error_text,
+        )
+        raise
 
 # ===============================
-# Health Check
+# Health / Operational Endpoints
 # ===============================
+@app.get("/health/pg")
+def health_pg(request: Request):
+    """
+    PostgreSQL health check endpoint.
+    Returns 503 if the database is unreachable.
+    """
+
+    # ---- database execution ----
+    t0 = perf_counter()
+    ok = db_pg.health_pg()
+    query_ms = (perf_counter() - t0) * 1000.0
+
+    request.state.query_ms = round(query_ms, 2)
+
+    if not ok:
+        request.state.rows_processed = 0
+        request.state.log_message = "health_pg_unavailable"
+        raise HTTPException(status_code=503, detail="PostgreSQL unavailable")
+
+    # ---- middleware metrics ----
+    request.state.rows_processed = 1
+    request.state.log_message = "health_pg_ok"
+
+    return {"ok": True}
+
 
 @app.get(
     "/health/db",
@@ -80,29 +270,32 @@ async def etl_run_log_middleware(request: Request, call_next):
 )
 def health_db(request: Request) -> HealthDBResponse:
     """
-    Health check endpoint for database connectivity and required tables.
-    Used by monitoring systems and readiness probes to verify API availability.
+    Database health check endpoint.
+
+    - Verify database connectivity
+    - Validate required tables exist
     """
 
+    # ---- database execution ----
+    t0 = perf_counter()
     try:
         tables = db.check_db()
         tables = [t[0] if isinstance(t, (tuple, list)) else t for t in tables]
-
     except Exception as e:
-        # Attach metadata for middleware logging (failed case)
+        request.state.query_ms = round((perf_counter() - t0) * 1000.0, 2)
         request.state.rows_processed = 0
-        request.state.log_message = f"health_check_failed error={type(e).__name__}"
-
+        request.state.log_message = f"health_db_failed error={type(e).__name__} msg={str(e)}"
         raise HTTPException(status_code=503, detail="DB unavailable")
 
+    query_ms = (perf_counter() - t0) * 1000.0
+    request.state.query_ms = round(query_ms, 2)
+
+    # ---- validation ----
     has_clean = "superstore_clean" in tables
 
-    # Attach metadata for middleware logging (success case)
+    # ---- middleware metrics ----
     request.state.rows_processed = len(tables)
-    request.state.log_message = (
-        f"health_check_ok tables={len(tables)} "
-        f"has_superstore_clean={has_clean}"
-    )
+    request.state.log_message = f"health_db_ok tables={len(tables)} has_superstore_clean={has_clean}"
 
     return HealthDBResponse(
         status="ok",
@@ -111,8 +304,50 @@ def health_db(request: Request) -> HealthDBResponse:
     )
 
 
+@app.get("/health/cache", summary="Cache health check")
+def health_cache(request: Request):
+    """
+    Cache (Redis) health check endpoint.
+    """
+
+    # ---- cache execution ----
+    t0 = perf_counter()
+    ok = cache_health()
+    query_ms = (perf_counter() - t0) * 1000.0
+    request.state.query_ms = round(query_ms, 2)
+
+    # ---- cache disabled ----
+    if not CACHE_ENABLED:
+        request.state.rows_processed = 0
+        request.state.log_message = "health_cache_disabled"
+        return {
+            "cache_enabled": False,
+            "redis_ok": None,
+            "status": "disabled",
+        }
+
+    # ---- redis failed ----
+    if not ok:
+        request.state.rows_processed = 0
+        request.state.log_message = "health_cache_fail"
+        raise HTTPException(status_code=503, detail="Redis unavailable")
+
+    # ---- success ----
+    request.state.rows_processed = 1
+    request.state.log_message = "health_cache_ok"
+    return {
+        "cache_enabled": True,
+        "redis_ok": ok,
+        "status": "ok" if ok else "fail",
+    }
+
+
+@app.get("/metrics", summary="Operational metrics (last N minutes)")
+def get_metrics(window_minutes: int = Query(60, ge=1, le=1440)):
+    return db_pg.get_metrics_summary_pg(window_minutes=window_minutes)
+
 # ===============================
-# Sales Endpoints
+# Sales Analytics APIs
 # ===============================
 
 @app.get(
@@ -128,21 +363,21 @@ def get_sales_daily(
     sales_date: date = Query(..., description="Target date in YYYY-MM-DD format"),
     decimals: int = Query(2, ge=0, le=6, description="Decimal places (0-6), default 2"),
 ) -> DailySalesResponse:
-    """
-    Daily sales endpoint.
-    Returns aggregated results for a specific date.
-    Responds with 404 if no data is available.
-    """
 
+    # ---- database execution ----
+    t0 = perf_counter()
     sales_date_str = sales_date.isoformat()
     result = db.get_daily_sales(sales_date_str, decimals)
+    query_ms = (perf_counter() - t0) * 1000.0
+
+    request.state.query_ms = round(query_ms, 2)
 
     if result is None:
         request.state.rows_processed = 0
         request.state.log_message = f"daily_sales_no_data sales_date={sales_date_str} decimals={decimals}"
         raise HTTPException(status_code=404, detail="No data for this date")
 
-    # Daily returns a single aggregated record
+    # ---- middleware metrics ----
     request.state.rows_processed = 1
     request.state.log_message = f"daily_sales_ok sales_date={sales_date_str} decimals={decimals}"
 
@@ -152,8 +387,9 @@ def get_sales_daily(
         total_revenue=result["total_revenue"],
     )
 
+
 @app.get(
-    "/sales/monthly",
+    "/sales/monthly/offset",
     response_model=MonthlySalesResponse,
     summary="Get monthly sales summary (page-based)",
     description="Return monthly sales & profit with page-based pagination",
@@ -162,7 +398,7 @@ def get_sales_daily(
         404: {"description": "No data for this period"},
     },
 )
-def get_sales_monthly(
+def get_sales_monthly_offset(
     request: Request,
     start: str = Query(..., pattern=r"^\d{4}-(0[1-9]|1[0-2])$", description="YYYY-MM"),
     end: str = Query(..., pattern=r"^\d{4}-(0[1-9]|1[0-2])$", description="YYYY-MM"),
@@ -171,32 +407,73 @@ def get_sales_monthly(
     limit: int = Query(10, ge=1, le=100, description="Items per page"),
     page: int = Query(1, ge=1, description="1-based page number"),
 ) -> MonthlySalesResponse:
-    """
-    Offset-based monthly sales endpoint.
-    Returns paginated aggregated results by month.
-    """
+
     t0 = perf_counter()
 
-    # Validate month range (lexicographic compare works for YYYY-MM format)
+    # ---- validation ----
     if start > end:
         request.state.rows_processed = 0
         request.state.log_message = f"monthly_invalid_range start={start} end={end}"
         raise HTTPException(status_code=400, detail="Start date must <= end date (YYYY-MM)")
 
-    # Convert page-based pagination to SQL offset (DB layer uses limit/offset)
     offset = (page - 1) * limit
 
-    # Query database for monthly aggregates (sort is validated via enum)
-    data, has_more, current_page, total_count, total_pages = db.get_sales_monthly(
+    cache_key = make_key(
+        prefix="p2:sales:monthly:offset",
         start=start,
         end=end,
         decimals=decimals,
-        sort=sort,
+        sort=sort.value,
         limit=limit,
-        offset=offset,
+        page=page,
     )
+    request.state.cache_key = cache_key
 
-    # If page exceeds available pages but data exists in period
+    # ---- cache lookup ----
+    cached, cache_status = cache_try_get(cache_key)
+    request.state.cache_status = cache_status
+
+    if cache_status == "HIT" and isinstance(cached, dict):
+        hit_qms = round((perf_counter() - t0) * 1000, 2)
+        request.state.query_ms = hit_qms
+
+        cached_resp = MonthlySalesResponse(**cached)
+        cached_resp = cached_resp.model_copy(update={
+            "cache_status": "HIT",
+            "query_ms": hit_qms,
+        })
+
+        request.state.rows_processed = int(getattr(cached_resp, "count", 0))
+        request.state.log_message = (
+            f"category_cache_hit start={start} end={end} decimals={decimals} sort={sort.value} "
+            f"limit={limit} page={page}"
+        )
+        return cached_resp
+
+    # ---- database execution ----
+    try:
+        data, has_more, current_page, total_count, total_pages = db.get_sales_monthly(
+            start=start,
+            end=end,
+            decimals=decimals,
+            sort=sort,
+            limit=limit,
+            offset=offset,
+        )
+    except ValueError as e:
+        request.state.rows_processed = 0
+        request.state.log_message = f"monthly_bad_request error={str(e)}"
+        raise HTTPException(status_code=400, detail=str(e))
+
+    if not data:
+        request.state.rows_processed = 0
+        request.state.log_message = (
+            f"monthly_no_data start={start} end={end} decimals={decimals} "
+            f"sort={sort.value} limit={limit} page={page}"
+        )
+        raise HTTPException(status_code=404, detail="No data for this period")
+
+    # ---- pagination guard ----
     if total_count > 0 and page > total_pages:
         request.state.rows_processed = 0
         request.state.log_message = (
@@ -205,39 +482,20 @@ def get_sales_monthly(
         )
         raise HTTPException(
             status_code=400,
-            detail=f"Page {page} exceeds total_pages {total_pages}"
+            detail=f"page must be <= total_pages ({total_pages})"
         )
 
-    # Return 404 when no data exists for the given period
-    if not data:
-        request.state.rows_processed = 0
-        request.state.log_message = (
-            f"monthly_no_data start={start} end={end} decimals={decimals} "
-            f"sort={sort.value} limit={limit} page={page} offset={offset}"
-        )
-        raise HTTPException(status_code=404, detail="No data for this period")
-
-    # Derive navigation pages from computed pagination metadata
+    # ---- response construction ----
     prev_page = page - 1 if current_page > 1 else None
     next_page = page + 1 if current_page < total_pages else None
 
-    query_ms = round((perf_counter() - t0) * 1000, 2)
+    query_ms = (perf_counter() - t0) * 1000.0
     generated_at = datetime.now(timezone.utc)
-
-    # ✅ Attach metadata for middleware logging
-    request.state.query_ms = query_ms
-    request.state.rows_processed = len(data)
-    request.state.log_message = (
-        f"monthly_ok start={start} end={end} decimals={decimals} sort={sort.value} "
-        f"limit={limit} page={page} offset={offset} count={len(data)} "
-        f"has_more={has_more} total_count={total_count} total_pages={total_pages}"
-    )
-
     items = [MonthlySalesItem(**row) for row in data]
 
-    return MonthlySalesResponse(
+    resp = MonthlySalesResponse(
         generated_at=generated_at,
-        query_ms=query_ms,
+        query_ms=round(query_ms, 2),
         start=start,
         end=end,
         decimals=decimals,
@@ -252,7 +510,26 @@ def get_sales_monthly(
         total_count=total_count,
         total_pages=total_pages,
         data=items,
+        cache_status=cache_status,
     )
+
+    # ---- cache write ----
+    cache_write = "skip"
+    if CACHE_ENABLED and cache_status == "MISS":
+        cache_write = cache_try_set(cache_key, jsonable_encoder(resp))
+
+    # ---- middleware metrics ----
+    request.state.query_ms = round(query_ms, 2)
+    request.state.rows_processed = len(data)
+    request.state.log_message = (
+        f"monthly_ok start={start} end={end} decimals={decimals} sort={sort.value} "
+        f"limit={limit} page={page} offset={offset} count={len(data)} "
+        f"has_more={has_more} total_count={total_count} total_pages={total_pages} "
+        f"cache_status={cache_status} cache_write={cache_write}"
+    )
+
+    return resp
+
 
 @app.get(
     "/sales/monthly/cursor",
@@ -273,19 +550,45 @@ def get_sales_monthly_cursor(
     limit: int = Query(10, ge=1, le=100, description="Max items per page"),
     cursor: Optional[str] = Query(None, description="Opaque cursor from previous response"),
 ) -> MonthlySalesCursorResponse:
-    """
-    Cursor-based monthly sales endpoint.
-    Returns efficiently paginated aggregated results by month.
-    """
     t0 = perf_counter()
 
-    # Validate month range (lexicographic compare works for YYYY-MM)
+    # ---- validation ----
     if start > end:
         request.state.rows_processed = 0
         request.state.log_message = f"monthly_cursor_invalid_range start={start} end={end}"
         raise HTTPException(status_code=400, detail="Start date must <= end date (YYYY-MM)")
 
-    # Delegate cursor filtering + ordering logic to DB layer
+    cache_key = make_key(
+        prefix="p2:sales:monthly:cursor",
+        start=start,
+        end=end,
+        decimals=decimals,
+        sort=sort.value,
+        limit=limit,
+        cursor=cursor or "none",
+    )
+    request.state.cache_key = cache_key
+
+    # ---- cache lookup ----
+    cached, cache_status = cache_try_get(cache_key)
+    request.state.cache_status = cache_status
+
+    if cache_status == "HIT" and isinstance(cached, dict):
+        hit_qms = round((perf_counter() - t0) * 1000, 2)
+        request.state.query_ms = hit_qms
+
+        cached_resp = MonthlySalesCursorResponse(**cached)
+        cached_resp = cached_resp.model_copy(update={
+            "cache_status": "HIT",
+            "query_ms": hit_qms,
+        })
+        request.state.log_message = (
+            f"monthly_cursor_cache_hit start={start} end={end} "
+            f"decimals={decimals} sort={sort.value} limit={limit}"
+        )
+        return cached_resp
+
+    # ---- database execution ----
     try:
         data, has_more, next_cursor = db.get_sales_monthly_cursor(
             start=start,
@@ -300,7 +603,6 @@ def get_sales_monthly_cursor(
         request.state.log_message = f"monthly_cursor_bad_request error={str(e)}"
         raise HTTPException(status_code=400, detail=str(e))
 
-    # Return 404 when no data exists for the given period
     if not data:
         request.state.rows_processed = 0
         request.state.log_message = (
@@ -309,37 +611,30 @@ def get_sales_monthly_cursor(
         )
         raise HTTPException(status_code=404, detail="No data for this period")
 
-    query_ms = round((perf_counter() - t0) * 1000, 2)
-    generated_at = datetime.now(timezone.utc)
-
-    # Build a developer-friendly next_url
     next_url = None
     if next_cursor:
         base_url = str(request.base_url).rstrip("/") + request.url.path
-        q = urlencode({
-            "start": start,
-            "end": end,
-            "decimals": decimals,
-            "sort": sort.value,
-            "limit": limit,
-            "cursor": next_cursor,
-        })
+        q = urlencode(
+            {
+                "start": start,
+                "end": end,
+                "decimals": decimals,
+                "sort": sort.value,
+                "limit": limit,
+                "cursor": next_cursor,
+            }
+        )
         next_url = f"{base_url}?{q}"
 
-    # ✅ Attach metadata for middleware logging
-    request.state.query_ms = query_ms
-    request.state.rows_processed = len(data)
-    request.state.log_message = (
-        f"monthly_cursor_ok start={start} end={end} decimals={decimals} sort={sort.value} "
-        f"limit={limit} count={len(data)} has_more={has_more} "
-        f"cursor={'set' if cursor else 'none'} next_cursor={'set' if next_cursor else 'none'}"
-    )
+    query_ms = (perf_counter() - t0) * 1000.0
+    generated_at = datetime.now(timezone.utc)
 
     items = [MonthlySalesItem(**row) for row in data]
 
-    return MonthlySalesCursorResponse(
+    # ---- response construction ----
+    resp = MonthlySalesCursorResponse(
         generated_at=generated_at,
-        query_ms=query_ms,
+        query_ms=round(query_ms, 2),
         start=start,
         end=end,
         decimals=decimals,
@@ -348,10 +643,29 @@ def get_sales_monthly_cursor(
         cursor=cursor,
         has_more=has_more,
         next_cursor=next_cursor,
-        next_url=next_url,  # ต้องมีใน schema
+        next_url=next_url,
         count=len(data),
         data=items,
+        cache_status=cache_status,
     )
+
+    cache_write = "skip"
+    # ---- cache write ----
+    if CACHE_ENABLED and cache_status == "MISS":
+        cache_write = cache_try_set(cache_key, jsonable_encoder(resp))
+
+    # ---- middleware metrics ----
+    request.state.query_ms = round(query_ms, 2)
+    request.state.rows_processed = len(data)
+    request.state.log_message = (
+        f"monthly_cursor_ok start={start} end={end} decimals={decimals} sort={sort.value} "
+        f"limit={limit} count={len(data)} has_more={has_more} "
+        f"cursor={'set' if cursor else 'none'} next_cursor={'set' if next_cursor else 'none'} "
+        f"cache_status={cache_status} cache_write={cache_write}"
+    )
+
+    return resp
+
 
 @app.get(
     "/sales/by-region",
@@ -376,73 +690,106 @@ def get_sales_by_region(
     limit: int = Query(10, ge=1, le=100, description="Max items per page"),
     page: int = Query(1, ge=1, description="Page number"),
 ) -> RegionSalesResponse:
-    """
-    Offset-based regional sales endpoint.
-    Returns paginated aggregated results grouped by region.
-    """
 
     t0 = perf_counter()
 
-    # Validate month range (lexicographic compare works for YYYY-MM format)
+    # ---- validation ----
     if start > end:
         request.state.rows_processed = 0
         request.state.log_message = f"region_invalid_range start={start} end={end}"
         raise HTTPException(status_code=400, detail="Start date must <= end date (YYYY-MM)")
 
-    # Convert page-based pagination to SQL offset
     offset = (page - 1) * limit
 
-    # Query DB layer
-    data, has_more, total_count, total_pages = db.get_sales_by_region(
+    cache_key = make_key(
+        prefix="p2:sales:region:offset",
         start=start,
         end=end,
         decimals=decimals,
-        sort=sort,
+        sort=sort.value,
         limit=limit,
-        offset=offset,
+        page=page,
     )
+    request.state.cache_key = cache_key
 
-    # Validate page number against total_pages and return 400 if out of range.
-    if total_pages and page > total_pages:
+    # ---- cache lookup ----
+    cached, cache_status = cache_try_get(cache_key)
+    request.state.cache_status = cache_status
+
+    if cache_status == "HIT" and isinstance(cached, dict):
+        hit_qms = round((perf_counter() - t0) * 1000, 2)
+        request.state.query_ms = hit_qms
+
+        cached_resp = RegionSalesResponse(**cached)
+        cached_resp = cached_resp.model_copy(update={
+            "cache_status": "HIT",
+            "query_ms": hit_qms,
+        })
+
+        request.state.rows_processed = int(getattr(cached_resp, "count", 0))
+        request.state.log_message = (
+            f"category_cache_hit start={start} end={end} decimals={decimals} sort={sort.value} "
+            f"limit={limit} page={page}"
+        )
+        return cached_resp
+
+    # ---- database execution ----
+    try:
+        data, has_more, total_count, total_pages = db.get_sales_by_region(
+            start=start,
+            end=end,
+            decimals=decimals,
+            sort=sort,
+            limit=limit,
+            offset=offset,
+        )
+    except ValueError as e:
+        request.state.rows_processed = 0
+        request.state.log_message = f"region_bad_request error={str(e)}"
+        raise HTTPException(status_code=400, detail=str(e))
+
+    # ---- pagination guard (must run BEFORE "no data") ----
+    if total_count == 0:
         request.state.rows_processed = 0
         request.state.log_message = (
-            f"region_page_exceeds page={page} total_pages={total_pages} "
-            f"start={start} end={end} decimals={decimals} sort={sort.value} limit={limit}"
-        )
-        raise HTTPException(
-            status_code=400,
-            detail=f"Page {page} exceeds total_pages {total_pages}",
-        )
-
-    # Return 404 when no data exists for the given period
-    if not data:
-        request.state.rows_processed = 0
-        request.state.log_message = (
-            f"region_no_data start={start} end={end} decimals={decimals} "
+            f"category_no_data start={start} end={end} decimals={decimals} "
             f"sort={sort.value} limit={limit} page={page}"
         )
         raise HTTPException(status_code=404, detail="No data for this period")
 
-    query_ms = round((perf_counter() - t0) * 1000, 2)
-    generated_at = datetime.now(timezone.utc)
+    if page > total_pages:
+        request.state.rows_processed = 0
+        request.state.log_message = (
+            f"category_page_out_of_range start={start} end={end} "
+            f"page={page} total_pages={total_pages} "
+            f"limit={limit} offset={offset}"
+        )
+        raise HTTPException(
+            status_code=400,
+            detail=f"page must be <= total_pages ({total_pages})"
+        )
 
-    # ✅ Attach metadata for middleware logging
-    request.state.query_ms = query_ms
-    request.state.rows_processed = len(data)
-    request.state.log_message = (
-        f"region_ok start={start} end={end} decimals={decimals} "
-        f"sort={sort.value} limit={limit} page={page} offset={offset} "
-        f"count={len(data)} total_count={total_count} total_pages={total_pages}"
-    )
+    if not data:
+        # safety net: should not happen if total_count>0, but keep it
+        request.state.rows_processed = 0
+        request.state.log_message = (
+            f"category_no_rows start={start} end={end} decimals={decimals} "
+            f"sort={sort.value} limit={limit} page={page} offset={offset}"
+        )
+        raise HTTPException(status_code=404, detail="No data for this period")
 
-    items = [RegionSalesItem(**row) for row in data]
 
+    # ---- response construction ----
     prev_page = page - 1 if page > 1 else None
     next_page = page + 1 if page < total_pages else None
 
-    return RegionSalesResponse(
+    query_ms = (perf_counter() - t0) * 1000.0
+    generated_at = datetime.now(timezone.utc)
+    items = [RegionSalesItem(**row) for row in data]
+
+    resp = RegionSalesResponse(
         generated_at=generated_at,
-        query_ms=query_ms,
+        query_ms=round(query_ms, 2),
         start=start,
         end=end,
         decimals=decimals,
@@ -457,7 +804,26 @@ def get_sales_by_region(
         total_count=total_count,
         total_pages=total_pages,
         data=items,
+        cache_status=cache_status,
     )
+
+    # ---- cache write ----
+    cache_write = "skip"
+    if CACHE_ENABLED and cache_status == "MISS":
+        cache_write = cache_try_set(cache_key, jsonable_encoder(resp))
+
+    # ---- middleware metrics ----
+    request.state.query_ms = round(query_ms, 2)
+    request.state.rows_processed = len(data)
+    request.state.log_message = (
+        f"region_ok start={start} end={end} decimals={decimals} sort={sort.value} "
+        f"limit={limit} page={page} offset={offset} count={len(data)} "
+        f"has_more={has_more} total_count={total_count} total_pages={total_pages} "
+        f"cache_status={cache_status} cache_write={cache_write}"
+    )
+
+    return resp
+
 
 @app.get(
     "/sales/by-category",
@@ -479,13 +845,10 @@ def get_sales_by_category(
     limit: int = Query(10, ge=1, le=100, description="Max items per page"),
     page: int = Query(1, ge=1, description="Page number"),
 ) -> CategorySalesResponse:
-    """
-    Offset-based categorical sales endpoint.
-    Returns paginated aggregated results grouped by category.
-    """
+
     t0 = perf_counter()
 
-    # Validate month range
+    # ---- validation ----
     if start > end:
         request.state.rows_processed = 0
         request.state.log_message = f"category_invalid_range start={start} end={end}"
@@ -493,26 +856,55 @@ def get_sales_by_category(
 
     offset = (page - 1) * limit
 
-    data, has_more, total_count, total_pages = db.get_sales_by_category(
+    cache_key = make_key(
+        prefix="p2:sales:category:offset",
         start=start,
         end=end,
         decimals=decimals,
-        sort=sort,
+        sort=sort.value,
         limit=limit,
-        offset=offset,
+        page=page,
     )
+    request.state.cache_key = cache_key
 
-    # Validate page number against total_pages and return 400 if out of range.
-    if total_pages and page > total_pages:
-        request.state.rows_processed = 0
+    # ---- cache lookup ----
+    cached, cache_status = cache_try_get(cache_key)
+    request.state.cache_status = cache_status
+
+    if cache_status == "HIT" and isinstance(cached, dict):
+        hit_qms = round((perf_counter() - t0) * 1000, 2)
+        request.state.query_ms = hit_qms
+
+        cached_resp = CategorySalesResponse.model_validate(cached)
+        cached_resp = cached_resp.model_copy(update={
+            "cache_status": "HIT",
+            "query_ms": hit_qms,
+        })
+
+        request.state.rows_processed = int(getattr(cached_resp, "count", 0))
         request.state.log_message = (
-            f"category_page_exceeds page={page} total_pages={total_pages} "
-            f"start={start} end={end} decimals={decimals} sort={sort.value} limit={limit}"
+            f"category_cache_hit start={start} end={end} decimals={decimals} sort={sort.value} "
+            f"limit={limit} page={page}"
         )
-        raise HTTPException(status_code=400, detail=f"Page {page} exceeds total_pages {total_pages}")
+        return cached_resp
 
-    # Return 404 when no data exists for the given period
-    if not data:
+    # ---- database execution ----
+    try:
+        data, has_more, total_count, total_pages = db.get_sales_by_category(
+            start=start,
+            end=end,
+            decimals=decimals,
+            sort=sort,
+            limit=limit,
+            offset=offset,
+        )
+    except ValueError as e:
+        request.state.rows_processed = 0
+        request.state.log_message = f"category_bad_request error={str(e)}"
+        raise HTTPException(status_code=400, detail=str(e))
+
+    # ---- pagination guard (must run BEFORE "no data") ----
+    if total_count == 0:
         request.state.rows_processed = 0
         request.state.log_message = (
             f"category_no_data start={start} end={end} decimals={decimals} "
@@ -520,26 +912,38 @@ def get_sales_by_category(
         )
         raise HTTPException(status_code=404, detail="No data for this period")
 
-    query_ms = round((perf_counter() - t0) * 1000, 2)
-    generated_at = datetime.now(timezone.utc)
+    if page > total_pages:
+        request.state.rows_processed = 0
+        request.state.log_message = (
+            f"category_page_out_of_range start={start} end={end} "
+            f"page={page} total_pages={total_pages} "
+            f"limit={limit} offset={offset}"
+        )
+        raise HTTPException(
+            status_code=400,
+            detail=f"page must be <= total_pages ({total_pages})"
+        )
 
-    # ✅ Attach metadata for middleware logging
-    request.state.query_ms = query_ms
-    request.state.rows_processed = len(data)
-    request.state.log_message = (
-        f"category_ok start={start} end={end} decimals={decimals} "
-        f"sort={sort.value} limit={limit} page={page} offset={offset} "
-        f"count={len(data)} total_count={total_count} total_pages={total_pages}"
-    )
+    if not data:
+        # safety net: should not happen if total_count>0, but keep it
+        request.state.rows_processed = 0
+        request.state.log_message = (
+            f"category_no_rows start={start} end={end} decimals={decimals} "
+            f"sort={sort.value} limit={limit} page={page} offset={offset}"
+        )
+        raise HTTPException(status_code=404, detail="No data for this period")
 
-    items = [CategorySalesItem(**row) for row in data]
-
+    # ---- response construction ----
     prev_page = page - 1 if page > 1 else None
     next_page = page + 1 if page < total_pages else None
 
-    return CategorySalesResponse(
+    query_ms = (perf_counter() - t0) * 1000.0
+    generated_at = datetime.now(timezone.utc)
+    items = [CategorySalesItem(**row) for row in data]
+
+    resp = CategorySalesResponse(
         generated_at=generated_at,
-        query_ms=query_ms,
+        query_ms=round(query_ms, 2),
         start=start,
         end=end,
         decimals=decimals,
@@ -554,5 +958,22 @@ def get_sales_by_category(
         total_count=total_count,
         total_pages=total_pages,
         data=items,
+        cache_status=cache_status,
     )
 
+    # ---- cache write ----
+    cache_write = "skip"
+    if CACHE_ENABLED and cache_status == "MISS":
+        cache_write = cache_try_set(cache_key, jsonable_encoder(resp))
+
+    # ---- middleware metrics ----
+    request.state.query_ms = round(query_ms, 2)
+    request.state.rows_processed = len(data)
+    request.state.log_message = (
+        f"category_ok start={start} end={end} decimals={decimals} sort={sort.value} "
+        f"limit={limit} page={page} offset={offset} count={len(data)} "
+        f"has_more={has_more} total_count={total_count} total_pages={total_pages} "
+        f"cache_status={cache_status} cache_write={cache_write}"
+    )
+
+    return resp
