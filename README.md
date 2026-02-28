@@ -1,66 +1,127 @@
 # Superstore Analytics API
 
-**Status:** Feature-complete backend prototype with production-style API design.
+Production-style FastAPI analytics backend with Redis caching, PostgreSQL run logs, structured middleware observability, operational metrics, and containerized deployment.
 
-**Design Goal:**
-Deployment-ready structure designed for containerization, cloud deployment, and future streaming integration.
+---
 
-A production-style analytics backend built with FastAPI on a cleaned Superstore dataset.
+## 🧠 Design Goals
 
-This project demonstrates backend API design, validation strategies, pagination patterns, middleware logging, and clean architecture separation.
+This project simulates a production-ready analytics backend service.
+
+Key objectives:
+
+- Demonstrate production-style backend architecture
+- Enforce strict API contracts with deterministic error semantics
+- Implement structured request-level observability
+- Apply measurable Redis caching strategies
+- Separate analytics data layer from operational logging layer
+- Prepare the codebase for containerized & cloud deployment
 
 ---
 
 ## 🚀 Tech Stack
 
-- Python
+- Python 3.11
 - FastAPI
 - Pydantic
-- SQLite
+- SQLite (analytics dataset)
+- PostgreSQL (operational run logs & metrics)
+- Redis (cache layer)
+- Docker & Docker Compose
 - Git (feature branching workflow)
 
 ---
 
-## 📂 Architecture
+## 📂 Project Structure
 
-project2_api/
+superstore-fastapi-analytics/
 │
-├── main.py # API layer & middleware
-├── db.py # Aggregation & query logic
-├── database.py # Database connection
-├── schemas.py # Pydantic response models
-└── .gitignore
+├── main.py              # API layer & middleware
+├── db.py                # Analytics query logic (SQLite)
+├── db_pg.py             # Operational logging & metrics (PostgreSQL)
+├── cache.py             # Redis cache abstraction
+├── logging_setup.py     # Structured logging configuration
+├── config.py            # Environment configuration
+├── schemas.py           # Strict Pydantic response models
+├── docker-compose.yml   # Multi-service orchestration
+├── Dockerfile
+└── requirements.txt
 
 ---
 
+## 🏗 Architecture Overview
 
-### Architecture Principles
+The system separates responsibilities into distinct layers:
 
-- Separation of concerns
-- IO layer separated from business logic
-- Strict response contract enforcement via Pydantic
-- Deterministic pagination strategies
+### 1️⃣ Analytics Layer (SQLite)
+- Aggregated sales queries
+- Offset & cursor pagination strategies
+- Deterministic sorting & validation
+
+### 2️⃣ Operational Layer (PostgreSQL)
+- Request execution logs (`api_run_log`)
+- Latency tracking
+- Error tracking
+- Time-windowed metrics aggregation
+
+### 3️⃣ Cache Layer (Redis)
+- Read-through caching
+- TTL-based expiration
+- HIT / MISS / BYPASS / ERROR classification
+- Cache metadata surfaced via response headers
+
+### 4️⃣ Middleware Layer
+- Request ID generation
+- Execution timing (`request_ms`, `query_ms`)
+- Structured log persistence
+- Consistent SUCCESS / FAILED semantics
+
+---
+
+## 📊 Observability & Metrics
+
+The API exposes operational metrics computed from PostgreSQL run logs.
+
+### Endpoint
+
+GET /metrics?window_minutes=60
+
+### Returned Insights
+
+- `requests_total`
+- `success_total`
+- `failed_total`
+- `error_rate`
+- `avg_request_ms`
+- `p95_request_ms`
+- Cache hit ratio
+- Slowest endpoints ranking
+
+This enables monitoring-style visibility without external APM tools.
 
 ---
 
 ## 📊 Available Endpoints
 
-### 1️⃣ Health Check
-`GET /health/db`
+### Health
 
-Checks database connectivity and readiness.
+- GET /health/db
+- GET /health/pg
+- GET /health/cache
 
 ---
 
-### 2️⃣ Daily Sales
-`GET /sales/daily`
+### Analytics
+
+#### Daily Sales
+GET /sales/daily
 
 Returns aggregated sales & profit for a specific date.
 
 ---
 
-### 3️⃣ Monthly Sales (Offset / Page-based Pagination)
-`GET /sales/monthly`
+#### Monthly Sales (Offset Pagination)
+GET /sales/monthly
 
 Supports:
 
@@ -71,52 +132,39 @@ Supports:
 
 ---
 
-### 4️⃣ Monthly Sales (Cursor-based Pagination)
-`GET /sales/monthly/cursor`
+#### Monthly Sales (Cursor Pagination)
+GET /sales/monthly/cursor
 
-Supports:
-
-- cursor-based navigation
-- `has_more` flag
+- Deterministic key-based pagination
+- `has_more`
 - `next_cursor`
 - `next_url`
 
-Demonstrates deterministic key-based pagination without `OFFSET`.
+Demonstrates scalable alternative to OFFSET.
 
 ---
 
-### 5️⃣ Sales by Region
-`GET /sales/by-region`
+#### Sales by Region
+GET /sales/by-region
 
-Grouped aggregation with:
-
-- Offset / page-based pagination
-- Sorting via Enum validation
-- Explicit 400 vs 404 error handling
-
----
-
-### 6️⃣ Sales by Category
-`GET /sales/by-category`
-
-Grouped aggregation with:
-
-- Offset / page-based pagination
-- Structured metadata response
-- Deterministic error semantics
-
----
-
-## ✨ Implemented Features
-
-- Offset-based pagination
-- Cursor-based pagination
+- Offset pagination
 - Enum-based sort validation
-- Regex date validation (`YYYY-MM`, `YYYY-MM-DD`)
-- Decimal precision control
-- Structured Pydantic response models
+- Explicit 400 vs 404 semantics
 
-### Response Metadata
+---
+
+#### Sales by Category
+GET /sales/by-category
+
+- Deterministic pagination
+- Structured metadata
+- Contract-enforced validation
+
+---
+
+## 📦 Response Metadata
+
+Analytics responses may include:
 
 - `generated_at`
 - `query_ms`
@@ -124,70 +172,83 @@ Grouped aggregation with:
 - `total_pages`
 - `has_more`
 
-### Explicit HTTP Semantics
+Response headers:
 
-- `400` → invalid input / page overflow
-- `404` → no data for valid query
-- `422` → validation errors
-
-- Middleware execution logging (`etl_run_log`)
-- Health check endpoint
-- Feature branching & version tagging workflow
+- `X-Request-ID`
+- `X-Query-MS`
+- `X-Cache`
+- `X-Cache-Key`
 
 ---
 
-## 🧠 Middleware Logging
+## 🔍 Explicit HTTP Semantics
 
-A request-level logging middleware records execution metadata into `etl_run_log`, including:
+- 400 → invalid input / pagination overflow
+- 404 → valid query but no data found
+- 422 → schema validation error
+- 500 → unexpected internal error
 
-- execution timestamp
-- HTTP status code
-- processed row count
-- execution time (ms)
-- error details (if any)
-
-This design enables observability, debugging, and production-style monitoring patterns.
+This enforces deterministic API contracts.
 
 ---
 
-## 📐 Design Decisions
+## 🐳 Deployment
 
-- Offset pagination implemented for UI compatibility and simplicity.
+Run locally with Docker:
+
+```bash
+docker compose up -d --build
+```
+
+Services started:
+
+- FastAPI application
+- PostgreSQL
+- Redis
+
+The architecture is container-ready and cloud-portable.
+
+---
+
+## 📐 Key Design Decisions
+
+- Offset pagination implemented for UI compatibility.
 - Cursor pagination implemented to demonstrate scalability trade-offs.
-- Explicit 400 vs 404 distinction to enforce API contract clarity.
-- Middleware logging added to simulate production observability patterns.
+- Operational logs separated from analytics database.
+- Middleware ensures logging never breaks user response.
+- Cache strategy intentionally measurable via metrics endpoint.
 
 ---
 
-## 🎯 Learning Focus
+## 🎯 Engineering Focus
 
 This project emphasizes:
 
-- API contract design
-- Pagination strategy trade-offs (offset vs cursor)
-- API error semantics (400 vs 404 vs 422 handling)
-- Clean backend layering
-- Monitoring-ready architecture
-- Version-controlled development workflow
+- Backend API contract design
+- Observability-first architecture
+- Pagination strategy trade-offs
+- Measurable caching patterns
+- Deterministic error handling
+- Containerized service orchestration
+- Production-style logging patterns
 
 ---
 
 ## 🔮 Future Improvements
 
-- Docker containerization
-- Cloud deployment (AWS / GCP)
-- Authentication layer (JWT / API key)
-- CI/CD integration
-- Structured JSON logging
+- JWT authentication
 - Rate limiting
-- OpenAPI documentation refinement
+- CI/CD pipeline
+- OpenTelemetry integration
+- Cloud deployment (AWS ECS / GCP Cloud Run)
+- Prometheus / Grafana monitoring
 
 ---
 
 ## 🏁 Portfolio Context
 
-Built as part of an end-to-end Data Engineering portfolio:
+Part of an end-to-end Data Engineering portfolio:
 
-ETL → Analytics API → (Cloud / Monitoring Layer)
+ETL → Analytics API → Operational Metrics → Cloud Deployment
 
-This project represents the backend service layer of the pipeline.
+This repository represents the backend service layer with production-grade observability and contract enforcement.
