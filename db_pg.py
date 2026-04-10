@@ -1,18 +1,16 @@
 # ===============================
-# PostgreSQL utilities (psycopg v3)
+# PostgreSQL utilities (psycopg2)
 # ===============================
 
 from __future__ import annotations
 
 import os
+import psycopg2
 from datetime import datetime, timezone
 from typing import Optional, Any, Dict
-from psycopg.rows import dict_row
-from psycopg import sql as pg_sql
+from psycopg2 import sql as pg_sql
+from psycopg2.extras import RealDictCursor
 from urllib.parse import quote_plus
-
-import psycopg
-
 
 # -------------------------------
 # DSN / Connection helpers
@@ -42,16 +40,17 @@ def get_pg_dsn() -> str:
     )
 
 
-def pg_conn() -> psycopg.Connection:
+def pg_conn() -> psycopg2.extensions.connection:
     """
-    Create psycopg connection (autocommit enabled).
+    Create psycopg2 connection (autocommit enabled).
     Suitable for logging / infra operations.
     """
-    return psycopg.connect(
+    conn = psycopg2.connect(
         get_pg_dsn(),
         connect_timeout=2,
-        autocommit=True,
     )
+    conn.autocommit = True
+    return conn
 
 
 # -------------------------------
@@ -114,7 +113,7 @@ def health_pg() -> bool:
                 cur.execute("SELECT 1;")
                 cur.fetchone()
         return True
-    except psycopg.Error:
+    except psycopg2.Error:
         return False
 
 
@@ -229,7 +228,7 @@ def get_metrics_summary_pg(window_minutes: int = 60) -> Dict[str, Any]:
     """)
 
     with pg_conn() as conn:
-        with conn.cursor(row_factory=dict_row) as cur:
+        with conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute(query, (window_minutes,))
             row = cur.fetchone() or {}
 

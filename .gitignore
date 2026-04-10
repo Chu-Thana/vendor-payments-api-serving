@@ -20,7 +20,12 @@ __pycache__/
 
 # Logs
 *.log
+logs/
+data/
+*.db
 
 # OS
 .DS_Store
 Thumbs.db
+.idea/
+.vscode/

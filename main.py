@@ -18,6 +18,7 @@ import uuid
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.encoders import jsonable_encoder
 from starlette.responses import Response
+from database.redshift import get_redshift_connection
 
 # ===============================
 # Local modules
@@ -237,6 +238,11 @@ async def api_run_log_middleware(request: Request, call_next):
 # ===============================
 # Health / Operational Endpoints
 # ===============================
+
+@app.get("/")
+def root():
+    return {"message": "Project 2 API is running"}
+
 @app.get("/health/pg")
 def health_pg(request: Request):
     """
@@ -340,6 +346,26 @@ def health_cache(request: Request):
         "redis_ok": ok,
         "status": "ok" if ok else "fail",
     }
+
+@app.get("/health/redshift")
+def health_redshift():
+    conn = None
+    cursor = None
+
+    try:
+        conn = get_redshift_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT 1;")
+        return {"status": "ok", "service": "redshift"}
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+    finally:
+        if cursor is not None:
+            cursor.close()
+        if conn is not None:
+            conn.close()
 
 
 @app.get("/metrics", summary="Operational metrics (last N minutes)")
@@ -977,3 +1003,40 @@ def get_sales_by_category(
     )
 
     return resp
+
+@app.get("/sales/by-region")
+def get_sales_by_region():
+    conn = None
+    cursor = None
+
+    try:
+        conn = get_redshift_connection()
+        cursor = conn.cursor()
+
+        cursor.execute("""
+            SELECT region, total_sales
+            FROM mart_layer.sales_by_region
+            ORDER BY total_sales DESC;
+        """)
+
+        rows = cursor.fetchall()
+
+        result = [
+            {"region": row[0], "total_sales": float(row[1])}
+            for row in rows
+        ]
+
+        return {
+            "source": "redshift_mart",
+            "row_count": len(result),
+            "data": result
+        }
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+    finally:
+        if cursor is not None:
+            cursor.close()
+        if conn is not None:
+            conn.close()
