@@ -263,3 +263,13 @@ class RegionSalesWarehouseResponse(BaseModel):
     row_count: int
     data: List[RegionSalesWarehouseItem]
     cache_status: Optional[str] = None
+
+class DashboardRegionPerformanceItem(BaseModel):
+    region: str
+    total_sales: float
+    total_profit: float
+
+class DashboardSalesTrendItem(BaseModel):
+    year_month: str
+    total_sales: float
+    total_profit: float

@@ -45,6 +45,8 @@ from schemas import (
     RegionSort,
     RegionSalesWarehouseResponse,
     RegionSalesWarehouseItem,
+    DashboardRegionPerformanceItem,
+    DashboardSalesTrendItem,
 )
 
 # ===============================
@@ -1097,6 +1099,156 @@ def get_sales_by_region_warehouse(request: Request) -> RegionSalesWarehouseRespo
         raise HTTPException(
             status_code=500,
             detail=f"Redshift query failed: {str(e)}"
+        )
+
+    finally:
+        if cursor is not None:
+            cursor.close()
+        if conn is not None:
+            conn.close()
+
+@app.get(
+    path="/dashboard/region-performance",
+    summary="Get dashboard-ready region performance from Redshift",
+    response_model=list[DashboardRegionPerformanceItem]
+)
+def get_dashboard_region_performance(request: Request):
+    t0 = perf_counter()
+
+    cache_key = "p2:dashboard:region-performance"
+    request.state.cache_key = cache_key
+
+    cached, cache_status = cache_try_get(cache_key)
+    request.state.cache_status = cache_status
+
+    if cache_status == "HIT" and isinstance(cached, list):
+        hit_qms = round((perf_counter() - t0) * 1000, 2)
+        request.state.query_ms = hit_qms
+        request.state.rows_processed = len(cached)
+        request.state.log_message = "dashboard_region_performance_cache_hit"
+
+        return [DashboardRegionPerformanceItem.model_validate(row) for row in cached]
+
+    conn = None
+    cursor = None
+
+    try:
+        conn = get_redshift_connection()
+        cursor = conn.cursor()
+
+        cursor.execute("""
+            SELECT region, total_sales, total_profit
+            FROM mart_layer.region_performance
+            ORDER BY total_sales DESC;
+        """)
+
+        rows = cursor.fetchall()
+
+        data = [
+            DashboardRegionPerformanceItem(
+                region=row[0],
+                total_sales=float(row[1]),
+                total_profit=float(row[2])
+            )
+            for row in rows
+        ]
+
+        query_ms = round((perf_counter() - t0) * 1000, 2)
+
+        cache_write = "skip"
+        if CACHE_ENABLED and cache_status == "MISS":
+            cache_write = cache_try_set(cache_key, jsonable_encoder(data))
+
+        request.state.query_ms = query_ms
+        request.state.rows_processed = len(data)
+        request.state.log_message = (
+            f"dashboard_region_performance_ok rows={len(data)} "
+            f"cache_status={cache_status} cache_write={cache_write}"
+        )
+
+        return data
+
+    except Exception as e:
+        request.state.rows_processed = 0
+        request.state.log_message = f"dashboard_region_performance_error error={str(e)}"
+        raise HTTPException(
+            status_code=500,
+            detail=f"Dashboard region performance query failed: {str(e)}"
+        )
+
+    finally:
+        if cursor is not None:
+            cursor.close()
+        if conn is not None:
+            conn.close()
+    
+@app.get(
+    path="/dashboard/sales-trend",
+    summary="Get dashboard-ready monthly sales trend from Redshift",
+    response_model=list[DashboardSalesTrendItem]
+)
+def get_dashboard_sales_trend(request: Request):
+    t0 = perf_counter()
+
+    cache_key = "p2:dashboard:sales-trend"
+    request.state.cache_key = cache_key
+
+    cached, cache_status = cache_try_get(cache_key)
+    request.state.cache_status = cache_status
+
+    if cache_status == "HIT" and isinstance(cached, list):
+        hit_qms = round((perf_counter() - t0) * 1000, 2)
+        request.state.query_ms = hit_qms
+        request.state.rows_processed = len(cached)
+        request.state.log_message = "dashboard_sales_trend_cache_hit"
+
+        return [DashboardSalesTrendItem.model_validate(row) for row in cached]
+
+    conn = None
+    cursor = None
+
+    try:
+        conn = get_redshift_connection()
+        cursor = conn.cursor()
+
+        cursor.execute("""
+            SELECT year_month, total_sales, total_profit
+            FROM mart_layer.sales_trend_monthly
+            ORDER BY year_month;
+        """)
+
+        rows = cursor.fetchall()
+
+        data = [
+            DashboardSalesTrendItem(
+                year_month=row[0],
+                total_sales=float(row[1]),
+                total_profit=float(row[2])
+            )
+            for row in rows
+        ]
+
+        query_ms = round((perf_counter() - t0) * 1000, 2)
+
+        cache_write = "skip"
+        if CACHE_ENABLED and cache_status == "MISS":
+            cache_write = cache_try_set(cache_key, jsonable_encoder(data))
+
+        request.state.query_ms = query_ms
+        request.state.rows_processed = len(data)
+        request.state.log_message = (
+            f"dashboard_sales_trend_ok rows={len(data)} "
+            f"cache_status={cache_status} cache_write={cache_write}"
+        )
+
+        return data
+
+    except Exception as e:
+        request.state.rows_processed = 0
+        request.state.log_message = f"dashboard_sales_trend_error error={str(e)}"
+        raise HTTPException(
+            status_code=500,
+            detail=f"Dashboard sales trend query failed: {str(e)}"
         )
 
     finally:
