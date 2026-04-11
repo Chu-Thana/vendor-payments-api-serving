@@ -1,7 +1,7 @@
 from enum import Enum
 from pydantic import BaseModel, ConfigDict, Field
 from datetime import date, datetime
-from typing import Optional
+from typing import Optional, List
 
 # ===============================
 # Enums
@@ -249,4 +249,17 @@ class CategorySalesResponse(BaseModel):
     data: list[CategorySalesItem] = Field(..., description="Monthly aggregated sales metrics")
 
     # HIT | MISS | BYPASS | ERROR
+    cache_status: Optional[str] = None
+
+class RegionSalesWarehouseItem(BaseModel):
+    region: str
+    total_sales: float
+
+
+class RegionSalesWarehouseResponse(BaseModel):
+    source: str
+    generated_at: datetime
+    query_ms: float
+    row_count: int
+    data: List[RegionSalesWarehouseItem]
     cache_status: Optional[str] = None

@@ -3,6 +3,8 @@
 # ===============================
 from __future__ import annotations
 
+from database.redshift import get_redshift_connection
+
 from contextlib import asynccontextmanager
 from datetime import date, datetime, timezone
 from time import perf_counter
@@ -41,6 +43,8 @@ from schemas import (
     RegionSalesItem,
     RegionSalesResponse,
     RegionSort,
+    RegionSalesWarehouseResponse,
+    RegionSalesWarehouseItem,
 )
 
 # ===============================
@@ -1004,8 +1008,39 @@ def get_sales_by_category(
 
     return resp
 
-@app.get("/sales/by-region")
-def get_sales_by_region():
+@app.get(
+    path="/sales/by-region/warehouse",
+    response_model=RegionSalesWarehouseResponse,
+    summary="Get sales by region from Redshift mart",
+    description="Query aggregated sales by region from Redshift warehouse layer"
+)
+def get_sales_by_region_warehouse(request: Request) -> RegionSalesWarehouseResponse:
+    t0 = perf_counter()
+
+    # ----- cache key -----
+    cache_key = "p2:sales:region:warehouse"
+    request.state.cache_key = cache_key
+
+    cached, cache_status = cache_try_get(cache_key)
+    request.state.cache_status = cache_status
+
+    # ----- cache HIT -----
+    if cache_status == "HIT" and isinstance(cached, dict):
+        hit_qms = round((perf_counter() - t0) * 1000, 2)
+        request.state.query_ms = hit_qms
+
+        cached_resp = RegionSalesWarehouseResponse.model_validate(cached)
+        cached_resp = cached_resp.model_copy(update={
+            "query_ms": hit_qms,
+            "cache_status": "HIT"
+        })
+
+        request.state.rows_processed = int(getattr(cached_resp, "row_count", 0))
+        request.state.log_message = "warehouse_region_cache_hit"
+
+        return cached_resp
+
+    # ----- database query -----
     conn = None
     cursor = None
 
@@ -1021,19 +1056,48 @@ def get_sales_by_region():
 
         rows = cursor.fetchall()
 
-        result = [
-            {"region": row[0], "total_sales": float(row[1])}
+        data = [
+            RegionSalesWarehouseItem(
+                region=row[0],
+                total_sales=float(row[1])
+            )
             for row in rows
         ]
 
-        return {
-            "source": "redshift_mart",
-            "row_count": len(result),
-            "data": result
-        }
+        query_ms = (perf_counter() - t0) * 1000
+        generated_at = datetime.now(timezone.utc)
+
+        resp = RegionSalesWarehouseResponse(
+            source="redshift_mart",
+            generated_at=generated_at,
+            query_ms=round(query_ms, 2),
+            row_count=len(data),
+            data=data,
+            cache_status=cache_status
+        )
+
+        # ----- cache write -----
+        cache_write = "skip"
+        if CACHE_ENABLED and cache_status == "MISS":
+            cache_write = cache_try_set(cache_key, jsonable_encoder(resp))
+
+        # ----- middleware metrics / logs -----
+        request.state.query_ms = round(query_ms, 2)
+        request.state.rows_processed = len(data)
+        request.state.log_message = (
+            f"warehouse_region_ok row_count={len(data)} "
+            f"cache_status={cache_status} cache_write={cache_write}"
+        )
+
+        return resp
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        request.state.rows_processed = 0
+        request.state.log_message = f"warehouse_region_error error={str(e)}"
+        raise HTTPException(
+            status_code=500,
+            detail=f"Redshift query failed: {str(e)}"
+        )
 
     finally:
         if cursor is not None:
