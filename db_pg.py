@@ -148,10 +148,10 @@ def log_api_run_pg(
                     run_at, status, status_code,
                     request_id, method, endpoint, query_string,
                     request_ms, query_ms,
-                    rows_processed, message, error
+                    rows_processed, message, error,
                     cache_status, cache_key
                 )
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 """,
                 (
                     datetime.now(timezone.utc),
