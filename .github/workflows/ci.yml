@@ -27,3 +27,15 @@ jobs:
       - name: Run tests
         run: |
           python -m pytest tests/test_health.py
+
+  docker-build:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build -t project2-fastapi-api .
