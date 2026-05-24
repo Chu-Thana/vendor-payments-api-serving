@@ -11,6 +11,8 @@
 ![Data Layer](https://img.shields.io/badge/Data_Layer-Serving-orange)
 ![Cache Strategy](https://img.shields.io/badge/Cache-HIT%2FMISS-critical)
 ![Use Case](https://img.shields.io/badge/Use_Case-BI_Analytics-success)
+![CI](https://img.shields.io/badge/CI-GitHub_Actions-success)
+![Health Check](https://img.shields.io/badge/Health-API_Check-success)
 
 ---
 
@@ -49,6 +51,26 @@ they rely on **fast, consistent, and production-ready data services**.
 
 👉 This project is not just an API  
 👉 It represents the **Serving Layer of a modern Data Platform**
+
+---
+
+## ⚙️ CI/CD Workflow
+
+This project includes a GitHub Actions CI workflow for automated validation and build checks.
+
+### Current CI Features
+- ✅ FastAPI health check
+- ✅ OpenAPI / Swagger docs validation
+- ✅ Docker image build verification
+- ✅ Automated workflow execution on push
+
+### Engineering Goals
+- Prevent broken API deployments
+- Validate serving-layer stability
+- Improve development reliability
+- Simulate production-style engineering workflow
+
+👉 CI/CD workflows are continuously being improved as part of the platform engineering process.
 
 ---
 
@@ -347,6 +369,8 @@ This project demonstrates how a **modern data platform serves data in production
 - 📊 BI-ready endpoints for Power BI dashboards
 - 📈 Built-in observability (metrics, logs, monitoring)
 - 🧩 System design thinking (scalability, decoupling, performance)
+- ⚙️ **Automated CI validation** using GitHub Actions
+- 🐳 **Container-ready deployment workflow** using Docker
 
 ---
 
