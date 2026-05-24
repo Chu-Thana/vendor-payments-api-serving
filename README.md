@@ -76,37 +76,28 @@ Client (BI / API Consumer)
 
 ---
 
-## 🏗 Architecture Overview
+## 🧭 Architecture Overview
 
-```mermaid
-flowchart LR
+This project demonstrates a **FastAPI analytics serving pipeline** that exposes business-ready data through API endpoints for BI tools, dashboards, and external consumers.
 
-subgraph Client
-    BI[Power BI]
-    User[API Consumer]
-end
+The API uses **FastAPI** for request routing and response modeling, **Redis** for cache-aside performance optimization, **Redshift** for warehouse-backed analytics queries, and **structured API logging** for observability.
 
-subgraph API
-    FastAPI
-end
+![FastAPI Analytics Serving Pipeline](assets/00_fastapi-analytics-serving-pipeline.png)
 
-subgraph Cache
-    Redis
-end
+**Design principle:** Improve analytics API performance and observability using Redis cache-aside, warehouse-backed query serving, request timing, and structured API run logging.
 
-subgraph Warehouse
-    Redshift
-end
+### Key Components
 
-BI --> FastAPI
-User --> FastAPI
-FastAPI --> Redis
-Redis -->|MISS| Redshift
-Redis -->|HIT| FastAPI
-Redshift --> FastAPI
-```
+- **Client / BI Tool:** Sends API requests for dashboard and analytics consumption
+- **FastAPI Application:** Handles routing, query validation, and response models
+- **Request Middleware:** Captures request ID, request timing, and API run logs
+- **Analytics Endpoint:** Applies query parameters and business logic
+- **Redis Cache Layer:** Handles cache HIT / MISS using a cache-aside pattern
+- **Query Layer:** Retrieves data from local databases or Redshift warehouse marts
+- **Response Builder:** Returns JSON responses with query timing, rows, and cache status
+- **Observability Layer:** Tracks request timing, cache status, query timing, API run logging, and warehouse serving
 
-👉 Clean separation between layers enables scalability and maintainability
+👉 **This pipeline separates API routing, caching, query execution, response building, and operational logging for scalable analytics serving.**
 
 ---
 
