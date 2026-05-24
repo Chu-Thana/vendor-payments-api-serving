@@ -3,3 +3,6 @@ uvicorn[standard]==0.30.6
 pydantic==2.8.2
 psycopg2-binary
 redis>=5.0.0
+
+pytest
+httpx
