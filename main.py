@@ -3,8 +3,6 @@
 # ===============================
 from __future__ import annotations
 
-from database.redshift import get_redshift_connection
-
 from contextlib import asynccontextmanager
 from datetime import date, datetime, timezone
 from time import perf_counter
