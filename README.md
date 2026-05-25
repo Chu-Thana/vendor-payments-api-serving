@@ -6,13 +6,13 @@
 ![Warehouse](https://img.shields.io/badge/Warehouse-Redshift-purple)
 ![Container](https://img.shields.io/badge/Container-Docker-blue)
 ![BI](https://img.shields.io/badge/BI-Power_BI-yellow)
-
 ![Architecture](https://img.shields.io/badge/Architecture-Serving_Layer-darkblue)
 ![Data Layer](https://img.shields.io/badge/Data_Layer-Serving-orange)
 ![Cache Strategy](https://img.shields.io/badge/Cache-HIT%2FMISS-critical)
 ![Use Case](https://img.shields.io/badge/Use_Case-BI_Analytics-success)
 ![CI](https://img.shields.io/badge/CI-GitHub_Actions-success)
 ![Health Check](https://img.shields.io/badge/Health-API_Check-success)
+![CI](https://github.com/Chu-Thana/superstore-fastapi-analytics/actions/workflows/ci.yml/badge.svg)
 
 ---
 
@@ -56,21 +56,24 @@ they rely on **fast, consistent, and production-ready data services**.
 
 ## ⚙️ CI/CD Workflow
 
-This project includes a GitHub Actions CI workflow for automated validation and build checks.
+This project includes a GitHub Actions CI workflow that runs automatically on every push to the `main` branch.
 
-### Current CI Features
-- ✅ FastAPI health check
-- ✅ OpenAPI / Swagger docs validation
-- ✅ Docker image build verification
-- ✅ Automated workflow execution on push
+The CI pipeline validates the API across three key areas:
 
-### Engineering Goals
-- Prevent broken API deployments
-- Validate serving-layer stability
-- Improve development reliability
-- Simulate production-style engineering workflow
+- ✅ Code quality checks with Ruff
+- ✅ FastAPI automated tests with pytest
+- ✅ Docker image build validation
 
-👉 CI/CD workflows are continuously being improved as part of the platform engineering process.
+This helps ensure that the API remains maintainable, testable, and container-ready before changes are merged or deployed.
+
+### Engineering Purpose
+
+The CI/CD workflow was added to improve the reliability of the serving layer by:
+
+- Preventing broken API changes from being merged
+- Validating API behavior through automated tests
+- Ensuring the application can still be built as a Docker image
+- Simulating a production-style engineering workflow
 
 ---
 
