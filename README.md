@@ -78,6 +78,91 @@ The CI/CD workflow was added to improve the reliability of the serving layer by:
 
 ---
 
+## 🚀 CI/CD & Cloud Deployment Evidence
+
+This project includes a production-style CI/CD workflow that validates the API, builds a Docker image, publishes it to GitHub Container Registry (GHCR), and deploys the containerized service on AWS EC2 using Docker Compose.
+
+### ✅ GitHub Actions CI/CD Success
+
+![GitHub Actions CI/CD Success](assets/cicd/github-actions-ci-cd-success.png)
+
+The GitHub Actions workflow runs automatically on every push to the `main` branch.
+
+The workflow validates:
+
+- Code quality with Ruff
+- FastAPI automated tests with pytest
+- Docker image build validation
+- Docker image publishing to GitHub Container Registry
+
+👉 This acts as a quality gate before the API image is used for deployment.
+
+---
+
+### 📦 GitHub Container Registry (GHCR)
+
+![GHCR Container Package](assets/cicd/ghcr-container-package.png)
+
+- 📦 **Container image registry** for the FastAPI serving layer
+- 🏷️ **Versioned deployment artifact** with `latest` and commit-based tags
+
+After the CI pipeline passes, the Docker image is automatically published to GitHub Container Registry.
+
+Published image:
+
+```bash
+ghcr.io/chu-thana/superstore-fastapi-analytics:latest
+```
+
+👉 This image acts as the deployment artifact that can be pulled and deployed on any Docker-enabled environment, including AWS EC2.
+
+---
+
+### ☁️ AWS EC2 Deployment
+
+![EC2 FastAPI Swagger Deployment](assets/cicd/ec2-fastapi-swagger-deployment.png)
+
+The API service is deployed on AWS EC2 using Docker Compose.
+
+Deployment stack:
+
+- AWS EC2
+- Docker
+- Docker Compose
+- GitHub Container Registry (GHCR)
+- FastAPI
+- Redis
+- PostgreSQL
+
+The deployed API is accessible through the EC2 public IP and exposes Swagger documentation for testing and validation.
+
+---
+
+### 🔄 CI/CD Deployment Flow
+
+```text
+Push to GitHub
+   ↓
+GitHub Actions
+   ↓
+Ruff lint check
+   ↓
+Pytest FastAPI tests
+   ↓
+Docker build
+   ↓
+Push image to GHCR
+   ↓
+EC2 pulls Docker image
+   ↓
+Docker Compose starts API + Redis + PostgreSQL
+   ↓
+FastAPI Swagger available via Public IP
+```
+👉 This demonstrates an end-to-end CI/CD workflow from source code validation to cloud deployment.
+
+---
+
 ## 🔗 Role in Data Platform
 
 This project connects the entire ecosystem:
