@@ -1,6 +1,6 @@
 services:
   api:
-    build: .
+    image: ghcr.io/chu-thana/superstore-fastapi-analytics:latest
     ports:
       - "8000:8000"
     env_file:
