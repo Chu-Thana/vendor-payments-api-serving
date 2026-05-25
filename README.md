@@ -1,18 +1,19 @@
 # 🚀 Superstore Analytics API — Production-Style Serving Layer
 
-![Python](https://img.shields.io/badge/Python-3.12-blue)
-![API](https://img.shields.io/badge/API-FastAPI-green)
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/API-FastAPI-009688?logo=fastapi&logoColor=white)
 ![Cache](https://img.shields.io/badge/Cache-Redis-red)
 ![Warehouse](https://img.shields.io/badge/Warehouse-Redshift-purple)
-![Container](https://img.shields.io/badge/Container-Docker-blue)
+![Docker](https://img.shields.io/badge/Container-Docker-2496ED?logo=docker&logoColor=white)
 ![BI](https://img.shields.io/badge/BI-Power_BI-yellow)
 ![Architecture](https://img.shields.io/badge/Architecture-Serving_Layer-darkblue)
 ![Data Layer](https://img.shields.io/badge/Data_Layer-Serving-orange)
 ![Cache Strategy](https://img.shields.io/badge/Cache-HIT%2FMISS-critical)
 ![Use Case](https://img.shields.io/badge/Use_Case-BI_Analytics-success)
-![CI](https://img.shields.io/badge/CI-GitHub_Actions-success)
 ![Health Check](https://img.shields.io/badge/Health-API_Check-success)
 ![CI](https://github.com/Chu-Thana/superstore-fastapi-analytics/actions/workflows/ci.yml/badge.svg)
+![Testing](https://img.shields.io/badge/Testing-pytest-0A9EDC?logo=pytest&logoColor=white)
+![Code Quality](https://img.shields.io/badge/Code%20Quality-Ruff-8A2BE2)
 
 ---
 
