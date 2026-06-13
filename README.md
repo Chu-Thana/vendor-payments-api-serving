@@ -5,9 +5,6 @@ FastAPI serving layer for trusted Vendor Payments batch and streaming analytics 
 This project is part of the Vendor Payments Data Engineering Portfolio.
 
 ## Current Architecture
-
-```text
-Trusted Vendor Payments Data
 → FastAPI
 → JSON Responses
 → Power BI
