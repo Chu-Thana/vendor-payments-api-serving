@@ -1,18 +1,26 @@
 from fastapi.testclient import TestClient
 
-from main import app
+from app.main import app
 
 
 client = TestClient(app)
 
 
-def test_root_health_check():
+def test_root_endpoint() -> None:
     response = client.get("/")
 
     assert response.status_code == 200
-    assert response.json() == {"message": "Project 2 API is running"}
+    assert response.json() == {
+        "message": "Vendor Payments API is running",
+        "docs": "/docs",
+    }
 
-def test_docs_available():
-    response = client.get("/docs")
+
+def test_health_endpoint() -> None:
+    response = client.get("/health")
 
     assert response.status_code == 200
+    assert response.json() == {
+        "status": "healthy",
+        "service": "vendor-payments-api",
+    }
