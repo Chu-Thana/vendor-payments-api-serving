@@ -29,3 +29,6 @@ data/
 .DS_Store
 Thumbs.db
 
+!data/
+!data/batch/
+!data/batch/mart_spending_by_fiscal_year.csv
