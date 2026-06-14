@@ -25,3 +25,9 @@ PENDING_BY_DEPARTMENT_FILE = (
 FUND_CATEGORY_SUMMARY_FILE = (
     BATCH_DATA_DIR / "mart_fund_category_summary.csv"
 )
+
+STREAMING_SAMPLE_FILE = (
+    DATA_DIR
+    / "streaming"
+    / "vendor_payments_streaming_sample.jsonl"
+)
