@@ -1,4 +1,6 @@
 from app.models.batch import (
+    FundCategorySummaryItem,
+    FundCategorySummaryResponse,
     PendingByDepartmentItem,
     PendingByDepartmentResponse,
     SpendingByDepartmentItem,
@@ -10,6 +12,7 @@ from app.models.batch import (
 )
 
 from app.repositories.batch_repository import (
+    read_fund_category_summary,
     read_pending_by_department,
     read_spending_by_department,
     read_spending_by_fiscal_year,
@@ -140,6 +143,59 @@ def get_pending_by_department(
     ]
 
     return PendingByDepartmentResponse(
+        total_count=total_count,
+        count=len(items),
+        limit=limit,
+        offset=offset,
+        data=items,
+    )
+
+def get_fund_category_summary(
+    *,
+    fiscal_year: int | None = None,
+    fund_type: str | None = None,
+    fund_category: str | None = None,
+    limit: int = 100,
+    offset: int = 0,
+) -> FundCategorySummaryResponse:
+    records = read_fund_category_summary()
+
+    if fiscal_year is not None:
+        records = [
+            record
+            for record in records
+            if record["fiscal_year"] == fiscal_year
+        ]
+
+    if fund_type:
+        fund_type_query = fund_type.casefold()
+
+        records = [
+            record
+            for record in records
+            if fund_type_query
+            in str(record["fund_type"]).casefold()
+        ]
+
+    if fund_category:
+        fund_category_query = fund_category.casefold()
+
+        records = [
+            record
+            for record in records
+            if fund_category_query
+            in str(record["fund_category"]).casefold()
+        ]
+
+    total_count = len(records)
+    paginated_records = records[offset : offset + limit]
+
+    items = [
+        FundCategorySummaryItem(**record)
+        for record in paginated_records
+    ]
+
+    return FundCategorySummaryResponse(
         total_count=total_count,
         count=len(items),
         limit=limit,

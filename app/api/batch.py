@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException, Query
 
 from app.models.batch import (
+    FundCategorySummaryResponse,
     PendingByDepartmentResponse,
     SpendingByDepartmentResponse,
     SpendingByFiscalYearResponse,
@@ -8,6 +9,7 @@ from app.models.batch import (
 )
 
 from app.services.batch_service import (
+    get_fund_category_summary,
     get_pending_by_department,
     get_spending_by_department,
     get_spending_by_fiscal_year,
@@ -158,4 +160,54 @@ def read_pending_by_department_endpoint(
         raise HTTPException(
             status_code=500,
             detail="Pending by department data is unavailable",
+        ) from exc
+    
+
+@router.get(
+    "/fund-category-summary",
+    response_model=FundCategorySummaryResponse,
+    summary="Get fund category summary",
+    responses={
+        500: {"description": "Batch data file unavailable"},
+    },
+)
+def read_fund_category_summary_endpoint(
+    fiscal_year: int | None = Query(
+        default=None,
+        description="Filter by fiscal year",
+    ),
+    fund_type: str | None = Query(
+        default=None,
+        min_length=1,
+        description="Filter by fund type",
+    ),
+    fund_category: str | None = Query(
+        default=None,
+        min_length=1,
+        description="Filter by fund category",
+    ),
+    limit: int = Query(
+        default=100,
+        ge=1,
+        le=500,
+        description="Maximum number of records to return",
+    ),
+    offset: int = Query(
+        default=0,
+        ge=0,
+        description="Number of records to skip",
+    ),
+) -> FundCategorySummaryResponse:
+    try:
+        return get_fund_category_summary(
+            fiscal_year=fiscal_year,
+            fund_type=fund_type,
+            fund_category=fund_category,
+            limit=limit,
+            offset=offset,
+        )
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=500,
+            detail="Fund category summary data is unavailable",
         ) from exc
