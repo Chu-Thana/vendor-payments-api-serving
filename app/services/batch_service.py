@@ -1,4 +1,6 @@
 from app.models.batch import (
+    PendingByDepartmentItem,
+    PendingByDepartmentResponse,
     SpendingByDepartmentItem,
     SpendingByDepartmentResponse,
     SpendingByFiscalYearItem,
@@ -8,6 +10,7 @@ from app.models.batch import (
 )
 
 from app.repositories.batch_repository import (
+    read_pending_by_department,
     read_spending_by_department,
     read_spending_by_fiscal_year,
     read_top_suppliers,
@@ -95,6 +98,48 @@ def get_top_suppliers(
     ]
 
     return TopSuppliersResponse(
+        total_count=total_count,
+        count=len(items),
+        limit=limit,
+        offset=offset,
+        data=items,
+    )
+
+def get_pending_by_department(
+    *,
+    fiscal_year: int | None = None,
+    department: str | None = None,
+    limit: int = 100,
+    offset: int = 0,
+) -> PendingByDepartmentResponse:
+    records = read_pending_by_department()
+
+    if fiscal_year is not None:
+        records = [
+            record
+            for record in records
+            if record["fiscal_year"] == fiscal_year
+        ]
+
+    if department:
+        department_query = department.casefold()
+
+        records = [
+            record
+            for record in records
+            if department_query
+            in str(record["department"]).casefold()
+        ]
+
+    total_count = len(records)
+    paginated_records = records[offset : offset + limit]
+
+    items = [
+        PendingByDepartmentItem(**record)
+        for record in paginated_records
+    ]
+
+    return PendingByDepartmentResponse(
         total_count=total_count,
         count=len(items),
         limit=limit,

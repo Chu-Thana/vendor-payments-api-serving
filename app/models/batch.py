@@ -58,3 +58,24 @@ class TopSuppliersResponse(BaseModel):
     limit: int
     offset: int
     data: list[TopSupplierItem]
+
+class PendingByDepartmentItem(BaseModel):
+    fiscal_year: int
+    department: str
+    total_vouchers_paid: float
+    total_vouchers_pending: float
+    total_encumbrance_balance: float
+    total_pending_retainage: float
+    record_count: int
+    unique_suppliers: int
+    negative_paid_records: int
+    large_paid_1m_records: int
+    missing_po_date_records: int
+
+
+class PendingByDepartmentResponse(BaseModel):
+    total_count: int
+    count: int
+    limit: int
+    offset: int
+    data: list[PendingByDepartmentItem]
