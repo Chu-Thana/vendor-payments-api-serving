@@ -13,3 +13,7 @@ SPENDING_BY_FISCAL_YEAR_FILE = (
 SPENDING_BY_DEPARTMENT_FILE = (
     BATCH_DATA_DIR / "mart_spending_by_department.csv"
 )
+
+TOP_SUPPLIERS_FILE = (
+    BATCH_DATA_DIR / "mart_spending_by_supplier_top_n.csv"
+)
