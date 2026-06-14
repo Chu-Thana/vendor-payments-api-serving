@@ -1,0 +1,1122 @@
+fiscal_year,organization_group,department,total_vouchers_paid,total_vouchers_pending,total_encumbrance_balance,total_pending_retainage,record_count,unique_suppliers,negative_paid_records,large_paid_1m_records,missing_po_date_records
+2007,Community Health,DPH Public Health,1012812186.08,101488430.58,0.0,115833042.98,18574,7280,122,152,18574
+2007,"Public Works, Transportation & Commerce",AIR Airport Commission,904377757.94,45256782.72,0.0,89232384.76,5782,2904,0,74,5782
+2007,"Public Works, Transportation & Commerce",DPW GSA - Public Works,589297047.1800001,68083107.34,0.0,480728602.58000004,10416,3440,0,78,10416
+2007,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,534148343.58,65150696.12,0.0,228500045.24,24204,3782,36,74,24204
+2007,General City Responsibilities,GEN General City / Unallocated,301064554.26,518317.04000000004,0.0,8114641.120000001,184,172,0,10,184
+2007,"Public Works, Transportation & Commerce",WWE Wastewater Enterprise,259280171.04000002,10947025.16,0.0,54533137.64,6958,2522,0,28,6958
+2007,Human Welfare & Neighborhood Development,HSA Human Services Agency,241268211.66,28066008.12,0.0,13461432.06,4550,2494,0,32,4550
+2007,"Public Works, Transportation & Commerce",PUB Public Utilities Bureaus,221603068.2,43304115.94,0.0,204459954.33999997,6236,3176,0,44,6236
+2007,General Administration & Finance,ADM Gen Svcs Agency-City Admin,217203388.94,10240136.42,0.0,6424591.38,7948,3116,0,22,7948
+2007,"Public Works, Transportation & Commerce",WTR Water Enterprise,182926746.78,14545329.22,0.0,62102509.88,16246,6522,0,22,16246
+2007,"Public Works, Transportation & Commerce",HHP Hetch Hetchy Water & Power,147279260.84,10088605.28,0.0,31312542.58,6956,2154,0,24,6956
+2007,General Administration & Finance,MYR Mayor,141370781.9,10421983.62,0.0,66946218.02,2644,1678,2,30,2644
+2007,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,123270272.77999999,21602522.22,0.0,17293302.74,1870,962,0,8,1870
+2007,General Administration & Finance,HRD Human Resources,97255968.32000001,2422431.16,0.0,1335115.5999999999,1050,628,0,8,1050
+2007,General Administration & Finance,DT GSA - Technology,95366664.9,13923744.879999999,0.0,18388968.4,4388,1426,0,14,4388
+2007,General Administration & Finance,RET Retirement System,79642726.16000001,13746633.02,0.0,15442572.120000001,548,434,0,24,548
+2007,Public Protection,CRT Superior Court,71319750.1,2503582.04,0.0,76249.78,1016,988,0,4,1016
+2007,"Public Works, Transportation & Commerce",PRT Port,54999671.14,2734496.8,0.0,13556362.579999998,4374,1910,0,6,4374
+2007,Culture & Recreation,REC Recreation & Park Commsn,53836652.24,3604359.6399999997,0.0,5028671.62,6930,1864,0,10,6930
+2007,Public Protection,DEM Emergency Management,49291413.92,591670.04,0.0,14664198.58,1238,854,0,12,1238
+2007,Public Protection,SHF Sheriff,48031055.919999994,1626051.32,0.0,2573370.26,2872,1486,0,2,2872
+2007,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,41938949.92,0.0,0.0,0.0,4,4,0,4,4
+2007,Human Welfare & Neighborhood Development,USD County Education Office,39485637.92,0.0,0.0,0.0,4,4,0,4,4
+2007,Public Protection,POL Police,34673931.96,1342185.76,0.0,8401289.040000001,3060,2052,0,2,3060
+2007,Public Protection,FIR Fire Department,25130225.14,1353714.94,0.0,712620.88,2094,944,0,2,2094
+2007,Culture & Recreation,LIB Public Library,25018935.5,3951522.2600000002,0.0,1592988.82,2362,1130,0,0,2362
+2007,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,18748452.1,3485481.2199999997,0.0,6237166.96,720,380,0,2,720
+2007,Public Protection,JUV Juvenile Probation,16026806.979999999,1049326.6,0.0,2148924.0,2366,654,0,2,2366
+2007,Culture & Recreation,ART Arts Commission,14596602.84,1532850.82,0.0,8662370.18,1822,1358,0,2,1822
+2007,"Public Works, Transportation & Commerce",DBI Building Inspection,14490971.1,1397491.1800000002,0.0,1527126.68,1642,728,0,0,1642
+2007,General Administration & Finance,HSS Health Service System,11409989.799999999,-499821.72000000003,0.0,331770.51999999996,236,156,0,4,236
+2007,General Administration & Finance,REG Elections,10937434.24,1838785.96,0.0,38673.3,6426,6362,0,2,6426
+2007,General Administration & Finance,CON Controller,10246059.819999998,2850316.16,0.0,4529877.08,598,368,4,0,598
+2007,Human Welfare & Neighborhood Development,ENV Environment,10080306.68,1531084.1799999997,0.0,3649471.0,814,562,0,0,814
+2007,Culture & Recreation,FAM Fine Arts Museum,9960670.180000002,731723.8,0.0,340668.7,28,22,0,2,28
+2007,General Administration & Finance,CAT City Attorney,9835567.98,427563.64,0.0,56320.78,368,306,0,2,368
+2007,General Administration & Finance,BOS Board Of Supervisors,6265718.76,94092.90000000001,0.0,30801.019999999997,262,222,0,2,262
+2007,Human Welfare & Neighborhood Development,WOM Status Of Women,6036431.4799999995,1242279.94,0.0,46269.84,272,214,0,0,272
+2007,General Administration & Finance,CPC City Planning,5358945.42,392276.60000000003,0.0,1671050.3,440,258,0,0,440
+2007,Public Protection,DAT District Attorney,4089547.32,211839.99999999997,0.0,450176.06,1252,910,0,0,1252
+2007,Culture & Recreation,AAM Asian Art Museum,3767181.48,215038.0,0.0,0.0,26,22,0,2,26
+2007,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,3494743.0,292665.46,0.0,2109669.2399999998,382,306,0,0,382
+2007,Culture & Recreation,SCI Academy Of Sciences,3168227.58,24142.0,0.0,0.0,6,6,0,2,6
+2007,General Administration & Finance,TTX Treasurer/Tax Collector,2919947.16,603446.4400000001,0.0,725425.6,842,518,0,0,842
+2007,Culture & Recreation,WAR War Memorial,2829909.78,449661.64,0.0,237955.32,1426,676,0,0,1426
+2007,Human Welfare & Neighborhood Development,CSS Child Support Services,2345880.1599999997,122965.06,0.0,6609.66,548,372,0,0,548
+2007,"Public Works, Transportation & Commerce",TJP Transbay Joint Power Auth,1753648.46,1094247.1,0.0,0.0,10,10,0,0,10
+2007,General Administration & Finance,ASR Assessor / Recorder,1350890.32,134418.78,0.0,356317.92000000004,416,254,0,0,416
+2007,Public Protection,PDR Public Defender,918508.1599999999,153897.04,0.0,22635.66,394,324,0,0,394
+2007,Human Welfare & Neighborhood Development,HRC Human Rights Commission,787382.76,65775.45999999999,0.0,106964.4,60,48,0,0,60
+2007,General Administration & Finance,ETH Ethics Commission,657638.74,14419.84,0.0,5476.08,122,100,0,0,122
+2007,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,446428.92000000004,174381.28,0.0,1623.16,104,72,0,0,104
+2007,Public Protection,ADP Adult Probation,412410.8,83082.24,0.0,65427.979999999996,226,192,0,0,226
+2007,"Public Works, Transportation & Commerce",BOA Board Of Appeals - PAB,63156.42,5448.7,0.0,2432.84,54,52,0,0,54
+2007,General Administration & Finance,CSC Civil Service Commission,39306.340000000004,3992.76,0.0,0.0,46,46,0,0,46
+2007,Culture & Recreation,LLB Law Library,29000.98,2604.52,0.0,0.0,4,4,0,0,4
+2007,"Public Works, Transportation & Commerce",CTA SF County Transprtn Auth,0.0,0.0,0.0,381229869.74,274,8,0,0,274
+2008,Community Health,DPH Public Health,1120524012.72,110832445.78,0.0,121141922.5,17584,8270,128,130,17584
+2008,"Public Works, Transportation & Commerce",AIR Airport Commission,929200269.14,43620514.0,0.0,81915280.88,6614,3666,0,70,6614
+2008,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,570931729.18,38045240.56,0.0,134650332.34,22974,5428,2,82,22974
+2008,"Public Works, Transportation & Commerce",DPW GSA - Public Works,480903789.7,83419168.24000001,0.0,357308985.96,13130,3942,16,96,13130
+2008,General City Responsibilities,GEN General City / Unallocated,308619761.73999995,803038.78,0.0,9409512.86,170,166,0,10,170
+2008,Human Welfare & Neighborhood Development,HSA Human Services Agency,274956746.56,24949685.8,0.0,21685610.32,4942,2586,0,44,4942
+2008,"Public Works, Transportation & Commerce",PUB Public Utilities Bureaus,260331320.11999997,31408792.52,0.0,164378302.57999998,5630,2264,0,42,5630
+2008,"Public Works, Transportation & Commerce",WWE Wastewater Enterprise,254681674.62,14696922.54,0.0,48542094.379999995,6832,2510,0,28,6832
+2008,General Administration & Finance,ADM Gen Svcs Agency-City Admin,253278115.5,12844455.26,0.0,9920343.44,8558,4376,0,30,8558
+2008,"Public Works, Transportation & Commerce",WTR Water Enterprise,240008091.1,16990494.14,0.0,97736001.6,15880,6002,2,30,15880
+2008,"Public Works, Transportation & Commerce",HHP Hetch Hetchy Water & Power,158373305.6,18290827.98,0.0,34381834.28,7016,2132,0,32,7016
+2008,General Administration & Finance,MYR Mayor,157227032.74,12777687.04,0.0,56179625.300000004,2470,1774,0,22,2470
+2008,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,145109186.5,47611268.28,0.0,11964831.3,2156,1376,0,12,2156
+2008,General Administration & Finance,HRD Human Resources,121197604.78,5403638.840000001,0.0,3645293.78,996,716,0,12,996
+2008,General Administration & Finance,DT GSA - Technology,103246220.44,6093836.68,0.0,21641848.86,4554,1510,0,14,4554
+2008,General Administration & Finance,RET Retirement System,96420658.86,19847515.44,0.0,6829764.140000001,580,412,0,34,580
+2008,Public Protection,CRT Superior Court,72105308.74000001,2426164.94,0.0,14173.86,540,526,0,4,540
+2008,Culture & Recreation,REC Recreation & Park Commsn,59573977.44,2933863.22,0.0,12057074.2,7082,2940,16,10,7082
+2008,Human Welfare & Neighborhood Development,USD County Education Office,58549437.54,0.0,0.0,0.0,4,4,0,4,4
+2008,"Public Works, Transportation & Commerce",PRT Port,57200313.32,2373631.02,0.0,11504261.74,3600,2254,0,12,3600
+2008,Public Protection,DEM Emergency Management,52757451.779999994,19131751.24,0.0,8684000.78,1288,968,0,8,1288
+2008,Public Protection,SHF Sheriff,51169597.44,4264651.8,0.0,1118718.42,2942,1454,0,8,2942
+2008,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,42104130.04,0.0,0.0,0.0,4,4,0,4,4
+2008,General Administration & Finance,REG Elections,28616083.04,10221204.48,0.0,1225094.7400000002,10080,10000,0,6,10080
+2008,Public Protection,POL Police,27879166.38,3220823.62,0.0,9733327.04,3052,2250,0,2,3052
+2008,Culture & Recreation,LIB Public Library,25891075.66,5709396.86,0.0,2756648.0999999996,2308,1516,0,0,2308
+2008,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,24958407.919999998,6145609.9,0.0,7912352.16,654,480,0,4,654
+2008,Culture & Recreation,ART Arts Commission,20076604.5,960889.58,0.0,6789850.779999999,2032,1732,0,2,2032
+2008,Public Protection,FIR Fire Department,17492212.54,1486460.28,0.0,1583728.34,1918,1034,0,2,1918
+2008,Public Protection,JUV Juvenile Probation,16985849.04,1459765.06,0.0,820572.36,2050,1024,0,2,2050
+2008,Human Welfare & Neighborhood Development,ENV Environment,14892184.9,3098869.1999999997,0.0,5378534.94,974,706,0,2,974
+2008,General Administration & Finance,CON Controller,12581766.96,1503276.52,0.0,3254365.88,744,528,2,2,744
+2008,General Administration & Finance,HSS Health Service System,12087802.84,-622806.16,0.0,356331.74,280,214,0,4,280
+2008,General Administration & Finance,CAT City Attorney,9347753.8,406314.1,0.0,102122.56,336,304,0,2,336
+2008,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,8044881.18,1990218.42,0.0,5319782.24,642,552,0,0,642
+2008,Culture & Recreation,FAM Fine Arts Museum,6868249.260000001,1574511.68,0.0,63885.520000000004,70,62,0,2,70
+2008,General Administration & Finance,BOS Board Of Supervisors,6510483.619999999,250819.28,0.0,30617.899999999998,292,228,0,2,292
+2008,"Public Works, Transportation & Commerce",DBI Building Inspection,5982217.9,841264.5,0.0,3186011.6,1258,756,0,0,1258
+2008,Human Welfare & Neighborhood Development,WOM Status Of Women,5620243.68,1144353.02,0.0,57975.86,282,224,0,0,282
+2008,Public Protection,DAT District Attorney,4506355.22,345123.2,0.0,511879.86,1086,878,0,0,1086
+2008,General Administration & Finance,CPC City Planning,4356380.04,410873.22,0.0,3758840.7,582,388,0,0,582
+2008,Culture & Recreation,SCI Academy Of Sciences,4280022.8,1027836.7799999999,0.0,0.0,32,32,0,2,32
+2008,Culture & Recreation,AAM Asian Art Museum,3827038.0,114612.0,0.0,0.0,10,8,0,2,10
+2008,Culture & Recreation,WAR War Memorial,3155031.2600000002,147430.6,0.0,540970.8400000001,1272,606,0,0,1272
+2008,General Administration & Finance,TTX Treasurer/Tax Collector,3074066.0,517445.74,0.0,592440.02,830,488,0,0,830
+2008,Human Welfare & Neighborhood Development,CSS Child Support Services,2822776.66,104747.36,0.0,9636.859999999999,448,368,0,0,448
+2008,General Administration & Finance,ASR Assessor / Recorder,1781865.52,192736.94,0.0,767083.72,424,318,0,0,424
+2008,Public Protection,PDR Public Defender,1412877.72,411536.54,0.0,349212.22,406,326,0,0,406
+2008,"Public Works, Transportation & Commerce",TJP Transbay Joint Power Auth,1148141.02,0.0,0.0,0.0,6,6,0,0,6
+2008,General Administration & Finance,ETH Ethics Commission,1010203.9199999999,110807.73999999999,0.0,12213.88,162,150,0,0,162
+2008,Human Welfare & Neighborhood Development,HRC Human Rights Commission,719293.66,116613.68,0.0,1191.54,94,86,0,0,94
+2008,Public Protection,ADP Adult Probation,586472.8,52917.520000000004,0.0,224919.12,318,268,0,0,318
+2008,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,380859.52,146712.04,0.0,42587.0,122,104,0,0,122
+2008,"Public Works, Transportation & Commerce",BOA Board Of Appeals - PAB,88820.14,11752.56,0.0,0.0,62,54,0,0,62
+2008,Culture & Recreation,LLB Law Library,34116.68,0.0,0.0,0.0,8,8,0,0,8
+2008,General Administration & Finance,CSC Civil Service Commission,15007.4,1787.48,0.0,486.6,32,30,0,0,32
+2008,"Public Works, Transportation & Commerce",CTA SF County Transprtn Auth,0.0,0.0,0.0,381229869.74,274,36,0,0,274
+2009,Community Health,DPH Public Health,1136755655.52,98477541.84,0.0,132900788.82000001,17078,8866,78,178,17078
+2009,"Public Works, Transportation & Commerce",AIR Airport Commission,959802714.8599999,74120734.96,0.0,95224234.44,6332,3768,0,72,6332
+2009,"Public Works, Transportation & Commerce",DPW GSA - Public Works,552478964.3199999,61705115.5,0.0,259895958.22,13504,4732,8,94,13504
+2009,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,394071243.06,43719933.36,0.0,185363920.02,22890,6256,22,54,22890
+2009,General City Responsibilities,GEN General City / Unallocated,336418138.64,73246.0,0.0,9287712.08,148,142,0,6,148
+2009,"Public Works, Transportation & Commerce",WTR Water Enterprise,313953391.47999996,30008695.919999998,0.0,140463146.8,16756,7218,0,28,16756
+2009,"Public Works, Transportation & Commerce",PUB Public Utilities Bureaus,286799485.48,55005223.8,0.0,457832342.74,6096,2664,2,50,6096
+2009,"Public Works, Transportation & Commerce",WWE Wastewater Enterprise,284720399.34,19143786.5,0.0,39412729.980000004,6992,2774,0,36,6992
+2009,Human Welfare & Neighborhood Development,HSA Human Services Agency,284465121.76,28973489.220000003,0.0,28687045.36,4754,2600,0,46,4754
+2009,General Administration & Finance,ADM Gen Svcs Agency-City Admin,266133500.7,9473645.879999999,0.0,11000654.08,8030,4496,6,30,8030
+2009,General Administration & Finance,MYR Mayor,200991986.7,13292539.72,0.0,44913560.8,2214,1781,0,38,2214
+2009,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,182151443.48,24519501.8,0.0,13636098.1,2092,1350,0,12,2092
+2009,"Public Works, Transportation & Commerce",HHP Hetch Hetchy Water & Power,154736456.24,21947455.88,0.0,40074701.72,7884,2940,0,26,7884
+2009,General Administration & Finance,HRD Human Resources,109888914.72,4810057.32,0.0,6809878.32,1074,774,0,12,1074
+2009,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,86529560.36,0.0,0.0,0.0,6,6,0,6,6
+2009,General Administration & Finance,DT GSA - Technology,85940359.5,5707726.359999999,0.0,18014246.26,3366,1408,0,14,3366
+2009,General Administration & Finance,RET Retirement System,82036713.56,16072026.8,0.0,23346661.080000002,556,450,0,12,556
+2009,Human Welfare & Neighborhood Development,USD County Education Office,79276422.96000001,0.0,0.0,0.0,4,4,0,4,4
+2009,Public Protection,CRT Superior Court,73083885.66,999434.22,0.0,836757.32,540,534,0,4,540
+2009,Public Protection,DEM Emergency Management,66070337.24,9775558.9,0.0,57518849.879999995,1370,968,0,8,1370
+2009,Culture & Recreation,REC Recreation & Park Commsn,60252220.480000004,2236236.58,0.0,8075594.839999999,6902,3140,2,12,6902
+2009,Public Protection,SHF Sheriff,53882698.120000005,2922146.48,0.0,1715614.46,2432,1502,0,8,2432
+2009,"Public Works, Transportation & Commerce",PRT Port,44735936.28,4253490.46,0.0,16476334.120000001,4526,2510,0,8,4526
+2009,Public Protection,POL Police,31530858.74,3163231.5,0.0,10098858.66,3002,2262,0,4,3002
+2009,Culture & Recreation,LIB Public Library,30109817.82,6052596.640000001,0.0,2449604.28,2412,1718,0,2,2412
+2009,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,27061642.62,4970551.16,0.0,3759134.3,558,460,0,2,558
+2009,General Administration & Finance,REG Elections,25495533.520000003,64146.88,0.0,315336.98000000004,8064,7966,0,8,8064
+2009,Human Welfare & Neighborhood Development,ENV Environment,19028740.12,1593404.66,0.0,4221960.0,1038,814,0,4,1038
+2009,Public Protection,JUV Juvenile Probation,17706507.1,739481.94,0.0,231675.88,1918,1052,0,2,1918
+2009,Public Protection,FIR Fire Department,17688608.88,1709588.94,0.0,3625501.18,2036,1112,0,4,2036
+2009,Culture & Recreation,ART Arts Commission,17129718.42,1167853.48,0.0,6149642.22,1948,1700,2,2,1948
+2009,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,13852005.18,2900705.3000000003,0.0,7804247.12,772,682,6,0,772
+2009,General Administration & Finance,HSS Health Service System,11486257.1,-680160.94,0.0,433395.08,248,214,0,6,248
+2009,Culture & Recreation,FAM Fine Arts Museum,10201309.24,522107.64,0.0,6007.54,66,58,0,2,66
+2009,General Administration & Finance,BOS Board Of Supervisors,7298883.600000001,196970.84,0.0,488736.39999999997,360,282,0,2,360
+2009,General Administration & Finance,CON Controller,7244209.16,796838.58,0.0,2487468.82,706,492,2,0,706
+2009,General Administration & Finance,CAT City Attorney,6714363.46,385773.04,0.0,46369.26,296,280,0,2,296
+2009,Culture & Recreation,SCI Academy Of Sciences,6611525.779999999,60000.0,0.0,0.0,30,30,0,2,30
+2009,Human Welfare & Neighborhood Development,WOM Status Of Women,5883606.48,801925.42,0.0,2413.02,222,188,0,0,222
+2009,Public Protection,DAT District Attorney,4722746.38,230104.66,0.0,268511.42000000004,1084,884,0,0,1084
+2009,"Public Works, Transportation & Commerce",DBI Building Inspection,4322232.38,748192.4,0.0,2252456.78,622,488,0,0,622
+2009,General Administration & Finance,CPC City Planning,4019208.94,59494.06,0.0,3438757.2399999998,474,334,0,0,474
+2009,Culture & Recreation,AAM Asian Art Museum,3616612.0,517765.54,0.0,0.0,8,8,0,2,8
+2009,Culture & Recreation,WAR War Memorial,3052020.3400000003,401674.30000000005,0.0,196788.22,1014,602,0,0,1014
+2009,Human Welfare & Neighborhood Development,CSS Child Support Services,2697666.88,46752.16,0.0,0.0,300,236,0,0,300
+2009,General Administration & Finance,TTX Treasurer/Tax Collector,2567569.54,408699.74,0.0,724169.98,664,482,0,0,664
+2009,General Administration & Finance,ETH Ethics Commission,2252941.18,5995.360000000001,0.0,3590.4,126,126,0,0,126
+2009,General Administration & Finance,ASR Assessor / Recorder,1696546.78,420916.26,0.0,1417590.72,458,376,0,0,458
+2009,Public Protection,PDR Public Defender,1485143.54,112454.23999999999,0.0,0.0,382,320,0,0,382
+2009,Human Welfare & Neighborhood Development,HRC Human Rights Commission,1179846.9000000001,79415.2,0.0,169538.7,152,126,0,0,152
+2009,Public Protection,ADP Adult Probation,681410.66,31836.14,0.0,201199.14,370,292,0,0,370
+2009,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,438979.22,46037.36,0.0,160842.0,120,112,0,0,120
+2009,"Public Works, Transportation & Commerce",BOA Board Of Appeals - PAB,101184.38,6041.3,0.0,0.0,46,46,0,0,46
+2009,Culture & Recreation,LLB Law Library,31617.940000000002,0.0,0.0,0.0,4,4,0,0,4
+2009,General Administration & Finance,CSC Civil Service Commission,11580.64,60231.020000000004,0.0,619.96,36,36,0,0,36
+2009,"Public Works, Transportation & Commerce",CTA SF County Transprtn Auth,0.0,0.0,0.0,381229869.74,274,38,0,0,274
+2010,Community Health,DPH Public Health,1184316342.24,111549973.3,0.0,156567075.48,17346,8440,76,188,17346
+2010,"Public Works, Transportation & Commerce",AIR Airport Commission,1177138968.92,126402053.34,0.0,227939118.66,5924,3642,0,78,5924
+2010,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,508077208.62,73857343.74,0.0,425450176.1,22320,5582,0,84,22320
+2010,"Public Works, Transportation & Commerce",PUB Public Utilities Bureaus,508047354.6,117971306.0,0.0,1567350682.64,5892,2532,10,90,5892
+2010,General City Responsibilities,GEN General City / Unallocated,408151790.56,20774.0,0.0,9320410.62,92,90,0,10,92
+2010,"Public Works, Transportation & Commerce",DPW GSA - Public Works,366045824.64,58001638.44,0.0,293599182.92,11558,4248,12,58,11558
+2010,"Public Works, Transportation & Commerce",WTR Water Enterprise,335560451.96000004,29770425.24,0.0,249419407.16,15918,7780,10,36,15918
+2010,Human Welfare & Neighborhood Development,HSA Human Services Agency,322294570.16,39031425.18,0.0,44692450.2,4536,2466,0,46,4536
+2010,"Public Works, Transportation & Commerce",WWE Wastewater Enterprise,240402718.82,10947684.66,0.0,41927990.72,6520,2662,6,26,6520
+2010,General Administration & Finance,ADM Gen Svcs Agency-City Admin,232003976.6,12546655.32,0.0,12967831.7,8750,4720,20,24,8750
+2010,"Public Works, Transportation & Commerce",HHP Hetch Hetchy Water & Power,169876881.62,23674041.16,0.0,46219417.8,8644,2932,6,30,8644
+2010,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,146307132.18,0.0,0.0,0.0,6,6,0,6,6
+2010,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,136422104.78,18867970.04,0.0,11091535.98,1956,1264,0,12,1956
+2010,General Administration & Finance,MYR Mayor,130366326.36,7459253.78,0.0,34335370.44,2004,1622,0,16,2004
+2010,General Administration & Finance,HRD Human Resources,118307885.2,2876742.14,0.0,1746065.96,1016,716,2,10,1016
+2010,Human Welfare & Neighborhood Development,USD County Education Office,85408275.03999999,0.0,0.0,0.0,4,4,0,4,4
+2010,General Administration & Finance,DT GSA - Technology,81846333.92,17924229.34,0.0,17514250.28,2936,1240,0,10,2936
+2010,General Administration & Finance,RET Retirement System,80070437.52000001,19663344.76,0.0,12870200.46,584,480,0,20,584
+2010,Public Protection,CRT Superior Court,75046060.62,392399.18,0.0,39708.22,694,688,0,4,694
+2010,Public Protection,DEM Emergency Management,67765638.42,7988340.4799999995,0.0,71325279.97999999,1370,876,0,10,1370
+2010,Culture & Recreation,REC Recreation & Park Commsn,57481490.160000004,4049772.54,0.0,11039459.74,6486,3224,0,10,6486
+2010,Public Protection,SHF Sheriff,50266104.339999996,2279638.98,0.0,1310585.18,2048,1238,0,2,2048
+2010,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,42211390.980000004,7235854.16,0.0,2769862.8200000003,890,604,2,4,890
+2010,"Public Works, Transportation & Commerce",PRT Port,37966399.92,5823118.02,0.0,14773250.32,4188,2178,0,4,4188
+2010,Culture & Recreation,LIB Public Library,36577087.1,2857559.1,0.0,3496497.5,2140,1516,0,6,2140
+2010,Public Protection,POL Police,30412123.7,5688067.4,0.0,6196245.86,2978,1946,8,2,2978
+2010,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,20922976.9,5616074.720000001,0.0,13004756.72,864,724,0,0,864
+2010,Culture & Recreation,ART Arts Commission,20236107.900000002,732216.16,0.0,8691432.6,2078,1760,2,2,2078
+2010,Public Protection,FIR Fire Department,16414924.74,1424451.0,0.0,3805669.38,1714,952,0,2,1714
+2010,Human Welfare & Neighborhood Development,ENV Environment,14899548.64,1688126.96,0.0,16117293.979999997,1052,834,0,4,1052
+2010,General Administration & Finance,HSS Health Service System,10938058.100000001,-643839.92,0.0,636272.14,250,214,2,4,250
+2010,General Administration & Finance,CON Controller,10390767.56,2220180.42,0.0,11270609.76,870,532,14,2,870
+2010,Public Protection,JUV Juvenile Probation,9890349.16,301754.96,0.0,347867.16,1612,918,0,2,1612
+2010,General Administration & Finance,REG Elections,9780965.0,1599438.5999999999,0.0,1294412.28,7498,7414,4,2,7498
+2010,General Administration & Finance,CAT City Attorney,6504893.42,358210.12,0.0,42978.28,302,278,0,2,302
+2010,General Administration & Finance,BOS Board Of Supervisors,6079080.04,609447.7,0.0,227235.28,370,286,0,2,370
+2010,Human Welfare & Neighborhood Development,WOM Status Of Women,5777195.3,580564.54,0.0,2400.0,252,200,0,0,252
+2010,Culture & Recreation,FAM Fine Arts Museum,5351739.04,3034533.68,0.0,7526.0,70,62,0,2,70
+2010,General Administration & Finance,TTX Treasurer/Tax Collector,5011959.640000001,698308.46,0.0,397665.02,638,464,0,0,638
+2010,Culture & Recreation,SCI Academy Of Sciences,4513602.0,238826.0,0.0,0.0,4,4,0,2,4
+2010,"Public Works, Transportation & Commerce",DBI Building Inspection,4473039.14,506283.48,0.0,2755146.94,576,390,0,0,576
+2010,Public Protection,DAT District Attorney,4009978.56,460819.06,0.0,1312575.04,968,796,0,0,968
+2010,Culture & Recreation,AAM Asian Art Museum,3893053.54,250720.0,0.0,0.0,8,6,0,2,8
+2010,Human Welfare & Neighborhood Development,CSS Child Support Services,3745650.3,136556.47999999998,0.0,0.0,284,226,0,0,284
+2010,Culture & Recreation,WAR War Memorial,2804102.48,519970.04000000004,0.0,280134.6,774,524,0,0,774
+2010,General Administration & Finance,CPC City Planning,2675614.44,260463.34,0.0,2455236.04,298,244,0,0,298
+2010,General Administration & Finance,ASR Assessor / Recorder,1785199.76,525197.34,0.0,1677362.28,424,302,0,0,424
+2010,General Administration & Finance,ETH Ethics Commission,1038239.8,131106.72,0.0,8002.32,92,90,0,0,92
+2010,Public Protection,PDR Public Defender,929045.76,188868.18,0.0,286882.54000000004,376,346,0,0,376
+2010,Human Welfare & Neighborhood Development,HRC Human Rights Commission,817200.16,72310.52,0.0,31710.56,146,126,0,0,146
+2010,Public Protection,ADP Adult Probation,520119.7,19997.739999999998,0.0,676280.8400000001,324,248,0,0,324
+2010,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,382807.26,99705.92000000001,0.0,161110.88,124,104,0,0,124
+2010,General Administration & Finance,CSC Civil Service Commission,71820.92,2853.1400000000003,0.0,1510.1,24,24,0,0,24
+2010,"Public Works, Transportation & Commerce",BOA Board Of Appeals - PAB,59057.479999999996,5316.9,0.0,282.52,36,36,0,0,36
+2010,Culture & Recreation,LLB Law Library,31254.24,867.24,0.0,3295.76,4,4,0,0,4
+2010,"Public Works, Transportation & Commerce",CTA SF County Transprtn Auth,0.0,0.0,0.0,381229869.74,274,42,0,0,274
+2011,"Public Works, Transportation & Commerce",AIR Airport Commission,1354352819.62,57845666.17999999,0.0,66179083.72,5990,3746,0,92,5990
+2011,Community Health,DPH Public Health,1310397322.7,107957829.32,0.0,95469361.7,17512,8146,92,194,17512
+2011,"Public Works, Transportation & Commerce",PUB Public Utilities Bureaus,967434854.1999999,157534070.84,0.0,2170129688.1,6170,2658,10,118,6170
+2011,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,666770909.36,76175417.64,0.0,435982727.56,22576,5316,2,120,22576
+2011,"Public Works, Transportation & Commerce",WTR Water Enterprise,410612862.28000003,24495597.72,0.0,166948040.34,16926,8438,12,24,16926
+2011,General City Responsibilities,GEN General City / Unallocated,409930071.84,184914.0,0.0,3390934.66,74,74,0,10,74
+2011,"Public Works, Transportation & Commerce",DPW GSA - Public Works,401645545.94,60438847.28,0.0,307541395.82,10206,3666,24,68,10206
+2011,Human Welfare & Neighborhood Development,HSA Human Services Agency,343074658.18,22362839.18,0.0,34973596.9,4464,2410,0,40,4464
+2011,General Administration & Finance,ADM Gen Svcs Agency-City Admin,237007147.9,9079524.08,0.0,11543980.26,7440,4452,10,22,7440
+2011,"Public Works, Transportation & Commerce",WWE Wastewater Enterprise,228052069.88,21496517.32,0.0,137466101.04,6604,2662,4,28,6604
+2011,"Public Works, Transportation & Commerce",HHP Hetch Hetchy Water & Power,172754783.66,18916666.22,0.0,44188563.74,9450,2830,8,24,9450
+2011,General Administration & Finance,MYR Mayor,145570584.46,5461691.2,0.0,87754271.34,1808,1440,0,30,1808
+2011,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,118873028.25999999,16558075.04,0.0,16904395.88,2232,1334,0,6,2232
+2011,Human Welfare & Neighborhood Development,USD County Education Office,112332472.44,0.0,0.0,0.0,4,4,0,4,4
+2011,General Administration & Finance,HRD Human Resources,109200029.60000001,1871341.3599999999,0.0,1627306.1199999999,1162,892,6,8,1162
+2011,General Administration & Finance,RET Retirement System,90368428.03999999,18772453.7,0.0,15395299.04,550,432,0,24,550
+2011,General Administration & Finance,DT GSA - Technology,89002582.72,7770469.859999999,0.0,15483842.559999999,3110,1198,0,12,3110
+2011,Public Protection,DEM Emergency Management,83183874.78,7553528.34,0.0,46369641.160000004,1300,840,6,20,1300
+2011,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,77770987.56,0.0,0.0,0.0,6,6,0,6,6
+2011,Public Protection,CRT Superior Court,73357619.44,2991357.8,0.0,4295.32,728,726,0,4,728
+2011,Culture & Recreation,REC Recreation & Park Commsn,63076496.74,3088748.1,0.0,9530572.24,7120,3350,0,12,7120
+2011,"Public Works, Transportation & Commerce",PRT Port,58102480.92,2643864.84,0.0,30035712.34,4074,2144,0,12,4074
+2011,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,47041244.28,7630758.0200000005,0.0,2333430.66,588,478,0,2,588
+2011,Public Protection,POL Police,32525976.900000002,3162331.58,0.0,10416542.379999999,3152,1856,4,2,3152
+2011,Public Protection,SHF Sheriff,31312896.8,2350184.36,0.0,2705045.1999999997,1874,1238,2,6,1874
+2011,Culture & Recreation,LIB Public Library,30636916.78,4201725.8,0.0,3784513.32,2082,1406,0,2,2082
+2011,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,29921092.439999998,7552919.88,0.0,7787068.32,996,776,0,0,996
+2011,Culture & Recreation,ART Arts Commission,23375951.38,492971.6,0.0,10449497.14,2446,2056,0,2,2446
+2011,Human Welfare & Neighborhood Development,ENV Environment,18098532.439999998,2393101.3000000003,0.0,8844336.98,1100,836,0,2,1100
+2011,Public Protection,FIR Fire Department,18084933.92,2103541.74,0.0,4184950.7800000003,2096,998,0,2,2096
+2011,General Administration & Finance,CON Controller,16985995.0,2000719.46,0.0,6382194.58,898,528,8,2,898
+2011,Culture & Recreation,FAM Fine Arts Museum,13418623.86,1015142.52,0.0,61557.08,78,70,0,4,78
+2011,General Administration & Finance,HSS Health Service System,11099441.62,-498767.57999999996,0.0,590704.62,280,226,2,4,280
+2011,General Administration & Finance,REG Elections,10003533.299999999,56937.159999999996,0.0,33736.78,5964,5912,2,0,5964
+2011,Public Protection,JUV Juvenile Probation,8348973.340000001,284524.16000000003,0.0,290626.72,1398,764,0,2,1398
+2011,General Administration & Finance,ETH Ethics Commission,7764831.16,7044.32,0.0,16496.8,114,114,0,0,114
+2011,General Administration & Finance,CAT City Attorney,6419308.14,398833.52,0.0,193910.04,290,268,0,2,290
+2011,General Administration & Finance,BOS Board Of Supervisors,5874817.88,651236.7200000001,0.0,355338.57999999996,416,288,0,2,416
+2011,"Public Works, Transportation & Commerce",DBI Building Inspection,5589168.62,680945.6799999999,0.0,943583.6,650,412,8,0,650
+2011,Human Welfare & Neighborhood Development,WOM Status Of Women,5374984.0200000005,1113686.66,0.0,0.02,276,238,0,0,276
+2011,Public Protection,DAT District Attorney,4727340.0,362359.18,0.0,828098.94,1116,840,0,0,1116
+2011,Culture & Recreation,SCI Academy Of Sciences,4486602.92,505825.07999999996,0.0,0.0,6,6,0,2,6
+2011,General Administration & Finance,TTX Treasurer/Tax Collector,3820721.96,125785.95999999999,0.0,2636380.3,682,464,0,0,682
+2011,Culture & Recreation,AAM Asian Art Museum,3022264.0,346484.0,0.0,0.0,12,12,0,2,12
+2011,Culture & Recreation,WAR War Memorial,3014035.56,295222.5,0.0,803095.14,814,532,0,0,814
+2011,General Administration & Finance,ASR Assessor / Recorder,2796601.16,601161.84,0.0,2138880.1,502,356,0,0,502
+2011,General Administration & Finance,CPC City Planning,2575642.58,51394.85999999999,0.0,1642311.06,360,256,0,0,360
+2011,Human Welfare & Neighborhood Development,CSS Child Support Services,2017363.2,41312.48,0.0,4589.66,282,224,0,0,282
+2011,Public Protection,PDR Public Defender,1090121.3399999999,355740.6,0.0,9152.62,474,416,0,0,474
+2011,Public Protection,ADP Adult Probation,950484.28,37809.74,0.0,660880.5,346,280,2,0,346
+2011,Human Welfare & Neighborhood Development,HRC Human Rights Commission,888836.94,78814.04000000001,0.0,45537.94,94,80,0,0,94
+2011,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,525204.0599999999,115937.24,0.0,88810.0,134,126,0,0,134
+2011,"Public Works, Transportation & Commerce",BOA Board Of Appeals - PAB,55533.82,7351.7,0.0,3878.66,40,38,0,0,40
+2011,Culture & Recreation,LLB Law Library,32121.48,877.44,0.0,5900.28,8,8,0,0,8
+2011,General Administration & Finance,CSC Civil Service Commission,14820.84,209.84,0.0,0.0,26,26,0,0,26
+2011,"Public Works, Transportation & Commerce",CTA SF County Transprtn Auth,0.0,0.0,0.0,381229869.74,274,42,0,0,274
+2012,"Public Works, Transportation & Commerce",PUB Public Utilities Bureaus,1382673351.6,192296123.38,0.0,1863829535.2199998,6046,2766,8,136,6046
+2012,Community Health,DPH Public Health,1355698690.74,121101249.36,0.0,119874894.04,16290,8124,66,184,16290
+2012,"Public Works, Transportation & Commerce",AIR Airport Commission,1035970876.78,58108839.839999996,0.0,75428898.9,6098,3750,0,74,6098
+2012,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,750031200.02,83526488.14,0.0,469981036.6,22922,5594,0,114,22922
+2012,"Public Works, Transportation & Commerce",DPW GSA - Public Works,513807309.8,96112219.32,0.0,783880738.74,12162,3566,46,84,12162
+2012,General City Responsibilities,GEN General City / Unallocated,443014348.6,164473.66,0.0,6605326.9799999995,126,124,0,14,126
+2012,"Public Works, Transportation & Commerce",WTR Water Enterprise,427031218.1,21676070.259999998,0.0,133594928.86,16696,7804,6,30,16696
+2012,Human Welfare & Neighborhood Development,HSA Human Services Agency,262230782.74,23198980.84,0.0,31072100.58,4262,2384,0,30,4262
+2012,"Public Works, Transportation & Commerce",WWE Wastewater Enterprise,253020809.06,22094234.12,0.0,64506105.6,7228,2798,10,34,7228
+2012,General Administration & Finance,ADM Gen Svcs Agency-City Admin,247671895.1,16154806.56,0.0,10711389.059999999,7598,4378,4,28,7598
+2012,"Public Works, Transportation & Commerce",HHP Hetch Hetchy Water & Power,187121025.12,28666326.38,0.0,56316393.82,9540,2802,8,30,9540
+2012,General Administration & Finance,MYR Mayor,182424486.84,15135290.52,0.0,97129978.18,1542,1254,0,22,1542
+2012,Human Welfare & Neighborhood Development,USD County Education Office,119447978.82,0.0,0.0,0.0,4,4,0,4,4
+2012,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,117017909.28,25452531.58,0.0,9492246.1,2352,1290,0,6,2352
+2012,General Administration & Finance,HRD Human Resources,106297938.27999999,1800233.72,0.0,2645146.6799999997,1014,822,0,8,1014
+2012,General Administration & Finance,RET Retirement System,91125754.58,19288955.42,0.0,2438420.44,586,486,0,20,586
+2012,Public Protection,DEM Emergency Management,89545791.72,7692894.28,0.0,38900571.339999996,1408,876,2,20,1408
+2012,Public Protection,CRT Superior Court,72600422.98,2662597.98,0.0,6304.5,714,706,0,4,714
+2012,"Public Works, Transportation & Commerce",PRT Port,71719589.58,6228220.2,0.0,74573433.62,3978,2194,0,12,3978
+2012,Culture & Recreation,REC Recreation & Park Commsn,69178110.2,4875120.64,0.0,7352558.32,7596,3356,2,10,7596
+2012,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,63659930.08,0.0,0.0,0.0,4,4,0,4,4
+2012,General Administration & Finance,DT GSA - Technology,62066438.94,11150741.86,0.0,25635893.1,3148,1054,0,6,3148
+2012,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,47725622.08,6361679.3,0.0,3540786.26,428,368,0,4,428
+2012,Public Protection,SHF Sheriff,43649948.8,2178364.38,0.0,4400831.36,2046,1260,0,4,2046
+2012,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,40857283.42,5923586.28,0.0,5946133.24,1032,790,0,2,1032
+2012,Culture & Recreation,LIB Public Library,34390099.28,3488240.98,0.0,2260980.62,2122,1392,0,4,2122
+2012,Public Protection,POL Police,34338925.46,6720584.02,0.0,8752817.06,3168,1874,6,4,3168
+2012,Human Welfare & Neighborhood Development,ENV Environment,23367848.96,899764.58,0.0,5494074.140000001,1166,932,0,4,1166
+2012,Culture & Recreation,ART Arts Commission,20447570.54,857986.88,0.0,10886855.28,2116,1800,0,2,2116
+2012,Public Protection,FIR Fire Department,17505610.02,2866050.32,0.0,3514940.46,2450,1206,0,2,2450
+2012,General Administration & Finance,REG Elections,13748995.32,365489.75999999995,0.0,-136.18,7546,7448,4,2,7546
+2012,General Administration & Finance,CON Controller,12970729.6,847478.3,0.0,5860848.239999999,780,458,14,0,780
+2012,General Administration & Finance,HSS Health Service System,10545897.040000001,535441.6599999999,0.0,0.0,314,276,2,4,314
+2012,"Public Works, Transportation & Commerce",DBI Building Inspection,9832370.58,1134795.5,0.0,983631.04,614,396,14,0,614
+2012,Public Protection,JUV Juvenile Probation,8374925.62,226803.96,0.0,198593.78,1132,850,0,2,1132
+2012,General Administration & Finance,CAT City Attorney,6519460.92,422144.18,0.0,13123.9,310,270,0,2,310
+2012,Human Welfare & Neighborhood Development,WOM Status Of Women,5894075.72,897415.96,0.0,25500.059999999998,288,256,0,0,288
+2012,General Administration & Finance,BOS Board Of Supervisors,5729503.48,812973.26,0.0,83602.88,438,276,0,0,438
+2012,Culture & Recreation,FAM Fine Arts Museum,5404041.819999999,1088045.58,0.0,106461.42,90,82,0,2,90
+2012,Culture & Recreation,SCI Academy Of Sciences,5038163.08,0.0,0.0,0.0,4,4,0,2,4
+2012,Public Protection,DAT District Attorney,4745535.38,515816.36,0.0,1623695.06,1134,878,0,0,1134
+2012,General Administration & Finance,TTX Treasurer/Tax Collector,4413626.2,74137.44,0.0,2772918.8600000003,612,434,0,0,612
+2012,General Administration & Finance,ETH Ethics Commission,4255236.54,7694.699999999999,0.0,33262.94,82,82,0,0,82
+2012,General Administration & Finance,ASR Assessor / Recorder,3772248.76,223153.28000000003,0.0,2259127.8200000003,574,332,0,0,574
+2012,Culture & Recreation,AAM Asian Art Museum,3236484.0,141194.0,0.0,0.0,14,12,0,2,14
+2012,Culture & Recreation,WAR War Memorial,3153950.84,641911.22,0.0,517128.72,736,536,0,0,736
+2012,Human Welfare & Neighborhood Development,CSS Child Support Services,2306394.6999999997,176643.08,0.0,0.0,184,146,0,0,184
+2012,General Administration & Finance,CPC City Planning,2239540.96,217267.30000000002,0.0,874803.72,418,328,0,0,418
+2012,Public Protection,ADP Adult Probation,1905821.42,293061.62,0.0,5144229.86,546,388,6,0,546
+2012,Public Protection,PDR Public Defender,1564733.78,60684.72,0.0,117281.90000000001,514,456,0,0,514
+2012,Human Welfare & Neighborhood Development,HRC Human Rights Commission,856700.9,157397.46,0.0,4000.0,162,136,2,0,162
+2012,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,495840.62,108483.68,0.0,113038.12,124,108,0,0,124
+2012,"Public Works, Transportation & Commerce",BOA Board Of Appeals - PAB,60705.44,240.88,0.0,22690.52,50,46,0,0,50
+2012,Culture & Recreation,LLB Law Library,32131.68,869.44,0.0,0.0,6,4,0,0,6
+2012,General Administration & Finance,CSC Civil Service Commission,9224.88,0.0,0.0,6631.139999999999,24,24,2,0,24
+2012,"Public Works, Transportation & Commerce",CTA SF County Transprtn Auth,0.0,0.0,0.0,381229869.74,274,44,0,0,274
+2013,Community Health,DPH Public Health,1485504600.3,131852204.58,0.0,158831913.9,16626,8290,52,182,16626
+2013,"Public Works, Transportation & Commerce",AIR Airport Commission,1272924039.48,96397564.34,0.0,80435131.38,7230,4294,0,116,7230
+2013,"Public Works, Transportation & Commerce",PUB Public Utilities Bureaus,1204356637.62,119041950.4,0.0,1434313806.38,5954,2720,22,140,5954
+2013,"Public Works, Transportation & Commerce",DPW GSA - Public Works,874911917.8,140066600.38,0.0,548094442.36,11976,3598,42,94,11976
+2013,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,790609379.0799999,88316506.06,0.0,884787781.06,25062,5364,0,118,25062
+2013,"Public Works, Transportation & Commerce",WTR Water Enterprise,482607258.09999996,19659618.7,0.0,109720281.44,17742,8012,4,34,17742
+2013,General City Responsibilities,GEN General City / Unallocated,437501674.2,145114.8,0.0,879948.64,64,64,0,10,64
+2013,General Administration & Finance,ADM Gen Svcs Agency-City Admin,287354382.94,9931458.440000001,0.0,12810233.12,7744,4616,6,36,7744
+2013,"Public Works, Transportation & Commerce",WWE Wastewater Enterprise,278270076.52,21793143.02,0.0,88287933.94,6652,2704,8,44,6652
+2013,Human Welfare & Neighborhood Development,HSA Human Services Agency,277789450.24,32432218.560000002,0.0,35980373.8,3896,2420,0,36,3896
+2013,"Public Works, Transportation & Commerce",HHP Hetch Hetchy Water & Power,191814723.46,17239250.92,0.0,47579790.54,8404,2712,10,28,8404
+2013,General Administration & Finance,MYR Mayor,149232433.07999998,21866631.259999998,0.0,79912312.3,1586,1294,0,28,1586
+2013,"Public Works, Transportation & Commerce",PRT Port,130038702.47999999,9426566.12,0.0,15588958.4,4524,2378,0,24,4524
+2013,Human Welfare & Neighborhood Development,USD County Education Office,128831860.03999999,0.0,0.0,0.0,4,4,0,4,4
+2013,Human Welfare & Neighborhood Development,CII Commty Invest & Infrstrctr,123459042.02000001,8196121.3,0.0,5564742.94,386,360,0,16,386
+2013,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,114999249.48,16665785.82,0.0,15867795.88,3004,1710,0,4,3004
+2013,General Administration & Finance,HRD Human Resources,99347147.46000001,1517266.5599999998,0.0,1179364.8599999999,1134,970,2,10,1134
+2013,Public Protection,DEM Emergency Management,85614431.08,17303719.94,0.0,57754131.239999995,1446,878,0,14,1446
+2013,General Administration & Finance,DT GSA - Technology,85166627.42,8027172.14,0.0,15470220.4,3878,1032,0,10,3878
+2013,General Administration & Finance,RET Retirement System,80250313.53999999,17062392.28,0.0,11346125.78,556,440,0,20,556
+2013,Culture & Recreation,REC Recreation & Park Commsn,72506458.72,4881849.38,0.0,11176720.66,7984,3520,0,12,7984
+2013,Public Protection,CRT Superior Court,70348263.76,4288355.76,0.0,100727.08,804,798,0,4,804
+2013,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,63639080.08,0.0,0.0,0.0,4,4,0,4,4
+2013,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,58814867.00000001,7708197.36,0.0,2707014.06,388,336,0,6,388
+2013,Public Protection,POL Police,44401772.72,4169981.3,0.0,11756223.28,3460,1964,6,6,3460
+2013,Public Protection,SHF Sheriff,39860704.68,1341981.18,0.0,4344280.5,2382,1320,0,4,2382
+2013,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,34192872.96,7406999.5,0.0,12199605.76,992,790,0,6,992
+2013,Culture & Recreation,LIB Public Library,32935391.700000003,4672800.46,0.0,2439512.94,2012,1344,0,4,2012
+2013,General Administration & Finance,HSS Health Service System,29081630.86,441670.64,0.0,286814.46,222,196,4,6,222
+2013,Public Protection,FIR Fire Department,28101728.38,1767319.9200000002,0.0,5095942.34,2762,1286,0,6,2762
+2013,Culture & Recreation,ART Arts Commission,21186755.48,891094.16,0.0,12659658.02,2146,1844,0,2,2146
+2013,Human Welfare & Neighborhood Development,ENV Environment,20556521.84,1314357.52,0.0,14270455.88,1040,842,0,4,1040
+2013,General Administration & Finance,CON Controller,12734691.72,1277668.04,0.0,5732063.24,778,472,12,0,778
+2013,General Administration & Finance,REG Elections,10673207.4,232177.94,0.0,-136.18,6866,6764,0,0,6866
+2013,"Public Works, Transportation & Commerce",DBI Building Inspection,10155809.020000001,2529695.3,0.0,886299.22,804,528,10,0,804
+2013,Public Protection,JUV Juvenile Probation,8617565.46,275191.76,0.0,679523.28,1092,826,0,2,1092
+2013,Culture & Recreation,FAM Fine Arts Museum,8602235.24,877327.94,0.0,475759.82,108,98,0,2,108
+2013,Public Protection,ADP Adult Probation,7161769.9399999995,688622.34,0.0,5895726.6,632,480,2,0,632
+2013,Human Welfare & Neighborhood Development,WOM Status Of Women,6515229.08,1208209.7000000002,0.0,387188.56,246,198,0,0,246
+2013,General Administration & Finance,TTX Treasurer/Tax Collector,5944658.640000001,367519.66,0.0,4452906.0,584,444,0,0,584
+2013,General Administration & Finance,BOS Board Of Supervisors,5884268.140000001,496776.92,0.0,112819.38,508,300,4,2,508
+2013,General Administration & Finance,CAT City Attorney,5563107.720000001,532786.64,0.0,9241.24,286,238,0,2,286
+2013,Public Protection,DAT District Attorney,5452635.319999999,1051896.58,0.0,1469983.66,1448,974,0,0,1448
+2013,Culture & Recreation,SCI Academy Of Sciences,4524429.82,132000.0,0.0,0.0,4,4,0,2,4
+2013,Culture & Recreation,WAR War Memorial,3737268.9,595884.4600000001,0.0,1384759.18,642,472,0,0,642
+2013,General Administration & Finance,CPC City Planning,3506049.56,46847.46,0.0,7031908.72,568,394,0,0,568
+2013,Culture & Recreation,AAM Asian Art Museum,3154994.0,221560.0,0.0,0.0,12,10,0,2,12
+2013,Human Welfare & Neighborhood Development,CSS Child Support Services,2749945.14,13037.220000000001,0.0,0.0,246,174,0,0,246
+2013,General Administration & Finance,ETH Ethics Commission,2749503.8,11132.1,0.0,17008.04,102,98,0,0,102
+2013,General Administration & Finance,ASR Assessor / Recorder,2264677.5,290813.52,0.0,1618326.52,608,352,0,0,608
+2013,Public Protection,PDR Public Defender,1434164.8800000001,35066.659999999996,0.0,13746.28,464,440,0,0,464
+2013,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,560246.58,32988.54,0.0,174565.62,116,114,0,0,116
+2013,Human Welfare & Neighborhood Development,HRC Human Rights Commission,207470.42,6250.96,0.0,16737.98,82,82,0,0,82
+2013,"Public Works, Transportation & Commerce",BOA Board Of Appeals - PAB,84783.5,670.76,0.0,3763.8599999999997,42,38,2,0,42
+2013,Culture & Recreation,LLB Law Library,32123.68,0.0,0.0,0.0,4,4,0,0,4
+2013,General Administration & Finance,CSC Civil Service Commission,21500.18,1454.58,0.0,0.0,28,28,0,0,28
+2014,"Public Works, Transportation & Commerce",AIR Airport Commission,1735956069.74,161698750.0,0.0,146568395.88,7290,4360,0,166,7290
+2014,Community Health,DPH Public Health,1581703709.18,155469207.54,0.0,217586381.64000002,17130,8630,56,182,17130
+2014,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,1322220162.76,131316032.2,0.0,702941695.14,26084,5846,0,142,26084
+2014,"Public Works, Transportation & Commerce",PUB Public Utilities Bureaus,1113368058.76,88164475.38,0.0,898303432.78,5692,2664,12,116,5692
+2014,"Public Works, Transportation & Commerce",DPW GSA - Public Works,996545132.94,150945158.32,0.0,398509894.52,13330,3970,54,106,13330
+2014,General City Responsibilities,GEN General City / Unallocated,523416610.8000001,245278.0,0.0,766503.04,224,192,0,12,224
+2014,"Public Works, Transportation & Commerce",WTR Water Enterprise,467435896.78,22912513.439999998,0.0,118351940.56,19122,7952,12,28,19122
+2014,Human Welfare & Neighborhood Development,HSA Human Services Agency,296704643.16,41658742.78,0.0,29954911.06,4062,2498,0,38,4062
+2014,General Administration & Finance,ADM Gen Svcs Agency-City Admin,290981473.56,13315251.44,0.0,11642852.8,7896,4854,8,28,7896
+2014,"Public Works, Transportation & Commerce",WWE Wastewater Enterprise,232270036.36,9126458.84,0.0,25291914.68,5620,2496,4,20,5620
+2014,"Public Works, Transportation & Commerce",HHP Hetch Hetchy Water & Power,200434754.24,17946717.740000002,0.0,43698791.9,8516,3336,2,34,8516
+2014,General Administration & Finance,MYR Mayor,153684131.62,19672672.38,0.0,65331990.04,1790,1418,0,20,1790
+2014,Human Welfare & Neighborhood Development,USD County Education Office,136151144.9,0.0,0.0,0.0,4,4,0,4,4
+2014,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,116484618.88,17268952.9,0.0,27732141.54,2718,1376,0,4,2718
+2014,General Administration & Finance,HRD Human Resources,108417878.22,2339380.9,0.0,381931.18,962,718,4,8,962
+2014,Human Welfare & Neighborhood Development,CII Commty Invest & Infrstrctr,106575458.0,20240838.26,0.0,157729368.5,512,446,0,28,512
+2014,Public Protection,DEM Emergency Management,99185837.78,4013347.1799999997,0.0,26978170.04,1392,922,0,18,1392
+2014,General Administration & Finance,RET Retirement System,88716146.18,24088532.66,0.0,1022565.62,544,460,0,28,544
+2014,General Administration & Finance,DT GSA - Technology,86152137.82,14049285.16,0.0,21175353.28,2680,966,0,14,2680
+2014,Culture & Recreation,REC Recreation & Park Commsn,75976276.46000001,5075162.62,0.0,12986427.08,8216,3684,0,10,8216
+2014,Public Protection,CRT Superior Court,69040866.34,4078584.16,0.0,785.54,740,732,0,4,740
+2014,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,67129179.76,11772501.58,0.0,153859.56,402,330,0,4,402
+2014,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,63524517.56,0.0,0.0,0.0,4,4,0,4,4
+2014,"Public Works, Transportation & Commerce",PRT Port,62804957.739999995,1425062.86,0.0,11510209.7,4740,2468,0,16,4740
+2014,General Administration & Finance,HSS Health Service System,55650783.44,986961.28,0.0,828205.74,320,264,4,6,320
+2014,Public Protection,SHF Sheriff,46942502.94,2657414.3600000003,0.0,4982238.14,2410,1394,0,8,2410
+2014,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,44642032.56,6735563.56,0.0,16337074.1,1240,964,0,6,1240
+2014,Public Protection,POL Police,44440006.04,4124896.74,0.0,11521504.7,3510,2004,4,6,3510
+2014,Culture & Recreation,LIB Public Library,38701774.64,5678290.84,0.0,3036018.98,2092,1416,0,4,2092
+2014,Public Protection,FIR Fire Department,22884060.24,6186880.02,0.0,9886098.92,3030,1348,0,2,3030
+2014,Culture & Recreation,ART Arts Commission,22512309.06,824863.72,0.0,10858930.959999999,2212,1886,0,2,2212
+2014,General Administration & Finance,CON Controller,16666649.4,2354258.8,0.0,9351485.3,854,572,12,0,854
+2014,Human Welfare & Neighborhood Development,ENV Environment,15497961.100000001,1524176.46,0.0,8148580.7,1078,912,0,2,1078
+2014,"Public Works, Transportation & Commerce",DBI Building Inspection,11944425.64,2706855.9,0.0,8654653.299999999,884,546,6,0,884
+2014,General Administration & Finance,REG Elections,11722753.84,2119219.66,0.0,580656.62,7796,7676,2,0,7796
+2014,Public Protection,JUV Juvenile Probation,9402539.36,294838.94,0.0,2243698.54,1268,926,12,2,1268
+2014,Public Protection,ADP Adult Probation,8811141.74,730816.2,0.0,7915281.82,630,464,0,2,630
+2014,General Administration & Finance,TTX Treasurer/Tax Collector,8189781.600000001,513366.48,0.0,3647618.7,630,516,0,2,630
+2014,Human Welfare & Neighborhood Development,WOM Status Of Women,8101052.78,1917558.22,0.0,234730.34,264,252,0,0,264
+2014,Culture & Recreation,FAM Fine Arts Museum,7355526.62,1152359.04,0.0,1127976.68,104,94,2,2,104
+2014,General Administration & Finance,CAT City Attorney,7288751.88,150599.88,0.0,61336.64000000001,322,276,0,2,322
+2014,Public Protection,DAT District Attorney,7038353.18,499244.62,0.0,1158498.88,1518,1026,0,0,1518
+2014,General Administration & Finance,BOS Board Of Supervisors,6139169.36,362902.18,0.0,194883.16,544,316,4,0,544
+2014,General Administration & Finance,CPC City Planning,5672723.4,187873.68,0.0,6573254.8,796,568,0,0,796
+2014,Culture & Recreation,SCI Academy Of Sciences,4846770.38,385639.72,0.0,0.0,6,6,0,2,6
+2014,Culture & Recreation,WAR War Memorial,4250953.36,81699.78,0.0,796758.94,556,434,0,0,556
+2014,Culture & Recreation,AAM Asian Art Museum,4009632.6,191240.62,0.0,125522.0,22,20,0,2,22
+2014,Human Welfare & Neighborhood Development,CSS Child Support Services,2500528.08,63113.56,0.0,226.68,214,172,0,0,214
+2014,General Administration & Finance,ASR Assessor / Recorder,1685873.68,255398.78,0.0,1434469.7,422,328,0,0,422
+2014,Public Protection,PDR Public Defender,1512931.06,63860.3,0.0,0.0,406,390,0,0,406
+2014,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,327136.06,135336.12,0.0,131023.14,104,96,0,0,104
+2014,General Administration & Finance,ETH Ethics Commission,255732.88,35836.36,0.0,11896.1,80,74,0,0,80
+2014,Human Welfare & Neighborhood Development,HRC Human Rights Commission,101253.76,58727.84,0.0,362140.38,96,94,0,0,96
+2014,"Public Works, Transportation & Commerce",BOA Board Of Appeals - PAB,88851.34,5172.14,0.0,0.0,36,34,2,0,36
+2014,Culture & Recreation,LLB Law Library,32048.920000000002,0.0,0.0,0.0,4,4,0,0,4
+2014,General Administration & Finance,CSC Civil Service Commission,22699.18,0.0,0.0,0.0,26,24,0,0,26
+2015,"Public Works, Transportation & Commerce",AIR Airport Commission,1657235687.44,99507332.58,0.0,137392959.08,7420,4294,0,146,7420
+2015,Community Health,DPH Public Health,1622438041.0600002,123579932.16,0.0,434413166.86,18186,8656,94,194,18186
+2015,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,1068217644.66,136968197.01999998,0.0,1026615519.24,25162,5486,0,140,25162
+2015,"Public Works, Transportation & Commerce",DPW GSA - Public Works,922709019.74,108303648.64,0.0,334213051.8,13704,4008,36,118,13704
+2015,"Public Works, Transportation & Commerce",PUB Public Utilities Bureaus,759546986.12,70220845.72,0.0,848469318.98,5754,2868,14,100,5754
+2015,General City Responsibilities,GEN General City / Unallocated,557275406.5600001,468991.66,0.0,1648169.3800000001,136,98,0,14,136
+2015,"Public Works, Transportation & Commerce",WTR Water Enterprise,539072011.8199999,23690303.66,0.0,126718934.52,19728,7664,10,32,19728
+2015,General Administration & Finance,ADM Gen Svcs Agency-City Admin,338611320.5,9152765.2,0.0,20600915.36,8966,5082,6,32,8966
+2015,Human Welfare & Neighborhood Development,HSA Human Services Agency,335384149.06,44804686.9,0.0,39365153.480000004,4378,2514,0,52,4378
+2015,General Administration & Finance,MYR Mayor,214366633.12,26039834.32,0.0,106948685.24000001,2106,1538,0,36,2106
+2015,"Public Works, Transportation & Commerce",WWE Wastewater Enterprise,176672633.9,6914436.74,0.0,11160425.32,5090,2320,2,12,5090
+2015,"Public Works, Transportation & Commerce",HHP Hetch Hetchy Water & Power,175076168.74,17443709.42,0.0,79170651.5,7624,3070,8,36,7624
+2015,Human Welfare & Neighborhood Development,USD County Education Office,147301815.04000002,0.0,0.0,0.0,4,4,0,4,4
+2015,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,136887804.9,22699169.959999997,0.0,22228801.58,2324,1224,0,10,2324
+2015,Human Welfare & Neighborhood Development,CII Commty Invest & Infrstrctr,136223055.64000002,19743796.34,0.0,155120019.44,532,464,0,40,532
+2015,General Administration & Finance,HRD Human Resources,112707521.84,2780255.4600000004,0.0,990410.88,1074,704,0,8,1074
+2015,General Administration & Finance,DT GSA - Technology,102315009.68,11747411.06,0.0,38608868.9,2598,988,0,22,2598
+2015,General Administration & Finance,RET Retirement System,88239937.82,15791420.780000001,0.0,10022518.56,562,466,0,36,562
+2015,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,82078775.82000001,9441837.04,0.0,5665246.24,350,306,0,10,350
+2015,Culture & Recreation,REC Recreation & Park Commsn,76631327.74000001,5605818.46,0.0,16408315.200000001,8594,3512,0,10,8594
+2015,General Administration & Finance,HSS Health Service System,66899764.599999994,613528.0399999999,0.0,621872.44,322,268,4,6,322
+2015,"Public Works, Transportation & Commerce",PRT Port,64793316.58,4282748.5600000005,0.0,16122993.3,4592,2346,0,14,4592
+2015,Public Protection,CRT Superior Court,63874843.059999995,4603788.62,0.0,42000.0,482,478,0,4,482
+2015,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,62139205.86,0.0,0.0,0.0,4,4,0,4,4
+2015,Public Protection,DEM Emergency Management,53165757.56,5214342.34,0.0,29968487.28,1266,838,0,10,1266
+2015,Public Protection,FIR Fire Department,46324082.98,4184891.56,0.0,13175392.08,3650,1250,0,8,3650
+2015,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,43865886.88,9419542.34,0.0,15281515.32,1326,1052,0,0,1326
+2015,Culture & Recreation,LIB Public Library,43043873.739999995,4547237.74,0.0,2872457.92,2290,1492,0,4,2290
+2015,Public Protection,SHF Sheriff,42658728.84,2975217.04,0.0,6556570.7,2192,1290,10,4,2192
+2015,Public Protection,POL Police,38554065.52,4919168.74,0.0,13568089.219999999,3604,2022,10,2,3604
+2015,Culture & Recreation,ART Arts Commission,24633311.22,625531.04,0.0,13591750.44,2164,1844,0,2,2164
+2015,General Administration & Finance,CON Controller,18144987.44,1103748.44,0.0,12619109.3,1102,720,10,0,1102
+2015,"Public Works, Transportation & Commerce",DBI Building Inspection,13623515.24,3366856.08,0.0,4506950.5,856,524,8,0,856
+2015,General Administration & Finance,TTX Treasurer/Tax Collector,13417332.74,409980.9,0.0,2245275.96,672,526,2,2,672
+2015,General Administration & Finance,REG Elections,13109821.88,616550.38,0.0,555124.8200000001,6378,6248,0,0,6378
+2015,Human Welfare & Neighborhood Development,ENV Environment,11416805.22,2522498.54,0.0,10120288.34,1222,1034,0,2,1222
+2015,Public Protection,ADP Adult Probation,10351099.42,1005426.18,0.0,9226744.12,754,514,0,2,754
+2015,Public Protection,JUV Juvenile Probation,9673100.68,323785.76,0.0,2551484.2,1204,888,6,2,1204
+2015,Human Welfare & Neighborhood Development,WOM Status Of Women,9649776.52,2033252.06,0.0,129067.48000000001,258,242,0,0,258
+2015,General Administration & Finance,CPC City Planning,9148716.24,729485.08,0.0,7341138.9,854,578,0,0,854
+2015,General Administration & Finance,CAT City Attorney,6782575.64,413322.6,0.0,9600.92,290,266,0,2,290
+2015,Public Protection,DAT District Attorney,6735534.58,442539.38,0.0,660760.1799999999,1580,1018,0,0,1580
+2015,General Administration & Finance,BOS Board Of Supervisors,6260605.36,610610.48,0.0,157880.28,520,340,6,2,520
+2015,Culture & Recreation,FAM Fine Arts Museum,5918624.44,1396022.98,0.0,1139042.52,126,110,0,2,126
+2015,Culture & Recreation,SCI Academy Of Sciences,5296665.72,109326.0,0.0,0.0,6,6,0,2,6
+2015,Culture & Recreation,AAM Asian Art Museum,3385468.74,371958.82,0.0,41566.06,22,22,0,2,22
+2015,Culture & Recreation,WAR War Memorial,2997272.8,210334.82,0.0,785354.76,588,456,0,0,588
+2015,Human Welfare & Neighborhood Development,CSS Child Support Services,2936453.04,49085.979999999996,0.0,15079.94,174,142,0,2,174
+2015,General Administration & Finance,ASR Assessor / Recorder,1945159.62,135577.78,0.0,1522004.34,344,262,0,0,344
+2015,Public Protection,PDR Public Defender,1531099.3,250949.72,0.0,173694.41999999998,368,354,0,0,368
+2015,General Administration & Finance,ETH Ethics Commission,782444.94,8704.24,0.0,186871.74,102,94,0,0,102
+2015,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,513059.12,20461.74,0.0,233364.0,126,106,0,0,126
+2015,Human Welfare & Neighborhood Development,HRC Human Rights Commission,497243.45999999996,126282.44,0.0,0.0,80,80,0,0,80
+2015,"Public Works, Transportation & Commerce",BOA Board Of Appeals - PAB,72112.94,17773.68,0.0,19628.12,42,36,0,0,42
+2015,Culture & Recreation,LLB Law Library,31254.24,0.0,0.0,886.0,4,4,0,0,4
+2015,General Administration & Finance,CSC Civil Service Commission,19085.1,0.0,0.0,1568.3600000000001,12,12,0,0,12
+2016,"Public Works, Transportation & Commerce",AIR Airport Commission,1731347314.76,128068218.12,0.0,172298686.58,7716,4426,0,178,7716
+2016,Community Health,DPH Public Health,1562589171.9,152140807.66,0.0,373203212.04,20596,9160,118,230,20596
+2016,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,1391388614.1399999,142766283.74,0.0,1202547989.5,27206,5828,0,162,27206
+2016,"Public Works, Transportation & Commerce",PUB Public Utilities Bureaus,623875112.88,64783868.16,0.0,735542112.44,6098,2864,26,84,6098
+2016,"Public Works, Transportation & Commerce",WTR Water Enterprise,603743585.78,15863754.7,0.0,94228835.28,19708,7140,4,32,19708
+2016,General City Responsibilities,GEN General City / Unallocated,573203361.24,201269.6,0.0,4060812.26,466,406,0,10,466
+2016,"Public Works, Transportation & Commerce",DPW GSA - Public Works,527759165.15999997,59388967.980000004,0.0,463079144.34000003,13452,4140,26,100,13452
+2016,Human Welfare & Neighborhood Development,HSA Human Services Agency,377351637.6,47899345.52,0.0,52994746.32,5062,2692,0,58,5062
+2016,General Administration & Finance,MYR Mayor,375466321.58,27975276.94,0.0,187662807.88,2456,1696,0,64,2456
+2016,General Administration & Finance,ADM Gen Svcs Agency-City Admin,325252120.08,15844417.3,0.0,23585722.02,9614,5350,6,30,9614
+2016,"Public Works, Transportation & Commerce",HHP Hetch Hetchy Water & Power,215347544.84,15405616.0,0.0,65794615.78,9092,3128,4,42,9092
+2016,Human Welfare & Neighborhood Development,USD County Education Office,211825540.04000002,0.0,0.0,0.0,4,4,0,4,4
+2016,"Public Works, Transportation & Commerce",WWE Wastewater Enterprise,202741294.28,13718995.54,0.0,66251182.6,4874,2238,0,18,4874
+2016,Human Welfare & Neighborhood Development,CII Commty Invest & Infrstrctr,186056530.04000002,15339249.84,0.0,124761658.1,580,522,0,52,580
+2016,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,144020048.32,11809632.12,0.0,37844531.12,2114,1202,0,12,2114
+2016,General Administration & Finance,DT GSA - Technology,123592195.24,12347509.12,0.0,33376247.68,2936,1060,0,24,2936
+2016,General Administration & Finance,HRD Human Resources,118550417.44,3619151.56,0.0,1306457.28,1116,726,4,8,1116
+2016,Culture & Recreation,REC Recreation & Park Commsn,85234573.42,4002429.4,0.0,25584742.52,8880,3620,0,12,8880
+2016,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,84868405.12,12031881.84,0.0,3668249.92,316,266,0,8,316
+2016,General Administration & Finance,RET Retirement System,84338400.32000001,12931699.879999999,0.0,30045719.92,574,476,0,30,574
+2016,General Administration & Finance,HSS Health Service System,70869901.22,460768.13999999996,0.0,588422.18,370,286,4,6,370
+2016,Public Protection,CRT Superior Court,65689292.4,2645832.54,0.0,826.78,432,430,0,4,432
+2016,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,57058425.78,0.0,0.0,0.0,4,4,0,4,4
+2016,"Public Works, Transportation & Commerce",PRT Port,52078944.56,5095868.92,0.0,26883018.32,4508,2364,0,8,4508
+2016,Public Protection,DEM Emergency Management,49833177.2,2103165.62,0.0,29215449.14,1294,842,0,10,1294
+2016,General Administration & Finance,CON Controller,49120122.96,4099405.6799999997,0.0,16457215.76,1418,798,16,8,1418
+2016,Public Protection,SHF Sheriff,47264905.68,2086404.2,0.0,8616238.42,2738,1432,0,4,2738
+2016,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,45862107.0,4898226.24,0.0,15561324.219999999,1398,1062,0,0,1398
+2016,Public Protection,POL Police,45762220.379999995,3714344.56,0.0,13017697.5,4322,2050,0,4,4322
+2016,Public Protection,FIR Fire Department,45588879.28,2034147.1400000001,0.0,7254763.36,4082,1338,0,12,4082
+2016,Culture & Recreation,LIB Public Library,44903246.44,3964642.42,0.0,2634657.52,2130,1440,0,4,2130
+2016,Culture & Recreation,ART Arts Commission,27004788.72,1015157.3,0.0,12289565.54,2320,1948,0,2,2320
+2016,Culture & Recreation,WAR War Memorial,19100709.12,343039.86,0.0,661559.32,790,532,0,4,790
+2016,General Administration & Finance,REG Elections,16882088.240000002,1057924.42,0.0,1732493.96,7898,7708,0,0,7898
+2016,Human Welfare & Neighborhood Development,ENV Environment,14407492.9,2126871.44,0.0,5896497.04,1138,964,0,2,1138
+2016,Public Protection,ADP Adult Probation,14044016.14,1916849.82,0.0,9123797.040000001,614,440,0,2,614
+2016,"Public Works, Transportation & Commerce",DBI Building Inspection,12994386.74,3206888.1,0.0,4848998.82,834,490,12,0,834
+2016,Culture & Recreation,FAM Fine Arts Museum,11491100.78,1236522.72,0.0,2835346.04,146,128,2,4,146
+2016,Human Welfare & Neighborhood Development,WOM Status Of Women,11038188.26,2328640.2,0.0,454176.69999999995,318,272,0,0,318
+2016,General Administration & Finance,TTX Treasurer/Tax Collector,9315377.1,1840122.82,0.0,2408307.34,844,556,0,0,844
+2016,Public Protection,JUV Juvenile Probation,9309979.12,338992.2,0.0,1794132.74,1182,852,0,2,1182
+2016,General Administration & Finance,CPC City Planning,8875387.88,1845084.4,0.0,7990088.02,832,536,0,0,832
+2016,General Administration & Finance,CAT City Attorney,7007822.279999999,322521.42,0.0,40906.44,296,264,0,2,296
+2016,Public Protection,DAT District Attorney,6342711.859999999,597727.36,0.0,892172.62,1482,996,0,0,1482
+2016,General Administration & Finance,BOS Board Of Supervisors,6339775.4799999995,219488.34,0.0,40162.12,472,300,4,2,472
+2016,Culture & Recreation,SCI Academy Of Sciences,6257828.12,577891.7,0.0,0.0,6,6,0,2,6
+2016,Culture & Recreation,AAM Asian Art Museum,4519080.82,541176.12,0.0,383883.68,34,30,0,2,34
+2016,Human Welfare & Neighborhood Development,CSS Child Support Services,3595624.46,13572.02,0.0,25541.38,172,134,0,2,172
+2016,General Administration & Finance,ASR Assessor / Recorder,1930713.08,89268.58,0.0,5679300.98,366,276,4,0,366
+2016,Public Protection,PDR Public Defender,1912505.42,394108.74,0.0,111968.8,376,336,0,0,376
+2016,General Administration & Finance,ETH Ethics Commission,1833994.58,45435.04,0.0,148102.8,112,102,0,0,112
+2016,Human Welfare & Neighborhood Development,HRC Human Rights Commission,710767.84,343218.44,0.0,551451.42,76,74,0,0,76
+2016,"Public Works, Transportation & Commerce",HHP CleanPowerSF,597896.8200000001,2559203.2800000003,0.0,917471.5,8,8,0,0,8
+2016,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,488329.18,120027.16,0.0,155854.0,128,110,0,0,128
+2016,"Public Works, Transportation & Commerce",BOA Board Of Appeals - PAB,119065.40000000001,4176.52,0.0,0.0,44,42,2,0,44
+2016,Culture & Recreation,LLB Law Library,32061.4,0.0,0.0,4240.0,8,8,2,0,8
+2016,General Administration & Finance,CSC Civil Service Commission,18443.46,1581.74,0.0,995.12,20,20,0,0,20
+2017,"Public Works, Transportation & Commerce",AIR Airport Commission,2296015368.5,-48696.1,0.0,435219523.08,8272,4376,0,230,8272
+2017,Community Health,DPH Public Health,1915586202.14,-86181.5,0.0,355455920.1,20866,8686,124,246,20866
+2017,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,1514148123.28,0.0,0.0,1323893422.64,27876,5208,0,188,27876
+2017,"Public Works, Transportation & Commerce",PUB Public Utilities Bureaus,634951548.06,0.0,0.0,707535884.22,6306,2606,12,86,6306
+2017,"Public Works, Transportation & Commerce",DPW GSA - Public Works,630000769.32,0.0,0.0,489213677.96,15310,4082,42,128,15310
+2017,"Public Works, Transportation & Commerce",WTR Water Enterprise,612779794.5200001,0.0,0.0,184062316.48,18044,6046,6,32,18044
+2017,General City Responsibilities,GEN General City / Unallocated,581352639.66,0.0,0.0,2659324.06,194,124,0,12,194
+2017,General Administration & Finance,MYR Mayor,496217082.76,0.0,0.0,265593883.58,2662,1664,0,108,2662
+2017,General Administration & Finance,ADM Gen Svcs Agency-City Admin,472026924.86,-981.76,0.0,43284198.92,9374,5176,8,36,9374
+2017,Human Welfare & Neighborhood Development,HSA Human Services Agency,305065759.64,0.0,0.0,78609856.94,4772,2464,2,38,4772
+2017,Human Welfare & Neighborhood Development,HOM HOMELESSNESS SERVICES,233450323.06,0.0,0.0,60362425.86,656,480,0,46,656
+2017,"Public Works, Transportation & Commerce",WWE Wastewater Enterprise,229590898.34,0.0,0.0,125657913.84,5308,2162,2,32,5308
+2017,Human Welfare & Neighborhood Development,CII Commty Invest & Infrstrctr,224715194.18,0.0,0.0,93177106.4,500,432,0,44,500
+2017,"Public Works, Transportation & Commerce",HHP Hetch Hetchy Water & Power,216481432.98000002,-717.64,0.0,98762165.68,9304,2786,12,40,9304
+2017,Human Welfare & Neighborhood Development,USD County Education Office,185977539.18,0.0,0.0,0.0,4,2,0,4,4
+2017,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,172222106.24,0.0,0.0,48455663.0,2024,1134,0,18,2024
+2017,General Administration & Finance,DT GSA - Technology,128760560.03999999,0.0,0.0,56918215.419999994,3054,1012,0,22,3054
+2017,General Administration & Finance,HRD Human Resources,125522380.46,7948.8,0.0,3651968.84,1432,1022,8,8,1432
+2017,Culture & Recreation,REC Recreation & Park Commsn,92933407.72,4228.4,0.0,26765876.2,9392,3314,0,12,9392
+2017,"Public Works, Transportation & Commerce",PRT Port,85640051.62,0.0,0.0,31004183.799999997,4114,2106,0,22,4114
+2017,General Administration & Finance,RET Retirement System,84773977.08,0.0,0.0,31133482.4,654,536,0,26,654
+2017,Public Protection,CRT Superior Court,63987335.480000004,-473.0,0.0,3386.7,378,374,0,4,378
+2017,General Administration & Finance,HSS Health Service System,61421117.760000005,0.0,0.0,1063979.3,380,272,4,6,380
+2017,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,56034125.0,0.0,0.0,0.0,4,4,0,4,4
+2017,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,53587898.96,0.0,0.0,3878652.6599999997,252,228,0,8,252
+2017,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,52877447.7,0.0,0.0,31254029.96,1600,1276,0,0,1600
+2017,General Administration & Finance,CON Controller,51990347.72,0.0,0.0,23910969.2,1410,784,18,4,1410
+2017,Public Protection,SHF Sheriff,49556583.81999999,0.0,0.0,9608990.24,2772,1320,0,6,2772
+2017,Public Protection,POL Police,49235997.88,0.0,0.0,18544678.74,4340,1992,10,2,4340
+2017,Culture & Recreation,LIB Public Library,49152949.5,0.0,0.0,10270475.299999999,2216,1462,0,6,2216
+2017,Public Protection,DEM Emergency Management,46292081.22,0.0,0.0,59584824.980000004,1248,780,0,10,1248
+2017,"Public Works, Transportation & Commerce",HHP CleanPowerSF,41427066.22,0.0,0.0,7727608.08,108,98,0,8,108
+2017,Public Protection,FIR Fire Department,37343208.18,0.0,0.0,14900529.219999999,3252,1462,0,6,3252
+2017,Culture & Recreation,ART Arts Commission,31515266.7,0.0,0.0,13486769.54,2318,1950,2,2,2318
+2017,Culture & Recreation,WAR War Memorial,21480237.7,-40.0,0.0,822519.6,892,498,0,2,892
+2017,Public Protection,ADP Adult Probation,17631379.3,0.0,0.0,6376359.54,660,472,0,4,660
+2017,"Public Works, Transportation & Commerce",DBI Building Inspection,15241142.879999999,0.0,0.0,5374419.46,904,496,10,0,904
+2017,General Administration & Finance,CPC City Planning,14981945.96,0.0,0.0,12723669.1,798,566,0,2,798
+2017,General Administration & Finance,REG Elections,14426348.56,-69.1,0.0,364925.94,7190,7060,2,4,7190
+2017,Human Welfare & Neighborhood Development,ENV Environment,13647098.66,0.0,0.0,5756160.92,892,698,0,0,892
+2017,Human Welfare & Neighborhood Development,WOM Status Of Women,13307709.72,0.0,0.0,2259157.36,320,266,0,0,320
+2017,Culture & Recreation,FAM Fine Arts Museum,11629935.3,0.0,0.0,2890700.32,130,110,0,2,130
+2017,General Administration & Finance,TTX Treasurer/Tax Collector,10983118.08,0.0,0.0,4358835.24,772,530,0,0,772
+2017,Public Protection,JUV Juvenile Probation,10839345.36,0.0,0.0,2451921.1399999997,1104,844,0,2,1104
+2017,Public Protection,DAT District Attorney,7831143.52,0.0,0.0,1601360.02,1544,984,0,0,1544
+2017,Culture & Recreation,SCI Academy Of Sciences,7613793.04,0.0,0.0,0.0,8,8,0,2,8
+2017,General Administration & Finance,CAT City Attorney,7604662.300000001,0.0,0.0,164973.9,264,248,0,2,264
+2017,General Administration & Finance,BOS Board Of Supervisors,5735738.1,0.0,0.0,752904.98,432,298,6,2,432
+2017,Culture & Recreation,AAM Asian Art Museum,5624407.5,0.0,0.0,322033.26,62,60,0,2,62
+2017,General Administration & Finance,ASR Assessor / Recorder,5491014.82,0.0,0.0,7809350.119999999,428,306,0,0,428
+2017,Human Welfare & Neighborhood Development,CSS Child Support Services,3698144.6799999997,0.0,0.0,74349.92,216,156,4,2,216
+2017,General Administration & Finance,ETH Ethics Commission,2474722.72,0.0,0.0,268881.5,128,104,0,0,128
+2017,Public Protection,PDR Public Defender,2421845.34,0.0,0.0,102805.84,468,418,0,0,468
+2017,Human Welfare & Neighborhood Development,HRC Human Rights Commission,1591799.3800000001,0.0,0.0,1070410.56,88,84,0,0,88
+2017,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,529293.04,0.0,0.0,320332.60000000003,112,100,0,0,112
+2017,"Public Works, Transportation & Commerce",BOA Board Of Appeals - PAB,68678.7,0.0,0.0,37146.479999999996,38,34,0,0,38
+2017,Culture & Recreation,LLB Law Library,34470.36,0.0,0.0,0.0,4,4,0,0,4
+2017,General Administration & Finance,CSC Civil Service Commission,21325.62,0.0,0.0,3693.12,18,18,0,0,18
+2018,General Administration & Finance,HSS Health Service System,295233111653.78,0.0,253162.98,0.0,2520,536,100,714,880
+2018,"Public Works, Transportation & Commerce",PUC Public Utilities Commsn,143062229703.22,7.275957614183426e-12,287058948.02,3127387.12,60878,13728,1502,3974,15200
+2018,"Public Works, Transportation & Commerce",AIR Airport Commission,138842106481.74002,1973051.5200000044,109798796.83999999,164699.44,21144,6952,1350,830,6142
+2018,General City Responsibilities,GEN General City - Unallocated,115473302005.78,307679.68,0.0,0.0,994,216,0,476,360
+2018,Community Health,DPH Public Health,73903187425.22,-1630802.660000016,53572828.34,0.0,195872,17090,2418,1480,19122
+2018,Human Welfare & Neighborhood Development,USD County Education Office,42316741184.96,0.0,0.0,0.0,100,14,0,100,40
+2018,General Administration & Finance,HRD Human Resources,20034180756.24,0.0,74044.38,0.0,4894,1338,0,244,1720
+2018,General Administration & Finance,ADM GSA - City Administrator,16914686941.960001,-145295.03999999817,3728088.7,0.0,25496,7516,3554,224,7000
+2018,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,13506068727.4,-74294109.12,71481095.88,7642127.14,25072,6728,52,584,3500
+2018,Public Protection,CRT Superior Court,10738660308.98,0.0,0.0,0.0,7416,1990,0,544,2960
+2018,Human Welfare & Neighborhood Development,CII Commty Invest & Infrstrctr,10492642297.460001,0.0,0.0,0.0,3900,932,0,384,1480
+2018,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,9851358000.0,0.0,0.0,0.0,50,14,0,50,20
+2018,Culture & Recreation,REC Recreation & Park Commsn,6172373933.5,2158282.2799999975,4635186.18,0.0,18438,5418,66,216,4180
+2018,Human Welfare & Neighborhood Development,HSA Human Services Agency,3384046552.04,0.0,16488384.26,0.0,15918,4662,52,508,4580
+2018,Public Protection,SHF Sheriff,3342768277.38,-42106.24,1062319.22,0.0,8022,2402,100,88,2400
+2018,Culture & Recreation,WAR War Memorial,3219554965.22,0.0,26204.3,0.0,2050,674,50,52,600
+2018,"Public Works, Transportation & Commerce",PRT Port,2899191997.08,2333760.0,5632452.72,0.0,13566,3958,0,120,4180
+2018,Public Protection,DEM Emergency Management,2864878843.68,0.0,23029495.18,0.0,3036,1122,0,208,900
+2018,"Public Works, Transportation & Commerce",DPW Public Works,2446777184.7200003,-1.862645149230957e-09,103139472.86,1709402.92,17164,4846,228,120,2580
+2018,Culture & Recreation,FAM Fine Arts Museum,1521402620.18,0.0,115464.72,0.0,350,128,0,86,100
+2018,General Administration & Finance,MYR Mayor,1236322694.06,-22527.999999990687,12654047.24,0.0,5730,1824,0,242,1480
+2018,Culture & Recreation,LIB Public Library,1021539087.6,0.0,453585.42000000004,0.0,5660,2142,1050,72,1540
+2018,Public Protection,JUV Juvenile Probation,981865357.12,0.0,156590.74,0.0,3030,1066,2,74,860
+2018,Culture & Recreation,SCI Academy of Sciences,750402347.2,0.0,0.0,0.0,250,14,0,96,100
+2018,Public Protection,POL Police,736033673.14,1.3096723705530167e-10,3186271.14,0.0,15668,4400,302,102,5300
+2018,General Administration & Finance,DT  GSA - Technology,628596537.28,9.313225746154785e-10,10105075.14,0.0,5198,1522,0,112,1220
+2018,General Administration & Finance,RET Retirement System,535797472.12,0.0,527264.3599999999,0.0,3144,816,150,78,1102
+2018,General Administration & Finance,CAT City Attorney,470912119.86,0.0,2.3,0.0,3288,854,2,86,1260
+2018,Human Welfare & Neighborhood Development,HOM Homelessness Services,418657739.06,22528.0,7775717.36,0.0,10164,3500,0,74,3300
+2018,Public Protection,FIR Fire Department,363493015.2,0.0,927534.8,0.0,3466,1638,104,36,680
+2018,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,362474457.52,0.0,1631229.76,0.0,6414,2144,0,40,2200
+2018,General Administration & Finance,REG Elections,288479538.58000004,0.0,20432.420000000002,0.0,1228,444,50,50,380
+2018,General Administration & Finance,TTX Treasurer-Tax Collector,261474116.22,-4690343.68,33117.5,0.0,5904,1104,102,46,2140
+2018,Culture & Recreation,ART Arts Commission,226725549.24,3.637978807091713e-11,822606.56,0.0,18796,5050,100,4,7120
+2018,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,172187754.46,-2.7939677238464355e-09,6841013.739999999,0.0,2896,1240,150,16,460
+2018,Public Protection,DAT District Attorney,161068922.62,0.0,221133.66,0.0,8158,1966,50,22,2900
+2018,General Administration & Finance,CON Controller,103361399.03999999,-664280.32,3143048.56,0.0,6202,1618,150,6,2160
+2018,Public Protection,ADP Adult Probation,94136975.96,0.0,52328.8,0.0,1754,622,0,12,540
+2018,General Administration & Finance,BOS Board of Supervisors,84526828.66,0.0,55839.16,0.0,1416,486,50,18,440
+2018,Public Protection,PDR Public Defender,80497618.66,0.0,6643.22,0.0,5424,1464,0,8,2120
+2018,General Administration & Finance,CPC City Planning,78443940.38,0.0,1329022.06,0.0,1184,652,0,14,200
+2018,Human Welfare & Neighborhood Development,ENV Environment,64990362.98,0.0,110576.23999999999,0.0,3620,840,0,2,1240
+2018,Culture & Recreation,AAM Asian Art Museum,62504364.14,0.0,45206.5,0.0,80,44,0,14,20
+2018,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,45403544.04,0.0,6097.38,0.0,534,244,0,6,140
+2018,"Public Works, Transportation & Commerce",DBI Building Inspection,35518300.2,31965.120000000003,1915197.12,0.0,1528,662,52,4,380
+2018,General Administration & Finance,ASR Assessor - Recorder,32730042.62,176408.32000000004,583800.36,0.0,1746,614,0,6,520
+2018,Human Welfare & Neighborhood Development,WOM Status of Women,32211863.02,0.0,387485.3,0.0,894,348,12,4,260
+2018,Human Welfare & Neighborhood Development,HRC Human Rights Commission,23206631.6,0.0,0.0,0.0,724,234,50,2,240
+2018,Human Welfare & Neighborhood Development,CSS Child Support Services,18422524.44,0.0,473.12,0.0,1042,276,0,2,364
+2018,Public Protection,DPA Police Accountabilty,11983970.72,0.0,774.86,0.0,1694,392,0,0,640
+2018,General Administration & Finance,ETH Ethics Commission,6467480.4799999995,0.0,22212.86,0.0,604,166,0,0,220
+2018,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,3776038.38,0.0,0.0,0.0,666,230,50,0,220
+2018,"Public Works, Transportation & Commerce",BOA Board of Appeals,2919723.88,0.0,0.0,0.0,176,64,0,0,60
+2018,Culture & Recreation,LLB Law Library,146328.32,0.0,0.0,0.0,158,46,0,0,60
+2018,General City Responsibilities,Unknown,0.0,4690343.680000001,0.0,0.0,100,14,0,0,40
+2018,General Administration & Finance,CSC Civil Service Commission,-33928.700000000004,0.0,0.0,0.0,108,36,50,0,40
+2019,General Administration & Finance,HSS Health Service System,331744555999.22003,0.0,126509.22,0.0,2466,500,50,706,860
+2019,"Public Works, Transportation & Commerce",AIR Airport Commission,176609190811.02,0.0,43336720.28,0.0,23292,6938,902,958,6722
+2019,General City Responsibilities,GEN General City - Unallocated,150780646469.76,0.0,0.0,0.0,1126,298,0,376,400
+2019,"Public Works, Transportation & Commerce",PUC Public Utilities Commsn,130847256277.2,-2781116.8,297179362.32,6554544.12,62634,12276,1450,2304,14160
+2019,Community Health,DPH Public Health,73923516477.62,-21828371.84,43905344.28,0.0,266680,14792,7418,2236,19982
+2019,Human Welfare & Neighborhood Development,USD County Education Office,39538466447.04,0.0,0.0,0.0,100,12,0,100,40
+2019,General Administration & Finance,ADM GSA - City Administrator,18329576782.96,97187.2,2464680.08,0.0,25368,6814,2808,400,6502
+2019,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,12631947977.939999,0.0,97165258.62,4045538.8,33028,6620,508,750,4702
+2019,Public Protection,CRT Superior Court,11019697599.4,0.0,0.0,0.0,6570,1740,0,604,2620
+2019,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,9830290800.0,0.0,0.0,0.0,50,12,0,50,20
+2019,Human Welfare & Neighborhood Development,CII Commty Invest & Infrstrctr,8751681594.72,0.0,0.0,0.0,4670,1082,0,416,1760
+2019,"Public Works, Transportation & Commerce",DPW Public Works,8113910484.66,0.0,73803659.46000001,141652.8,23628,5012,206,560,3482
+2019,Human Welfare & Neighborhood Development,HSA Human Services Agency,5130304890.16,0.0,10773433.98,0.0,14614,4314,8,340,3620
+2019,Culture & Recreation,REC Recreation & Park Commsn,4821198125.7,0.0,1230915.46,0.0,20426,4990,1456,290,4600
+2019,Human Welfare & Neighborhood Development,HOM Homelessness Services,4685612979.48,0.0,3514516.8,0.0,3718,1366,152,404,720
+2019,Culture & Recreation,LIB Public Library,3384230324.6,0.0,40405.72,0.0,6488,2186,1502,128,1760
+2019,Public Protection,SHF Sheriff,3315413974.84,0.0,724635.44,0.0,10312,2576,350,84,3140
+2019,Culture & Recreation,WAR War Memorial,3280066641.7200003,0.0,7850.76,0.0,1876,680,102,50,360
+2019,"Public Works, Transportation & Commerce",PRT Port,3184258050.22,0.0,3234426.38,0.0,13002,3726,50,170,3760
+2019,General Administration & Finance,MYR Mayor,2477414019.36,0.0,6233101.04,0.0,12478,3958,0,380,3900
+2019,Public Protection,DEM Emergency Management,2002216067.1200001,0.0,20470532.7,0.0,3380,1132,50,124,1000
+2019,General Administration & Finance,HRD Human Resources,1751485792.72,0.0,166.42,0.0,4682,1200,50,116,1560
+2019,Culture & Recreation,SCI Academy of Sciences,1601200370.88,0.0,0.0,0.0,350,14,0,162,140
+2019,General Administration & Finance,DT  GSA - Technology,1291503326.94,0.0,5087380.16,0.0,5616,1526,0,172,1340
+2019,Culture & Recreation,FAM Fine Arts Museum,1027049230.7199999,0.0,114734.71999999999,0.0,414,160,0,90,100
+2019,Public Protection,JUV Juvenile Probation,1007247637.66,0.0,294984.16000000003,0.0,4042,1250,100,76,1140
+2019,Public Protection,POL Police,749700503.72,0.0,808524.98,0.0,17418,4588,350,110,5740
+2019,General Administration & Finance,TTX Treasurer-Tax Collector,585638012.54,0.0,26958.260000000002,0.0,5304,1072,102,90,1860
+2019,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,508717922.22,0.0,1654381.94,0.0,9570,2950,0,64,3320
+2019,General Administration & Finance,RET Retirement System,452599800.47999996,0.0,0.0,0.0,2666,802,50,66,902
+2019,Culture & Recreation,ART Arts Commission,445983191.5,0.0,287714.38,0.0,20432,5376,100,42,7520
+2019,General Administration & Finance,REG Elections,299167087.44,0.0,552.4,0.0,1768,578,250,54,540
+2019,General Administration & Finance,CAT City Attorney,272659500.96,0.0,0.0,0.0,3002,776,0,50,1140
+2019,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,239941896.26,0.0,559620.6799999999,0.0,2560,1308,0,22,280
+2019,Public Protection,DAT District Attorney,170702798.98,0.0,60688.74,0.0,7572,1918,0,22,2700
+2019,Public Protection,FIR Fire Department,162634001.44,0.0,71126.2,0.0,3528,1612,62,28,560
+2019,Public Protection,ADP Adult Probation,123791771.56,0.0,482766.98,0.0,3250,926,50,14,960
+2019,General Administration & Finance,CON Controller,118506401.88,0.0,1095801.54,0.0,4602,1244,152,18,1340
+2019,Human Welfare & Neighborhood Development,ENV Environment,111151523.02,0.0,31487.7,0.0,3712,876,0,12,1220
+2019,"Public Works, Transportation & Commerce",DBI Building Inspection,92118857.82,0.0,1883439.22,0.0,1676,644,100,14,380
+2019,General Administration & Finance,BOS Board of Supervisors,85043263.42,0.0,61307.68000000001,0.0,1358,444,52,18,440
+2019,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,83254124.0,0.0,6097.38,0.0,1030,342,0,6,320
+2019,Public Protection,PDR Public Defender,80028804.9,0.0,6643.22,0.0,4832,1256,0,8,1880
+2019,General Administration & Finance,CPC City Planning,51584514.9,0.0,721209.74,0.0,1532,666,52,6,300
+2019,General Administration & Finance,ASR Assessor - Recorder,45973478.519999996,0.0,16339.0,0.0,1716,606,0,6,480
+2019,Human Welfare & Neighborhood Development,HRC Human Rights Commission,39561826.18,0.0,0.0,0.0,804,248,0,6,240
+2019,Public Protection,DPA Police Accountabilty,22580280.86,0.0,774.8600000000001,0.0,1612,398,0,2,560
+2019,Human Welfare & Neighborhood Development,WOM Status of Women,19245977.04,0.0,0.0,0.0,880,326,50,0,260
+2019,Human Welfare & Neighborhood Development,CSS Child Support Services,13429200.88,0.0,473.12,0.0,1036,330,50,0,342
+2019,Culture & Recreation,AAM Asian Art Museum,8838887.72,0.0,0.0,0.0,70,64,0,2,0
+2019,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,5661354.9799999995,0.0,0.0,0.0,702,208,50,0,240
+2019,General Administration & Finance,ETH Ethics Commission,3285504.14,0.0,0.0,0.0,600,188,0,0,200
+2019,"Public Works, Transportation & Commerce",BOA Board of Appeals,3042041.1,0.0,0.0,0.0,140,64,0,0,40
+2019,General Administration & Finance,CSC Civil Service Commission,758712.88,0.0,0.0,0.0,114,36,0,0,40
+2019,Culture & Recreation,LLB Law Library,381344.46,0.0,0.0,0.0,264,64,50,0,100
+2020,General Administration & Finance,HSS Health Service System,322486632492.68,0.0,0.0,0.0,2092,535,0,700,740
+2020,General City Responsibilities,GEN General City - Unallocated,216514390622.08002,0.0,0.0,0.0,1452,362,0,416,540
+2020,"Public Works, Transportation & Commerce",AIR Airport Commission,181363827485.72,0.0,18459051.84,175524.9,18978,6296,1200,840,5200
+2020,"Public Works, Transportation & Commerce",PUC Public Utilities Commsn,142206046595.4,263169.82,123208272.13999999,23391319.02,55424,12048,1700,2136,10324
+2020,Community Health,DPH Public Health,65707196583.26,-103188.8,10568507.26,0.0,228328,14145,8204,2152,14660
+2020,Human Welfare & Neighborhood Development,USD County Education Office,36766536843.520004,0.0,0.0,0.0,100,14,0,100,40
+2020,General Administration & Finance,ADM GSA - City Administrator,23397060450.48,0.0,9639.28,0.0,22454,6895,3052,450,5440
+2020,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,12802017982.92,352.0,96666224.88000001,19306461.88,26598,6230,1350,654,2920
+2020,Human Welfare & Neighborhood Development,CII Commty Invest & Infrstrctr,10822630820.26,0.0,0.0,0.0,3252,862,0,462,1200
+2020,Public Protection,CRT Superior Court,10805969192.76,0.0,0.0,0.0,7072,1826,0,564,2820
+2020,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,9776236800.0,0.0,0.0,0.0,50,14,0,50,20
+2020,General Administration & Finance,MYR Mayor,5381826142.559999,0.0,546018.9199999999,0.0,5678,2517,0,340,1140
+2020,Public Protection,SHF Sheriff,3300497677.88,0.0,10.54,0.0,10360,2568,250,72,3100
+2020,Culture & Recreation,WAR War Memorial,3284323030.62,0.0,0.0,0.0,1646,694,200,50,340
+2020,"Public Works, Transportation & Commerce",PRT Port,3162366436.02,0.0,657130.08,0.0,11902,3515,0,176,3540
+2020,"Public Works, Transportation & Commerce",DPW Public Works,2973079829.98,0.0,76283597.58,0.0,19532,4760,300,202,1942
+2020,Culture & Recreation,REC Recreation & Park Commsn,2929035345.44,0.0,660866.88,0.0,17716,4886,600,232,4140
+2020,Human Welfare & Neighborhood Development,HSA Human Services Agency,2041470270.78,0.0,827584.02,0.0,14446,4464,52,272,3740
+2020,Public Protection,DEM Emergency Management,1971223613.9,0.0,512322.16000000003,0.0,3506,1109,6,116,980
+2020,General Administration & Finance,HRD Human Resources,1664734164.04,0.0,0.0,0.0,3690,1103,0,80,1200
+2020,General Administration & Finance,DT  GSA - Technology,1646571159.44,0.0,3150169.14,0.0,5558,1533,250,200,1300
+2020,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,1171012486.54,0.0,25782.18,0.0,11990,3704,0,182,4300
+2020,Culture & Recreation,SCI Academy of Sciences,1007300585.28,0.0,0.0,0.0,300,14,0,132,120
+2020,Public Protection,JUV Juvenile Probation,981872603.98,0.0,222202.74,0.0,4432,1192,204,72,1260
+2020,Culture & Recreation,LIB Public Library,851626789.3000001,0.0,3800.8999999999996,0.0,4814,1858,1000,98,1260
+2020,Public Protection,POL Police,807618916.0,-132.42,3388.58,0.0,14926,4274,154,118,4920
+2020,General Administration & Finance,TTX Treasurer-Tax Collector,614017314.28,0.0,11436.06,0.0,5316,1140,0,104,1880
+2020,General Administration & Finance,REG Elections,570683790.8,0.0,0.0,0.0,2136,713,250,74,640
+2020,General Administration & Finance,RET Retirement System,522520262.94,0.0,2000000.0,0.0,2674,822,150,64,880
+2020,Culture & Recreation,FAM Fine Arts Museum,493004136.82,-1910.54,5079.0,0.0,350,156,0,66,80
+2020,Human Welfare & Neighborhood Development,HOM Homelessness Services,447827032.09999996,0.0,877277.22,0.0,2656,1165,100,94,280
+2020,"Public Works, Transportation & Commerce",DBI Building Inspection,340015670.86,0.0,1919519.18,0.0,1084,497,50,30,220
+2020,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,269533049.96,0.0,398835.06000000006,0.0,2508,1286,0,16,220
+2020,General Administration & Finance,CAT City Attorney,236822145.84,0.0,0.0,0.0,2370,758,0,48,880
+2020,Culture & Recreation,ART Arts Commission,179717415.9,0.0,970.0,0.0,14020,4260,0,12,4980
+2020,Public Protection,FIR Fire Department,153150716.98,0.0,2615.6800000000003,0.0,4236,1718,400,30,860
+2020,Public Protection,DAT District Attorney,129054324.34,0.0,22048.64,0.0,5620,1408,0,18,1940
+2020,Public Protection,ADP Adult Probation,94979615.04,0.0,464378.57999999996,0.0,2178,778,0,12,620
+2020,Public Protection,PDR Public Defender,93090376.98,0.0,0.0,0.0,4550,1170,0,10,1760
+2020,Human Welfare & Neighborhood Development,ENV Environment,92485270.72,0.0,-22800.0,0.0,3134,758,0,6,1040
+2020,General Administration & Finance,BOS Board of Supervisors,85683775.02,0.0,128895.48,0.0,1174,421,0,18,360
+2020,Culture & Recreation,AAM Asian Art Museum,80148975.52000001,0.0,0.0,0.0,176,90,0,16,40
+2020,Human Welfare & Neighborhood Development,WOM Status of Women,55383727.58,0.0,0.0,0.0,670,306,0,6,180
+2020,General Administration & Finance,CON Controller,51756610.3,0.0,13429.16,0.0,3456,983,306,2,1020
+2020,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,49358700.839999996,0.0,0.0,0.0,508,244,0,2,120
+2020,Human Welfare & Neighborhood Development,HRC Human Rights Commission,42959558.14,0.0,0.0,0.0,1152,280,0,8,380
+2020,General Administration & Finance,ASR Assessor - Recorder,39836999.76,0.0,9300.0,0.0,1374,494,0,6,400
+2020,General Administration & Finance,CPC City Planning,23101089.84,0.0,31393.48,0.0,956,476,4,2,140
+2020,Public Protection,DPA Police Accountabilty,15928052.44,0.0,0.0,0.0,1178,376,50,2,400
+2020,Human Welfare & Neighborhood Development,CSS Child Support Services,9416768.74,0.0,0.0,0.0,892,276,0,0,300
+2020,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,3280515.2199999997,0.0,0.0,0.0,550,211,50,0,180
+2020,General Administration & Finance,ETH Ethics Commission,3122605.98,0.0,0.0,0.0,654,204,0,0,220
+2020,"Public Works, Transportation & Commerce",BOA Board of Appeals,2800813.2,0.0,0.0,0.0,298,114,0,0,100
+2020,General Administration & Finance,CSC Civil Service Commission,700619.6599999999,0.0,0.0,0.0,210,64,50,0,80
+2020,Culture & Recreation,LLB Law Library,42168.12,0.0,0.0,0.0,112,40,0,0,40
+2021,General Administration & Finance,HSS Health Service System,370964433591.93994,0.0,0.0,0.0,1688,400,0,628,620
+2021,General City Responsibilities,GEN General City - Unallocated,184626999287.02002,0.0,0.0,0.0,930,234,0,440,360
+2021,"Public Works, Transportation & Commerce",PUC Public Utilities Commsn,143404448101.24002,0.0,62389467.839999996,48857169.8,49038,10540,1950,2128,8960
+2021,"Public Works, Transportation & Commerce",AIR Airport Commission,103723603201.2,0.0,18973840.6,640528.16,12830,4566,1250,690,3480
+2021,Community Health,DPH Public Health,88724425697.96,-159385.6,3033273.26,0.0,229394,12722,9054,2694,15406
+2021,Human Welfare & Neighborhood Development,USD County Education Office,57721007836.799995,0.0,0.0,0.0,200,28,0,100,80
+2021,Human Welfare & Neighborhood Development,CII Commty Invest & Infrstrctr,16921063865.0,0.0,0.0,0.0,3442,766,2,372,1300
+2021,General Administration & Finance,ADM GSA - City Administrator,15269229575.36,0.0,-18120.72,0.0,20012,6010,3500,308,4500
+2021,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,11386471800.0,0.0,0.0,0.0,100,14,0,100,40
+2021,Public Protection,CRT Superior Court,10866915394.24,0.0,0.0,0.0,6326,1674,0,498,2520
+2021,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,10620874249.22,1198280.8,99547726.2,20115774.259999998,21798,5226,1500,536,2382
+2021,"Public Works, Transportation & Commerce",DPW Public Works,3264681700.6,0.0,27796674.62,0.0,16436,4420,200,366,1882
+2021,Culture & Recreation,WAR War Memorial,3194264796.68,0.0,0.0,0.0,1982,660,50,64,540
+2021,Human Welfare & Neighborhood Development,HSA Human Services Agency,2953247757.1,0.0,108929.86,0.0,13944,4462,0,390,3400
+2021,"Public Works, Transportation & Commerce",PRT Port,2779715401.88,0.0,13998.3,0.0,8558,2660,0,192,2420
+2021,Culture & Recreation,REC Recreation & Park Commsn,2429566437.8199997,0.0,2748769.6,182480.0,12076,3338,150,164,2280
+2021,Public Protection,SHF Sheriff,2085701946.46,0.0,6593.66,0.0,8844,2182,50,80,2760
+2021,Public Protection,DEM Emergency Management,1833436940.2,0.0,0.0,0.0,2504,904,0,114,620
+2021,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,1548421488.32,0.0,0.0,0.0,6290,2098,0,266,2120
+2021,General Administration & Finance,HRD Human Resources,1517110961.8200002,0.0,691.86,0.0,3088,818,0,74,1080
+2021,General Administration & Finance,MYR Mayor,1433234477.76,0.0,0.0,0.0,4980,2608,0,226,840
+2021,General Administration & Finance,DT  GSA - Technology,946880526.08,0.0,42516.68,0.0,5296,1248,0,174,1200
+2021,Public Protection,JUV Juvenile Probation,923421745.04,0.0,201211.42,0.0,3522,1124,50,64,980
+2021,Human Welfare & Neighborhood Development,HOM Homelessness Services,825274946.22,0.0,53897.42,0.0,2986,1194,100,194,160
+2021,Culture & Recreation,SCI Academy of Sciences,808947670.08,0.0,0.0,0.0,250,14,0,106,100
+2021,General Administration & Finance,RET Retirement System,699486502.5200001,0.0,2000000.0,0.0,1942,656,100,78,620
+2021,Culture & Recreation,LIB Public Library,674364117.24,0.0,3701.7,0.0,3940,1278,1200,66,1080
+2021,General Administration & Finance,TTX Treasurer-Tax Collector,619277134.1,0.0,0.0,0.0,3354,786,2,120,1180
+2021,Public Protection,POL Police,571083389.16,0.0,11047.44,0.0,10514,3230,600,98,3300
+2021,Culture & Recreation,FAM Fine Arts Museum,377492707.08,0.0,5079.0,0.0,546,186,0,64,160
+2021,General Administration & Finance,REG Elections,304640510.12,0.0,0.0,0.0,1660,524,350,36,480
+2021,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,296621190.24,0.0,0.0,0.0,2700,1436,50,24,160
+2021,General Administration & Finance,CAT City Attorney,285189962.58,0.0,0.0,0.0,2178,680,0,48,800
+2021,Public Protection,FIR Fire Department,200790041.74,0.0,2690.6800000000003,0.0,3426,1506,150,32,620
+2021,General Administration & Finance,CON Controller,198152978.74,0.0,299.7,200000.0,1982,692,0,30,560
+2021,Culture & Recreation,ART Arts Commission,126161038.42,0.0,31649.08,0.0,7708,2674,0,8,2560
+2021,Human Welfare & Neighborhood Development,WOM Status of Women,124840188.03999999,0.0,0.0,0.0,474,294,0,20,60
+2021,Human Welfare & Neighborhood Development,ENV Environment,112074281.68,0.0,-17850.0,0.0,2160,578,0,16,720
+2021,Public Protection,PDR Public Defender,91484635.48,0.0,0.0,0.0,3472,950,0,8,1340
+2021,General Administration & Finance,ETH Ethics Commission,90990693.18,0.0,0.0,0.0,338,112,0,20,120
+2021,General Administration & Finance,BOS Board of Supervisors,74038581.52,0.0,83000.0,0.0,792,290,0,16,240
+2021,Public Protection,DAT District Attorney,68690350.54,0.0,22048.64,0.0,4452,1128,0,6,1600
+2021,Public Protection,ADP Adult Probation,53067456.8,0.0,8710.0,0.0,1816,602,150,6,500
+2021,Human Welfare & Neighborhood Development,HRC Human Rights Commission,51262782.46,0.0,0.0,0.0,768,168,0,12,260
+2021,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,47016573.1,0.0,0.0,0.0,292,226,0,4,0
+2021,"Public Works, Transportation & Commerce",DBI Building Inspection,44423920.6,0.0,64945.78,0.0,634,354,0,4,100
+2021,General Administration & Finance,ASR Assessor - Recorder,40734266.44,0.0,9300.0,0.0,1102,370,0,6,340
+2021,General Administration & Finance,CPC City Planning,15785919.299999999,0.0,0.0,0.0,710,326,0,0,120
+2021,Human Welfare & Neighborhood Development,CSS Child Support Services,13536320.56,0.0,0.0,0.0,672,190,0,2,220
+2021,Public Protection,DPA Police Accountabilty,7587945.28,0.0,0.0,0.0,540,218,50,2,160
+2021,Culture & Recreation,AAM Asian Art Museum,4378040.1,0.0,0.0,0.0,26,26,0,2,0
+2021,"Public Works, Transportation & Commerce",BOA Board of Appeals,2444910.1,0.0,0.0,0.0,228,76,0,0,80
+2021,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,1303842.4,0.0,0.0,0.0,378,150,50,0,120
+2021,General Administration & Finance,CSC Civil Service Commission,601062.38,0.0,0.0,0.0,56,18,0,0,20
+2021,Culture & Recreation,LLB Law Library,432640.6,0.0,0.0,0.0,104,32,0,0,40
+2022,General Administration & Finance,HSS Health Service System,368876475522.89996,0.0,0.0,0.0,1954,427,0,736,720
+2022,General City Responsibilities,GEN General City - Unallocated,190179312613.94,0.0,0.0,0.0,838,216,0,392,300
+2022,"Public Works, Transportation & Commerce",PUC Public Utilities Commsn,150934931672.9,-3290904.3200000003,61823847.94,125610808.28,47424,9934,2450,2354,8760
+2022,"Public Works, Transportation & Commerce",AIR Airport Commission,134411841589.68,0.0,18550895.68,15973400.0,10964,4041,1250,620,3020
+2022,Human Welfare & Neighborhood Development,USD County Education Office,57715276041.28,0.0,0.0,0.0,250,42,0,202,100
+2022,Community Health,DPH Public Health,56703363728.62,0.0,3011306.26,208480.0,224754,12021,8400,2436,13222
+2022,General Administration & Finance,ADM GSA - City Administrator,20792744908.3,-1442003.2,120385.56,0.0,20896,5921,3150,366,4760
+2022,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,19608275206.08,0.0,0.0,0.0,100,14,0,100,40
+2022,Public Protection,FIR Fire Department,13867001938.58,0.0,19876.06,0.0,3484,1554,152,88,620
+2022,Public Protection,CRT Superior Court,9832580561.0,0.0,0.0,0.0,5622,1460,0,452,2240
+2022,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,8200635936.16,15970.64,152568093.38,6757740.119999999,22050,5337,802,426,1976
+2022,Human Welfare & Neighborhood Development,CII Commty Invest & Infrstrctr,7605543952.4,0.0,4290.0,0.0,2894,750,0,260,1080
+2022,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,7314032113.06,0.0,490.0,0.0,17052,5037,0,618,6320
+2022,Human Welfare & Neighborhood Development,HSA Human Services Agency,4083422269.04,0.0,1234810.0000000002,0.0,11320,3932,2,482,2320
+2022,General Administration & Finance,HRD Human Resources,3290764314.2799997,0.0,0.02,0.0,3882,1094,50,126,1300
+2022,Culture & Recreation,WAR War Memorial,3207609404.78,0.0,0.0,0.0,1626,639,300,50,340
+2022,"Public Works, Transportation & Commerce",DPW Public Works,3099311023.58,0.0,36505016.68,18481575.64,14628,4009,252,268,1642
+2022,"Public Works, Transportation & Commerce",PRT Port,2730425683.04,0.0,90320.94,0.0,8224,2575,0,154,2300
+2022,Culture & Recreation,REC Recreation & Park Commsn,2715173962.34,0.0,2327546.92,46354008.94,12486,3730,500,208,1820
+2022,Public Protection,SHF Sheriff,2563330330.2599998,0.0,6995.040000000001,0.0,7472,2023,100,68,2220
+2022,General Administration & Finance,MYR Mayor,2160763522.7,0.0,0.0,0.0,5048,2697,0,230,680
+2022,Public Protection,DEM Emergency Management,2016670867.46,0.0,123607.34,0.0,2960,1058,50,122,800
+2022,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,1216178335.54,0.0,0.0,0.0,2830,1407,0,82,220
+2022,Human Welfare & Neighborhood Development,HOM Homelessness Services,999256921.24,0.0,54417.92,0.0,3178,1343,100,194,180
+2022,General Administration & Finance,RET Retirement System,963806275.5799999,0.0,0.0,0.0,2272,745,50,82,740
+2022,Public Protection,JUV Juvenile Probation,885498571.98,0.0,202164.78,0.0,3604,1157,0,50,900
+2022,Culture & Recreation,SCI Academy of Sciences,720077702.0799999,0.0,0.0,0.0,250,14,0,86,100
+2022,Culture & Recreation,LIB Public Library,668110219.82,0.0,0.0,0.0,3856,1515,800,66,820
+2022,General Administration & Finance,TTX Treasurer-Tax Collector,511512729.06,0.0,0.0,0.0,3152,689,50,86,1100
+2022,Public Protection,POL Police,478823288.2,0.0,11791.82,0.0,10450,3319,450,84,3260
+2022,General Administration & Finance,REG Elections,467497101.4,0.0,0.0,0.0,1090,505,100,58,240
+2022,General Administration & Finance,DT  GSA - Technology,367461520.98,0.0,592022.34,0.0,3776,1071,250,106,620
+2022,Culture & Recreation,FAM Fine Arts Museum,293555856.46,0.0,0.0,0.0,340,138,0,44,80
+2022,General Administration & Finance,CAT City Attorney,208098276.32,0.0,400.0,0.0,1688,552,0,40,600
+2022,"Public Works, Transportation & Commerce",DBI Building Inspection,198489453.84,0.0,64945.78,0.0,978,446,2,30,180
+2022,Culture & Recreation,ART Arts Commission,151442824.72,0.0,0.0,0.0,10182,3203,50,6,3560
+2022,General Administration & Finance,CON Controller,123743977.98,0.0,1487.7,0.0,1822,670,0,20,440
+2022,Public Protection,PDR Public Defender,105653501.08,0.0,0.0,0.0,4116,1098,0,12,1580
+2022,Human Welfare & Neighborhood Development,HRC Human Rights Commission,98499636.36,0.0,0.0,0.0,1180,295,0,14,360
+2022,General Administration & Finance,BOS Board of Supervisors,94165749.96,0.0,0.0,0.0,984,363,0,20,300
+2022,Public Protection,ADP Adult Probation,77920561.16,0.0,4729.0599999999995,0.0,1562,597,50,8,380
+2022,Human Welfare & Neighborhood Development,ENV Environment,65465566.14,0.0,-17849.92,0.0,2178,677,0,8,660
+2022,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,60093348.44,0.0,0.0,0.0,332,232,0,8,20
+2022,Public Protection,DAT District Attorney,52426347.86,0.0,9015.8,0.0,3786,1176,0,2,1280
+2022,General Administration & Finance,ASR Assessor - Recorder,48713020.86,0.0,0.0,0.0,1138,434,0,6,320
+2022,Human Welfare & Neighborhood Development,WOM Status of Women,28618104.96,0.0,0.0,0.0,640,306,50,2,140
+2022,General Administration & Finance,CPC City Planning,25595032.439999998,0.0,0.0,0.0,1004,488,0,4,200
+2022,Public Protection,DPA Police Accountabilty,16634721.94,0.0,0.0,0.0,958,288,0,2,340
+2022,General Administration & Finance,ETH Ethics Commission,6347261.5200000005,0.0,0.0,0.0,462,154,0,0,140
+2022,"Public Works, Transportation & Commerce",BOA Board of Appeals,4800926.7,0.0,0.0,0.0,268,71,0,0,100
+2022,Human Welfare & Neighborhood Development,CSS Child Support Services,3766471.42,0.0,0.0,0.0,400,164,0,0,120
+2022,Culture & Recreation,AAM Asian Art Museum,3239449.08,0.0,0.0,0.0,24,20,0,0,0
+2022,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,3130179.2,0.0,0.0,0.0,348,121,50,0,120
+2022,General Administration & Finance,CSC Civil Service Commission,861703.52,0.0,0.0,0.0,204,46,0,0,80
+2022,Culture & Recreation,LLB Law Library,9476.740000000002,0.0,0.0,0.0,4,4,0,0,0
+2023,General Administration & Finance,HSS Health Service System,378197413273.3,0.0,0.0,0.0,2228,490,0,870,820
+2023,"Public Works, Transportation & Commerce",PUC Public Utilities Commsn,166399557566.98,0.0,77914509.44,76549299.84,49796,10686,2300,2290,8700
+2023,"Public Works, Transportation & Commerce",AIR Airport Commission,158859263885.62,0.0,19993246.22,16982039.84,11574,4257,1250,644,3100
+2023,General City Responsibilities,GEN General City - Unallocated,137854297968.6,0.0,0.0,0.0,934,216,0,390,300
+2023,Community Health,DPH Public Health,51412769497.92,0.0,4302441.6,0.0,225912,12473,10302,2254,13204
+2023,Human Welfare & Neighborhood Development,USD County Education Office,49252398374.079994,0.0,0.0,0.0,150,28,0,100,60
+2023,General Administration & Finance,ADM GSA - City Administrator,25258610887.46,9500.0,164685.96,0.0,25566,7170,2600,432,6060
+2023,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,19489880006.079998,0.0,0.0,0.0,100,14,0,100,40
+2023,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,12328931097.34,0.0,142494810.22,6183472.3,22420,5380,1000,534,1860
+2023,Human Welfare & Neighborhood Development,DEC Dept of Early Childhood,10291859659.22,0.0,0.0,0.0,648,300,0,126,140
+2023,Public Protection,CRT Superior Court,10171620393.44,0.0,0.0,0.0,5468,1428,0,502,2180
+2023,Human Welfare & Neighborhood Development,HOM Homelessness Services,3776623771.7200003,0.0,54417.92,0.0,3226,1409,0,252,200
+2023,Culture & Recreation,WAR War Memorial,3142474269.8,0.0,0.0,0.0,1518,593,300,50,300
+2023,"Public Works, Transportation & Commerce",DPW Public Works,2915816569.9,0.0,29800379.62,40678651.379999995,15326,3870,1002,252,1800
+2023,General Administration & Finance,HRD Human Resources,2904368945.7,0.0,73892.06,0.0,3788,1034,0,90,1260
+2023,"Public Works, Transportation & Commerce",PRT Port,2839087164.42,0.0,252237.5,0.0,8422,2799,0,170,2320
+2023,Public Protection,SHF Sheriff,2755514538.22,-118307.2,5801.6,0.0,10534,2458,200,106,3340
+2023,Culture & Recreation,REC Recreation & Park Commsn,2465598037.52,0.0,2402587.5600000005,207984.69999999998,14128,4024,250,162,2220
+2023,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,2382848006.7,0.0,709510.0,0.0,6184,2168,0,278,1940
+2023,Public Protection,FIR Fire Department,2262168418.96,0.0,2615715.34,0.0,3686,1511,202,80,780
+2023,Public Protection,DEM Emergency Management,1963506823.06,0.0,295011.64,0.0,4128,1442,0,112,1100
+2023,General Administration & Finance,MYR Mayor,1895487634.1,0.0,54089.09999999999,0.0,6674,2953,0,286,1360
+2023,Human Welfare & Neighborhood Development,CII Commty Invest & Infrstrctr,1766216988.24,0.0,4290.0,0.0,2450,710,0,84,900
+2023,Human Welfare & Neighborhood Development,HSA Human Services Agency,1710556659.98,0.0,2344511.56,0.0,11462,4003,52,204,2160
+2023,Public Protection,JUV Juvenile Probation,918777359.2800001,0.0,208271.22,0.0,4368,1332,352,58,1140
+2023,Culture & Recreation,SCI Academy of Sciences,877791552.0,0.0,0.0,0.0,200,14,0,112,80
+2023,General Administration & Finance,RET Retirement System,804565819.1600001,0.0,0.0,0.0,2372,731,50,86,760
+2023,Culture & Recreation,LIB Public Library,742226605.72,0.0,-16.72,0.0,4282,1824,550,68,920
+2023,Public Protection,POL Police,645199338.26,0.0,225624.41999999998,0.0,8284,2759,350,118,2260
+2023,General Administration & Finance,DT  GSA - Technology,391808091.68,0.0,317650.92,0.0,4738,1314,350,100,960
+2023,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,358108156.02,0.0,0.0,0.0,2676,1316,50,22,140
+2023,General Administration & Finance,REG Elections,353663198.94,0.0,0.0,0.0,896,476,0,42,160
+2023,Human Welfare & Neighborhood Development,HRC Human Rights Commission,331795065.08,0.0,0.0,0.0,2220,512,0,60,700
+2023,General Administration & Finance,TTX Treasurer-Tax Collector,301637498.56,0.0,0.0,0.0,3546,780,50,50,1180
+2023,General Administration & Finance,CAT City Attorney,264242422.1,0.0,400.0,0.0,1890,620,0,46,680
+2023,Culture & Recreation,FAM Fine Arts Museum,233583118.02,0.0,0.0,0.0,554,175,0,46,140
+2023,Culture & Recreation,ART Arts Commission,204382282.38,0.0,0.0,0.0,11430,3722,0,6,3980
+2023,"Public Works, Transportation & Commerce",DBI Building Inspection,170981810.51999998,0.0,64945.78,0.0,812,438,50,24,140
+2023,Public Protection,PDR Public Defender,110408883.32000001,0.0,0.0,0.0,3752,1042,0,18,1420
+2023,Public Protection,DAT District Attorney,107434950.94,0.0,9336.28,0.0,4294,1236,0,16,1460
+2023,General Administration & Finance,BOS Board of Supervisors,88928532.62,0.0,0.1,0.0,1070,398,50,18,320
+2023,Public Protection,ADP Adult Probation,75508614.6,0.0,5045.66,0.0,1462,528,0,14,400
+2023,Human Welfare & Neighborhood Development,ENV Environment,74012040.58,0.0,-17849.92,0.0,2274,713,0,6,720
+2023,General Administration & Finance,CON Controller,56321050.12,0.0,299.7,133480.0,2240,768,100,4,580
+2023,General Administration & Finance,ASR Assessor - Recorder,44684421.8,0.0,0.0,0.0,1094,439,0,6,320
+2023,Human Welfare & Neighborhood Development,WOM Status of Women,38578705.08,0.0,0.0,0.0,918,400,0,4,220
+2023,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,11480171.94,0.0,0.0,0.0,426,163,0,2,120
+2023,Human Welfare & Neighborhood Development,CSS Child Support Services,9620381.72,0.0,0.0,0.0,678,223,0,0,220
+2023,Human Welfare & Neighborhood Development,CFC Children & Families Commsn,9285549.78,0.0,0.0,0.0,116,104,0,0,0
+2023,General Administration & Finance,ETH Ethics Commission,8453763.0,0.0,0.0,0.0,476,170,0,2,140
+2023,Public Protection,DPA Police Accountabilty,8323850.5,0.0,11560.0,0.0,604,212,0,2,200
+2023,General Administration & Finance,CPC City Planning,6546458.040000001,0.0,0.0,0.0,692,349,0,0,120
+2023,Culture & Recreation,AAM Asian Art Museum,3716404.56,0.0,0.0,0.0,28,26,0,0,0
+2023,"Public Works, Transportation & Commerce",BOA Board of Appeals,170322.4,0.0,0.0,0.0,86,48,0,0,20
+2023,Public Protection,SDA Shrf Dept Ofc Inspctr Genl,98411.06,0.0,0.0,0.0,28,26,0,0,0
+2023,General Administration & Finance,CSC Civil Service Commission,25415.64,0.0,0.0,0.0,22,22,0,0,0
+2023,"Public Works, Transportation & Commerce",SAS Dept of Sanitation & Sts,2988.9,0.0,0.0,0.0,2,2,0,0,0
+2024,General Administration & Finance,HSS Health Service System,405636153526.74,0.0,0.0,0.0,1938,456,50,860,680
+2024,"Public Works, Transportation & Commerce",AIR Airport Commission,175942253893.52,0.0,23581431.64,88391670.5,13696,4766,950,732,3640
+2024,"Public Works, Transportation & Commerce",PUC Public Utilities Commsn,163778218649.74,3780211.1999999997,92738736.4,151445336.84,54646,11470,2302,2332,9400
+2024,General City Responsibilities,GEN General City - Unallocated,152753569933.12,0.0,0.0,0.0,914,210,0,438,360
+2024,Community Health,DPH Public Health,49735528969.74,38960.9,5780497.38,0.0,225760,11494,10200,1856,12620
+2024,Human Welfare & Neighborhood Development,USD County Education Office,49697886043.52,0.0,0.0,0.0,100,14,0,100,40
+2024,General Administration & Finance,ADM GSA - City Administrator,25422409350.88,0.0,972372.3799999999,0.0,22792,6262,400,574,4820
+2024,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,13902603737.32,0.0,239033163.07999998,4489731.76,22862,5468,1000,564,2320
+2024,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,13767680016.64,0.0,0.0,0.0,50,14,0,50,20
+2024,Public Protection,CRT Superior Court,10180544185.8,0.0,0.0,0.0,5020,1320,0,506,2000
+2024,Human Welfare & Neighborhood Development,HSA Human Services Agency,4443411782.98,0.0,2498462.38,0.0,11060,3816,252,278,2060
+2024,"Public Works, Transportation & Commerce",DPW Public Works,3320645271.2799997,0.0,22959655.98,90090096.32000001,15038,4068,700,374,1760
+2024,General Administration & Finance,MYR Mayor,3126210388.24,0.0,1254088.26,0.0,5552,2712,50,378,960
+2024,Culture & Recreation,WAR War Memorial,2931172550.9199996,-31785.6,0.0,0.0,1066,498,50,50,180
+2024,Culture & Recreation,REC Recreation & Park Commsn,2837201705.34,0.0,2396998.8600000003,3004250.1799999997,14766,4170,150,202,2020
+2024,Public Protection,SHF Sheriff,2770930565.98,0.0,5801.620000000001,0.0,12104,2474,150,100,3960
+2024,General Administration & Finance,HRD Human Resources,2737206588.4,0.0,73892.06,0.0,3502,928,50,106,1180
+2024,"Public Works, Transportation & Commerce",PRT Port,2471025787.9,0.0,239061.93999999997,241924.0,9478,2950,0,164,2644
+2024,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,1994130199.86,0.0,1395036.26,0.0,6962,2540,0,218,2120
+2024,Human Welfare & Neighborhood Development,CII Commty Invest & Infrstrctr,1975354909.54,0.0,4290.0,0.0,2926,718,50,122,1080
+2024,Public Protection,DEM Emergency Management,1630530465.1599998,0.0,301011.63999999996,0.0,4066,1410,0,110,1062
+2024,Human Welfare & Neighborhood Development,HOM Homelessness Services,1509992840.58,0.0,54417.92,0.0,3408,1552,50,264,160
+2024,Public Protection,JUV Juvenile Probation,879962025.4,0.0,208497.28,0.0,3722,1168,200,52,760
+2024,Culture & Recreation,LIB Public Library,771863852.7,0.0,-16.72,0.0,4032,1780,200,80,840
+2024,General Administration & Finance,RET Retirement System,681323678.0,0.0,48021.04,0.0,2254,692,150,108,740
+2024,Culture & Recreation,SCI Academy of Sciences,653918496.0,0.0,0.0,0.0,200,14,0,82,80
+2024,Human Welfare & Neighborhood Development,HRC Human Rights Commission,607661987.26,0.0,0.0,0.0,1878,612,0,94,480
+2024,Public Protection,POL Police,599593061.46,0.0,14486.779999999999,0.0,6832,2234,400,104,1540
+2024,General Administration & Finance,DT  GSA - Technology,491291028.7,0.0,64561.520000000004,0.0,3782,1234,250,106,620
+2024,Human Welfare & Neighborhood Development,DEC Dept of Early Childhood,475555539.82,0.0,19411378.42,0.0,810,426,50,38,100
+2024,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,393438030.71999997,0.0,0.0,0.0,3208,1534,0,28,300
+2024,General Administration & Finance,REG Elections,323825156.70000005,0.0,0.0,0.0,1126,430,0,50,300
+2024,Culture & Recreation,FAM Fine Arts Museum,277116998.38,0.0,0.0,0.0,484,154,0,50,140
+2024,General Administration & Finance,CAT City Attorney,273332982.78,0.0,0.0,0.0,1900,622,0,44,680
+2024,General Administration & Finance,TTX Treasurer-Tax Collector,258156021.68,0.0,0.0,0.0,2818,736,0,44,880
+2024,Public Protection,FIR Fire Department,253983688.14,0.0,2620200.64,0.0,3492,1606,52,40,640
+2024,Culture & Recreation,ART Arts Commission,239257205.52,0.0,0.0,0.0,13016,4026,50,10,4640
+2024,"Public Works, Transportation & Commerce",DBI Building Inspection,173787433.0,0.0,64945.78,0.0,748,410,100,24,140
+2024,Public Protection,PDR Public Defender,129513134.36,0.0,0.0,0.0,4314,996,0,16,1660
+2024,Public Protection,DAT District Attorney,86422030.6,0.0,10468.0,0.0,4618,1292,0,8,1600
+2024,General Administration & Finance,BOS Board of Supervisors,82766850.9,0.0,9680.18,0.0,1050,404,100,18,300
+2024,Public Protection,ADP Adult Probation,73397359.88,0.0,5045.66,0.0,1620,630,0,18,440
+2024,Human Welfare & Neighborhood Development,ENV Environment,72150901.48,0.0,185950.08,0.0,2176,796,0,10,640
+2024,Human Welfare & Neighborhood Development,WOM Status of Women,37142419.22,0.0,0.0,0.0,812,354,0,4,200
+2024,General Administration & Finance,ASR Assessor - Recorder,36905187.120000005,0.0,0.0,0.0,1286,492,0,4,360
+2024,General Administration & Finance,CON Controller,35670676.74,0.0,204530.9,318298.0,2054,692,50,4,500
+2024,General Administration & Finance,CSC Civil Service Commission,13460855.84,0.0,0.0,0.0,56,20,0,4,20
+2024,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,13414656.86,0.0,0.0,0.0,512,194,50,2,160
+2024,Public Protection,DPA Police Accountabilty,12007384.0,0.0,11560.0,0.0,484,184,0,2,160
+2024,Human Welfare & Neighborhood Development,CSS Child Support Services,10740024.42,0.0,0.0,0.0,660,212,0,0,220
+2024,General Administration & Finance,CPC City Planning,6950145.78,0.0,4730.0,0.0,708,372,0,0,80
+2024,General Administration & Finance,ETH Ethics Commission,4097325.5199999996,0.0,0.0,0.0,456,146,0,0,140
+2024,Culture & Recreation,AAM Asian Art Museum,3723739.24,0.0,0.0,0.0,34,28,0,0,0
+2024,"Public Works, Transportation & Commerce",BOA Board of Appeals,2024027.6199999999,0.0,0.0,0.0,234,80,50,0,80
+2024,Public Protection,SDA Shrf Dept Ofc Inspctr Genl,669104.9,0.0,0.0,0.0,140,66,0,0,40
+2024,Culture & Recreation,LLB Law Library,27450.04,0.0,0.0,0.0,6,6,0,0,0
+2025,General Administration & Finance,HSS Health Service System,426682398116.54,0.0,0.0,0.0,1780,430,0,896,620
+2025,"Public Works, Transportation & Commerce",AIR Airport Commission,237437854682.72,666073.5399999999,23095647.36,944048484.8599999,15120,5122,100,912,3740
+2025,"Public Works, Transportation & Commerce",PUC Public Utilities Commsn,163897149955.66,693522.36,92170281.22,320377372.48,52184,10972,2600,2062,7756
+2025,General City Responsibilities,GEN General City - Unallocated,151668838452.98,0.0,0.0,0.0,1080,226,0,574,400
+2025,Community Health,DPH Public Health,70478687151.44,-1663081.14,5949539.96,223948.4,269584,11026,10300,1888,11326
+2025,Human Welfare & Neighborhood Development,USD County Education Office,44510784919.04,0.0,0.0,0.0,200,14,0,200,80
+2025,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,25543586590.72,0.0,0.0,0.0,150,14,0,150,60
+2025,General Administration & Finance,ADM GSA - City Administrator,24373464755.82,358476.46,233667.16,0.0,19130,5552,350,576,3420
+2025,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,13585394808.2,4145193.8600000003,245408531.06,8647335.4,23162,5146,900,488,2180
+2025,Public Protection,CRT Superior Court,10072029071.08,0.0,0.0,0.0,4772,1266,0,476,1900
+2025,General Administration & Finance,MYR Mayor,5130272956.32,18274.0,1254088.26,0.0,5940,2566,0,420,1220
+2025,"Public Works, Transportation & Commerce",DPW Public Works,3854751867.86,601573.24,20964007.72,226044770.86,16372,3960,800,346,2000
+2025,Culture & Recreation,WAR War Memorial,3000657607.44,29.2,4296.04,0.0,1416,502,100,106,300
+2025,"Public Works, Transportation & Commerce",PRT Port,2569498147.18,1874.24,304636.66,22898267.98,10684,3062,150,176,3060
+2025,Public Protection,SHF Sheriff,2526120582.8,0.0,5798.9800000000005,0.0,10514,2330,350,104,3280
+2025,Human Welfare & Neighborhood Development,HOM Homelessness Services,2474787578.68,612498.38,520.5,0.0,3422,1450,0,296,140
+2025,Culture & Recreation,REC Recreation & Park Commsn,2412961461.72,5222.9400000000005,2395781.16,1935983.96,15840,3898,300,152,2280
+2025,General Administration & Finance,HRD Human Resources,2255424910.94,0.0,73892.06,0.0,3750,1058,0,98,1280
+2025,Human Welfare & Neighborhood Development,HSA Human Services Agency,1813823352.42,43873.9,2568400.38,0.0,10756,3572,100,222,1802
+2025,Public Protection,DEM Emergency Management,1386808122.82,4064.7200000000003,412021.66000000003,0.0,4272,1394,0,66,1120
+2025,Human Welfare & Neighborhood Development,CII Commty Invest & Infrstrctr,1121087174.72,0.0,4290.0,0.0,3220,826,50,108,1180
+2025,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,922289933.62,0.0,1339510.0,0.0,6430,2264,0,150,1900
+2025,Public Protection,JUV Juvenile Probation,849081948.5200001,2900.42,207769.5,0.0,3174,1164,0,56,480
+2025,Culture & Recreation,LIB Public Library,781904720.56,35101.08,5084.4,0.0,5002,2090,100,76,1100
+2025,Culture & Recreation,SCI Academy of Sciences,721443712.0,0.0,0.0,0.0,200,14,0,74,80
+2025,General Administration & Finance,RET Retirement System,686249183.6800001,0.0,48021.04,0.0,2070,616,100,104,680
+2025,Public Protection,POL Police,635558960.02,129608.84,14486.78,0.0,6530,2262,600,104,1540
+2025,General Administration & Finance,DT  GSA - Technology,525455687.0,8.0,64561.520000000004,0.0,3938,1230,350,114,640
+2025,Human Welfare & Neighborhood Development,DEC Dept of Early Childhood,451996468.4,0.0,19411378.42,0.0,822,386,50,38,120
+2025,General Administration & Finance,ETH Ethics Commission,425798661.6,0.0,0.0,0.0,522,178,0,50,160
+2025,Public Protection,FIR Fire Department,305749734.64,319.26,2632541.4,0.0,4218,1596,252,56,842
+2025,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,295749339.42,1536.86,0.0,0.0,2572,1380,0,34,200
+2025,Culture & Recreation,ART Arts Commission,287169634.96000004,2450.0,0.0,0.0,14280,4198,50,16,5100
+2025,General Administration & Finance,TTX Treasurer-Tax Collector,283633939.71999997,0.0,850.0,0.0,2068,518,0,54,620
+2025,General Administration & Finance,REG Elections,278545070.44,0.0,0.0,0.0,738,370,0,36,160
+2025,Culture & Recreation,FAM Fine Arts Museum,266932727.54000002,0.0,0.0,0.0,650,168,0,50,180
+2025,Human Welfare & Neighborhood Development,HRC Human Rights Commission,260455551.3,0.0,0.24,0.0,2070,604,0,50,660
+2025,General Administration & Finance,CAT City Attorney,251016458.92000002,0.0,0.0,0.0,1996,654,0,40,720
+2025,"Public Works, Transportation & Commerce",DBI Building Inspection,212258164.1,0.02,0.0,0.0,856,422,0,38,180
+2025,General Administration & Finance,BOS Board of Supervisors,97221666.84,0.0,9680.18,0.0,1054,424,150,20,320
+2025,Public Protection,DAT District Attorney,96190945.58,0.0,10468.0,0.0,5454,1322,0,10,1880
+2025,Human Welfare & Neighborhood Development,ENV Environment,82638985.4,0.0,185950.08000000002,0.0,2250,750,100,12,680
+2025,Public Protection,PDR Public Defender,82110554.2,0.0,0.0,0.0,4094,878,0,12,1560
+2025,Public Protection,ADP Adult Probation,72602618.68,0.0,7664.5,0.0,1566,604,50,18,420
+2025,Human Welfare & Neighborhood Development,WOM Status of Women,72350945.36,708355.2,0.0,0.0,890,326,0,8,244
+2025,General Administration & Finance,ASR Assessor - Recorder,39169943.38,0.0,0.0,0.0,1044,436,0,2,300
+2025,General Administration & Finance,CON Controller,31866640.98,17378.88,216679.2,3709676.0,1618,692,50,2,280
+2025,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,12252312.16,0.0,0.0,0.0,270,140,0,2,60
+2025,Human Welfare & Neighborhood Development,CSS Child Support Services,8721337.26,0.0,0.0,0.0,678,226,0,0,220
+2025,Public Protection,DPA Police Accountabilty,8684062.44,0.0,11560.0,0.0,486,188,0,2,160
+2025,General Administration & Finance,CPC City Planning,6043423.9,0.0,4730.0,0.0,716,374,0,0,120
+2025,Culture & Recreation,AAM Asian Art Museum,3584254.18,0.0,0.0,0.0,30,28,0,0,0
+2025,Public Protection,SDA Shrf Dept Ofc Inspctr Genl,3393639.04,0.0,0.0,0.0,180,68,0,0,60
+2025,"Public Works, Transportation & Commerce",BOA Board of Appeals,2919588.42,0.0,0.0,0.0,134,58,0,0,40
+2025,General Administration & Finance,CSC Civil Service Commission,11691.02,0.0,0.0,0.0,26,26,0,0,0
+2026,General Administration & Finance,HSS Health Service System,435176322708.74,1889134.28,3631530.36,0.0,1442,266,100,728,480
+2026,"Public Works, Transportation & Commerce",AIR Airport Commission,203172747249.96,18409414018.68,836367522.82,1053229369.9599999,16396,5148,50,652,3180
+2026,"Public Works, Transportation & Commerce",PUC Public Utilities Commsn,182753563073.82,119419829.98,2584735074.82,454953413.14,48452,11022,2650,2228,6112
+2026,Community Health,DPH Public Health,89772609364.40001,25758168.240000002,664294605.16,40110.62,257708,10808,7650,1796,10792
+2026,General City Responsibilities,GEN General City - Unallocated,22359760174.54,267846.16000000003,673517.5,0.0,1148,114,0,406,380
+2026,General Administration & Finance,ADM GSA - City Administrator,22223331743.02,3365692.08,139404551.8,0.0,16776,5760,350,560,2320
+2026,"Public Works, Transportation & Commerce",MTA Municipal Transprtn Agncy,13573385236.1,27756904.8,1067548179.54,29786230.02,22416,5996,500,488,1500
+2026,Public Protection,CRT Superior Court,9848645541.92,961212.46,605556.6,0.0,4144,392,0,414,1640
+2026,Human Welfare & Neighborhood Development,USD County Education Office,7922416877.759999,0.0,0.0,0.0,100,6,0,80,40
+2026,Human Welfare & Neighborhood Development,HSA Human Services Agency,5829271931.0,4918967.26,352053798.84,0.0,11356,3296,300,348,1880
+2026,General Administration & Finance,MYR Mayor,4680267603.84,3423528.74,755675350.64,0.0,4758,2594,50,346,700
+2026,"Public Works, Transportation & Commerce",DPW Public Works,4407310977.139999,8897496.06,1277216007.9199998,340041434.98,16668,4592,502,400,1740
+2026,Human Welfare & Neighborhood Development,CCD SF Communtiy College Dist,4355988035.5199995,0.0,0.0,0.0,100,6,0,100,40
+2026,Culture & Recreation,WAR War Memorial,3006598062.38,211411.66,1729704.18,0.0,1604,578,200,104,320
+2026,Public Protection,SHF Sheriff,2613842252.2400002,651899.3600000013,37192754.78,0.0,8880,1882,204,86,2460
+2026,"Public Works, Transportation & Commerce",PRT Port,2453177629.46,5282775.64,247314608.52,19885528.14,9832,2484,450,172,2400
+2026,General Administration & Finance,HRD Human Resources,2082504692.7,991926.24,7660407.06,0.0,3140,638,0,76,1020
+2026,Public Protection,DEM Emergency Management,1430428440.18,721558.0,62594951.42,0.0,4122,1496,50,72,680
+2026,Culture & Recreation,REC Recreation & Park Commsn,1314579891.22,4692917.64,55793068.76,18759276.22,12802,4434,0,160,520
+2026,Human Welfare & Neighborhood Development,HOM Homelessness Services,1008379927.12,3176728.22,500724468.88,0.0,3982,1760,0,220,120
+2026,General Administration & Finance,RET Retirement System,849664179.46,5697064.32,50550806.98,0.0,2078,402,100,98,700
+2026,Public Protection,JUV Juvenile Probation,845913378.82,39515.219999999994,5589799.600000001,0.0,3082,1190,100,56,400
+2026,Culture & Recreation,LIB Public Library,729310016.48,1554667.1199999999,25141727.1,0.0,4650,1756,150,72,1040
+2026,Culture & Recreation,SCI Academy of Sciences,632975200.0,0.0,0.0,0.0,100,4,0,80,40
+2026,General Administration & Finance,DT  GSA - Technology,572427600.42,829881.64,94730255.6,0.0,4138,1274,502,136,640
+2026,Human Welfare & Neighborhood Development,DEC Dept of Early Childhood,567845204.8,40316.04,234710608.42,0.0,892,512,0,34,80
+2026,"Public Works, Transportation & Commerce",ECN Economic & Wrkfrce Dvlpmnt,501232473.08,4840070.02,90924977.38,0.0,5066,1602,0,72,1340
+2026,Culture & Recreation,FAM Fine Arts Museum,438161206.68,0.0,1367223.74,0.0,368,124,0,68,80
+2026,Public Protection,POL Police,423717732.58,2004341.62,28058334.64,0.0,5276,1980,400,72,1080
+2026,Human Welfare & Neighborhood Development,CHF Children;Youth & Families,288889549.94,16978456.64,160827833.0,0.0,2140,1350,0,36,140
+2026,General Administration & Finance,TTX Treasurer-Tax Collector,218267614.5,75550.0,4300734.96,0.0,1612,392,0,34,460
+2026,"Public Works, Transportation & Commerce",DBI Building Inspection,215642784.01999998,20416960.26,5635913.66,0.0,836,340,50,30,180
+2026,Human Welfare & Neighborhood Development,CII Commty Invest & Infrstrctr,213578892.79999998,36154.0,36494812.32,0.0,2380,474,50,32,820
+2026,Culture & Recreation,ART Arts Commission,190296466.85999998,1498464.5,21117812.5,0.0,11794,2158,0,2,4080
+2026,Human Welfare & Neighborhood Development,ENV Environment,127182625.62,179820.48,17421825.26,0.0,1364,652,50,22,220
+2026,Public Protection,FIR Fire Department,105394568.06,2749111.6599999997,49896829.58,0.0,4026,1636,202,12,604
+2026,Human Welfare & Neighborhood Development,HRC Human Rights Commission,102721192.42,0.0,23888364.759999998,0.0,896,324,0,20,240
+2026,General Administration & Finance,BOS Board of Supervisors,98067165.8,10735.54,3878943.2,0.0,788,260,100,22,220
+2026,Public Protection,ADP Adult Probation,94210201.94,55875.74,22184230.84,0.0,1688,488,250,26,480
+2026,General Administration & Finance,CAT City Attorney,86463664.89999999,5157.88,1667069.7,0.0,1408,300,0,14,480
+2026,Public Protection,PDR Public Defender,73053787.32000001,1424.88,601832.54,0.0,2556,398,0,10,920
+2026,General Administration & Finance,REG Elections,66223542.42,2689226.9599999995,17964512.26,0.0,536,314,0,16,80
+2026,Public Protection,DAT District Attorney,49877136.94,143312.5,3255578.06,0.0,3630,700,0,4,1180
+2026,Human Welfare & Neighborhood Development,WOM Status of Women,31901826.68,0.0,0.0,0.0,204,110,0,6,40
+2026,General Administration & Finance,CON Controller,19772216.66,1547619.3800000001,25770093.540000003,2388114.0,1006,528,50,2,124
+2026,General Administration & Finance,ASR Assessor - Recorder,14527887.78,591675.4600000001,22049259.200000003,0.0,586,308,0,2,100
+2026,Public Protection,DPA Police Accountabilty,8219121.760000001,759466.2799999999,201979.03999999998,0.0,444,116,0,2,140
+2026,Human Welfare & Neighborhood Development,CSS Child Support Services,5072069.44,575.0,290130.76,0.0,414,126,0,0,120
+2026,General Administration & Finance,CPC City Planning,5056172.42,30429.14,2076911.38,0.0,574,340,0,0,60
+2026,Culture & Recreation,AAM Asian Art Museum,4310750.5200000005,0.0,330445.98,0.0,50,44,0,0,0
+2026,Human Welfare & Neighborhood Development,RNT Rent Arbitration Board,4277527.22,6956.14,121459.88,0.0,212,102,0,0,40
+2026,General Administration & Finance,ETH Ethics Commission,3657206.82,18283.04,19808.16,0.0,392,84,0,0,120
+2026,Public Protection,SDA Shrf Dept Ofc Inspctr Genl,2541653.04,181.74,145040.32,0.0,66,18,0,0,20
+2026,"Public Works, Transportation & Commerce",BOA Board of Appeals,1557400.82,0.0,12789.32,0.0,134,42,0,0,40
+2026,General Administration & Finance,CSC Civil Service Commission,99039.76,0.0,18309.38,0.0,98,44,0,0,20
+2026,Culture & Recreation,LLB Law Library,17018.92,0.0,9035.119999999999,0.0,14,14,0,0,0

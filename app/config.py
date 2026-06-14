@@ -9,3 +9,7 @@ BATCH_DATA_DIR = DATA_DIR / "batch"
 SPENDING_BY_FISCAL_YEAR_FILE = (
     BATCH_DATA_DIR / "mart_spending_by_fiscal_year.csv"
 )
+
+SPENDING_BY_DEPARTMENT_FILE = (
+    BATCH_DATA_DIR / "mart_spending_by_department.csv"
+)
