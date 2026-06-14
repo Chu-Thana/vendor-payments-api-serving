@@ -2,6 +2,7 @@ import csv
 from pathlib import Path
 
 from app.config import (
+    FUND_CATEGORY_SUMMARY_FILE,
     PENDING_BY_DEPARTMENT_FILE,
     SPENDING_BY_DEPARTMENT_FILE,
     SPENDING_BY_FISCAL_YEAR_FILE,
@@ -179,6 +180,57 @@ def read_pending_by_department(
                 {
                     "fiscal_year": int(row["fiscal_year"]),
                     "department": row["department"],
+                    "total_vouchers_paid": float(
+                        row["total_vouchers_paid"]
+                    ),
+                    "total_vouchers_pending": float(
+                        row["total_vouchers_pending"]
+                    ),
+                    "total_encumbrance_balance": float(
+                        row["total_encumbrance_balance"]
+                    ),
+                    "total_pending_retainage": float(
+                        row["total_pending_retainage"]
+                    ),
+                    "record_count": int(row["record_count"]),
+                    "unique_suppliers": int(row["unique_suppliers"]),
+                    "negative_paid_records": int(
+                        row["negative_paid_records"]
+                    ),
+                    "large_paid_1m_records": int(
+                        row["large_paid_1m_records"]
+                    ),
+                    "missing_po_date_records": int(
+                        row["missing_po_date_records"]
+                    ),
+                }
+            )
+
+    return records
+
+def read_fund_category_summary(
+    file_path: Path = FUND_CATEGORY_SUMMARY_FILE,
+) -> list[dict[str, str | int | float]]:
+    if not file_path.exists():
+        raise FileNotFoundError(
+            f"Fund category summary file not found: {file_path}"
+        )
+
+    records: list[dict[str, str | int | float]] = []
+
+    with file_path.open(
+        mode="r",
+        encoding="utf-8-sig",
+        newline="",
+    ) as csv_file:
+        reader = csv.DictReader(csv_file)
+
+        for row in reader:
+            records.append(
+                {
+                    "fiscal_year": int(row["fiscal_year"]),
+                    "fund_type": row["fund_type"],
+                    "fund_category": row["fund_category"],
                     "total_vouchers_paid": float(
                         row["total_vouchers_paid"]
                     ),

@@ -283,3 +283,103 @@ def test_pending_by_department_invalid_pagination() -> None:
     )
 
     assert response.status_code == 422
+
+
+def test_fund_category_summary_pagination() -> None:
+    response = client.get(
+        "/api/v1/batch/fund-category-summary",
+        params={
+            "limit": 5,
+            "offset": 0,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 1061
+    assert body["count"] == 5
+    assert body["limit"] == 5
+    assert body["offset"] == 0
+    assert len(body["data"]) == 5
+
+
+def test_fund_category_summary_fiscal_year_filter() -> None:
+    response = client.get(
+        "/api/v1/batch/fund-category-summary",
+        params={
+            "fiscal_year": 2007,
+            "limit": 5,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 60
+    assert body["count"] == 5
+
+    assert all(
+        item["fiscal_year"] == 2007
+        for item in body["data"]
+    )
+
+
+def test_fund_category_summary_category_filter() -> None:
+    response = client.get(
+        "/api/v1/batch/fund-category-summary",
+        params={
+            "fund_category": "Operating",
+            "limit": 5,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 279
+    assert body["count"] == 5
+
+    assert all(
+        "operating" in item["fund_category"].casefold()
+        for item in body["data"]
+    )
+
+
+def test_fund_category_summary_combined_filters() -> None:
+    response = client.get(
+        "/api/v1/batch/fund-category-summary",
+        params={
+            "fund_type": "General Fund",
+            "fund_category": "Operating",
+            "limit": 5,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 20
+    assert body["count"] == 5
+
+    assert all(
+        "general fund" in item["fund_type"].casefold()
+        and "operating" in item["fund_category"].casefold()
+        for item in body["data"]
+    )
+
+
+def test_fund_category_summary_invalid_pagination() -> None:
+    response = client.get(
+        "/api/v1/batch/fund-category-summary",
+        params={
+            "limit": 0,
+            "offset": -1,
+        },
+    )
+
+    assert response.status_code == 422

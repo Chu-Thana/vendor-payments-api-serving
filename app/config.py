@@ -21,3 +21,7 @@ TOP_SUPPLIERS_FILE = (
 PENDING_BY_DEPARTMENT_FILE = (
     BATCH_DATA_DIR / "mart_pending_by_department.csv"
 )
+
+FUND_CATEGORY_SUMMARY_FILE = (
+    BATCH_DATA_DIR / "mart_fund_category_summary.csv"
+)
