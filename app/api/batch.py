@@ -1,12 +1,14 @@
 from fastapi import APIRouter, HTTPException, Query
 
 from app.models.batch import (
+    PendingByDepartmentResponse,
     SpendingByDepartmentResponse,
     SpendingByFiscalYearResponse,
     TopSuppliersResponse,
 )
 
 from app.services.batch_service import (
+    get_pending_by_department,
     get_spending_by_department,
     get_spending_by_fiscal_year,
     get_top_suppliers,
@@ -114,3 +116,46 @@ def read_top_suppliers_endpoint(
             status_code=500,
             detail="Top suppliers data is unavailable",
         ) from exc  
+
+@router.get(
+    "/pending-by-department",
+    response_model=PendingByDepartmentResponse,
+    summary="Get pending payment summary by department",
+    responses={
+        500: {"description": "Batch data file unavailable"},
+    },
+)
+def read_pending_by_department_endpoint(
+    fiscal_year: int | None = Query(
+        default=None,
+        description="Filter by fiscal year",
+    ),
+    department: str | None = Query(
+        default=None,
+        min_length=1,
+        description="Filter by department name",
+    ),
+    limit: int = Query(
+        default=100,
+        ge=1,
+        le=500,
+        description="Maximum number of records to return",
+    ),
+    offset: int = Query(
+        default=0,
+        ge=0,
+        description="Number of records to skip",
+    ),
+) -> PendingByDepartmentResponse:
+    try:
+        return get_pending_by_department(
+            fiscal_year=fiscal_year,
+            department=department,
+            limit=limit,
+            offset=offset,
+        )
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=500,
+            detail="Pending by department data is unavailable",
+        ) from exc

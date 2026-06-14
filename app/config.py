@@ -17,3 +17,7 @@ SPENDING_BY_DEPARTMENT_FILE = (
 TOP_SUPPLIERS_FILE = (
     BATCH_DATA_DIR / "mart_spending_by_supplier_top_n.csv"
 )
+
+PENDING_BY_DEPARTMENT_FILE = (
+    BATCH_DATA_DIR / "mart_pending_by_department.csv"
+)

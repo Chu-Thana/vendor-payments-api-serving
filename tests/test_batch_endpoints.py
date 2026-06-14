@@ -188,3 +188,98 @@ def test_top_suppliers_invalid_pagination() -> None:
     )
 
     assert response.status_code == 422
+
+def test_pending_by_department_pagination() -> None:
+    response = client.get(
+        "/api/v1/batch/pending-by-department",
+        params={
+            "limit": 5,
+            "offset": 0,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 643
+    assert body["count"] == 5
+    assert body["limit"] == 5
+    assert body["offset"] == 0
+    assert len(body["data"]) == 5
+
+
+def test_pending_by_department_fiscal_year_filter() -> None:
+    response = client.get(
+        "/api/v1/batch/pending-by-department",
+        params={
+            "fiscal_year": 2007,
+            "limit": 5,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 54
+    assert body["count"] == 5
+
+    assert all(
+        item["fiscal_year"] == 2007
+        for item in body["data"]
+    )
+
+
+def test_pending_by_department_name_filter() -> None:
+    response = client.get(
+        "/api/v1/batch/pending-by-department",
+        params={
+            "department": "Public Health",
+            "limit": 5,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 18
+    assert body["count"] == 5
+
+    assert all(
+        "public health" in item["department"].casefold()
+        for item in body["data"]
+    )
+
+
+def test_pending_by_department_combined_filters() -> None:
+    response = client.get(
+        "/api/v1/batch/pending-by-department",
+        params={
+            "fiscal_year": 2007,
+            "department": "Public Health",
+            "limit": 5,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 1
+    assert body["count"] == 1
+    assert body["data"][0]["fiscal_year"] == 2007
+    assert body["data"][0]["department"] == "DPH Public Health"
+
+
+def test_pending_by_department_invalid_pagination() -> None:
+    response = client.get(
+        "/api/v1/batch/pending-by-department",
+        params={
+            "limit": 0,
+            "offset": -1,
+        },
+    )
+
+    assert response.status_code == 422
