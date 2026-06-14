@@ -98,3 +98,93 @@ def test_spending_by_department_invalid_pagination() -> None:
     )
 
     assert response.status_code == 422
+
+
+def test_top_suppliers_pagination() -> None:
+    response = client.get(
+        "/api/v1/batch/top-suppliers",
+        params={
+            "limit": 5,
+            "offset": 0,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 100
+    assert body["count"] == 5
+    assert body["limit"] == 5
+    assert body["offset"] == 0
+    assert len(body["data"]) == 5
+
+    assert (
+        body["data"][0]["supplier_name"]
+        == "THE DEPOSITORY TRUST COMPANY"
+    )
+
+
+def test_top_suppliers_name_filter() -> None:
+    response = client.get(
+        "/api/v1/batch/top-suppliers",
+        params={
+            "supplier_name": "BANK",
+            "limit": 10,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 12
+    assert body["count"] == 10
+
+    assert all(
+        "bank" in item["supplier_name"].casefold()
+        for item in body["data"]
+    )
+
+
+def test_top_suppliers_offset() -> None:
+    first_response = client.get(
+        "/api/v1/batch/top-suppliers",
+        params={
+            "limit": 5,
+            "offset": 0,
+        },
+    )
+    second_response = client.get(
+        "/api/v1/batch/top-suppliers",
+        params={
+            "limit": 5,
+            "offset": 5,
+        },
+    )
+
+    assert first_response.status_code == 200
+    assert second_response.status_code == 200
+
+    first_body = first_response.json()
+    second_body = second_response.json()
+
+    assert second_body["offset"] == 5
+    assert second_body["count"] == 5
+
+    assert (
+        first_body["data"][0]["supplier_name"]
+        != second_body["data"][0]["supplier_name"]
+    )
+
+
+def test_top_suppliers_invalid_pagination() -> None:
+    response = client.get(
+        "/api/v1/batch/top-suppliers",
+        params={
+            "limit": 0,
+            "offset": -1,
+        },
+    )
+
+    assert response.status_code == 422

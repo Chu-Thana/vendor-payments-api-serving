@@ -3,18 +3,19 @@ from fastapi import APIRouter, HTTPException, Query
 from app.models.batch import (
     SpendingByDepartmentResponse,
     SpendingByFiscalYearResponse,
+    TopSuppliersResponse,
 )
+
 from app.services.batch_service import (
     get_spending_by_department,
     get_spending_by_fiscal_year,
+    get_top_suppliers,
 )
-
 
 router = APIRouter(
     prefix="/api/v1/batch",
     tags=["Batch Analytics"],
 )
-
 
 @router.get(
     "/spending-by-fiscal-year",
@@ -75,3 +76,41 @@ def read_spending_by_department_endpoint(
             status_code=500,
             detail="Spending by department data is unavailable",
         ) from exc
+    
+@router.get(
+    "/top-suppliers",
+    response_model=TopSuppliersResponse,
+    summary="Get top suppliers",
+    responses={
+        500: {"description": "Batch data file unavailable"},
+    },
+)
+def read_top_suppliers_endpoint(
+    supplier_name: str | None = Query(
+        default=None,
+        min_length=1,
+        description="Filter by supplier name",
+    ),
+    limit: int = Query(
+        default=10,
+        ge=1,
+        le=100,
+        description="Maximum number of suppliers to return",
+    ),
+    offset: int = Query(
+        default=0,
+        ge=0,
+        description="Number of suppliers to skip",
+    ),
+) -> TopSuppliersResponse:
+    try:
+        return get_top_suppliers(
+            supplier_name=supplier_name,
+            limit=limit,
+            offset=offset,
+        )
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=500,
+            detail="Top suppliers data is unavailable",
+        ) from exc  

@@ -38,3 +38,23 @@ class SpendingByDepartmentResponse(BaseModel):
     limit: int
     offset: int
     data: list[SpendingByDepartmentItem]
+
+class TopSupplierItem(BaseModel):
+    supplier_name: str
+    total_vouchers_paid: float
+    total_vouchers_pending: float
+    total_encumbrance_balance: float
+    total_pending_retainage: float
+    record_count: int
+    unique_suppliers: int
+    negative_paid_records: int
+    large_paid_1m_records: int
+    missing_po_date_records: int
+
+
+class TopSuppliersResponse(BaseModel):
+    total_count: int
+    count: int
+    limit: int
+    offset: int
+    data: list[TopSupplierItem]
