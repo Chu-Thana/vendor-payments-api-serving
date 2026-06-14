@@ -13,15 +13,17 @@ This project is part of the Vendor Payments Data Engineering Portfolio.
 
 ## Current Features
 
-* FastAPI application
-* Health endpoint
-* Root endpoint
-* Pydantic response model
-* Swagger API documentation
-* Docker container
-* Pytest
-* Ruff
-* GitHub Actions CI
+- FastAPI application
+- Health and metadata endpoints
+- Batch analytics endpoints backed by trusted Gold marts
+- Pydantic request and response validation
+- Fiscal year and text-based filtering
+- Limit and offset pagination
+- Swagger API documentation
+- Docker container
+- Pytest
+- Ruff
+- GitHub Actions CI
 
 ## API Endpoints
 
@@ -31,28 +33,100 @@ This project is part of the Vendor Payments Data Engineering Portfolio.
 GET /
 ```
 
-Example response:
-
-```json
-{
-  "message": "Vendor Payments API is running",
-  "docs": "/docs"
-}
-```
-
 ### Health
 
 ```http
 GET /health
 ```
 
-Example response:
+### Metadata
 
-```json
-{
-  "status": "healthy",
-  "service": "vendor-payments-api"
-}
+```http
+GET /api/v1/metadata
+```
+
+### Spending by Fiscal Year
+
+```http
+GET /api/v1/batch/spending-by-fiscal-year
+```
+
+Returns trusted spending metrics aggregated by fiscal year.
+
+### Spending by Department
+
+```http
+GET /api/v1/batch/spending-by-department
+```
+
+Supported query parameters:
+
+* `fiscal\_year`
+* `department`
+* `limit`
+* `offset`
+
+Example:
+
+```http
+GET /api/v1/batch/spending-by-department?fiscal\_year=2007\&limit=5
+```
+
+### Top Suppliers
+
+```http
+GET /api/v1/batch/top-suppliers
+```
+
+Supported query parameters:
+
+* `supplier\_name`
+* `limit`
+* `offset`
+
+Example:
+
+```http
+GET /api/v1/batch/top-suppliers?supplier\_name=BANK\&limit=10
+```
+
+### Pending by Department
+
+```http
+GET /api/v1/batch/pending-by-department
+```
+
+Supported query parameters:
+
+* `fiscal\_year`
+* `department`
+* `limit`
+* `offset`
+
+Example:
+
+```http
+GET /api/v1/batch/pending-by-department?department=Public%20Health\&limit=5
+```
+
+### Fund Category Summary
+
+```http
+GET /api/v1/batch/fund-category-summary
+```
+
+Supported query parameters:
+
+* `fiscal\_year`
+* `fund\_type`
+* `fund\_category`
+* `limit`
+* `offset`
+
+Example:
+
+```http
+GET /api/v1/batch/fund-category-summary?fund\_type=General%20Fund\&fund\_category=Operating\&limit=5
 ```
 
 ## Project Structure
@@ -61,32 +135,37 @@ Example response:
 vendor-payments-api-serving/
 │
 ├── app/
-│   ├── __init__.py
 │   ├── main.py
+│   ├── config.py
 │   │
 │   ├── api/
-│   │   ├── __init__.py
-│   │   └── health.py
+│   │   ├── health.py
+│   │   ├── metadata.py
+│   │   └── batch.py
 │   │
 │   ├── models/
-│   │   ├── __init__.py
-│   │   └── common.py
+│   │   ├── common.py
+│   │   └── batch.py
 │   │
 │   ├── repositories/
-│   │   └── __init__.py
+│   │   └── batch_repository.py
 │   │
 │   └── services/
-│       └── __init__.py
+│       └── batch_service.py
+│
+├── data/
+│   └── batch/
+│       ├── mart_spending_by_fiscal_year.csv
+│       ├── mart_spending_by_department.csv
+│       ├── mart_spending_by_supplier_top_n.csv
+│       ├── mart_pending_by_department.csv
+│       └── mart_fund_category_summary.csv
 │
 ├── tests/
-│   └── test_health.py
+│   ├── test_health.py
+│   ├── test_metadata.py
+│   └── test_batch_endpoints.py
 │
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-│
-├── .dockerignore
-├── .gitignore
 ├── Dockerfile
 ├── docker-compose.yml
 ├── requirements.txt
@@ -184,16 +263,12 @@ Ruff
 
 ## Planned Development
 
-The next development phases will add:
-
-* API metadata endpoint
-* Batch analytics endpoints
-* Streaming analytics endpoints
-* Query filtering
-* Offset pagination
-* Predictable response schemas
-* Power BI integration
-* Browser-based web dashboard
+- Streaming analytics endpoints
+- API response metadata improvements
+- Power BI integration
+- Browser-based web dashboard
+- Cloud-backed data source integration
+- Production deployment and monitoring
 
 ## Portfolio Integration
 
