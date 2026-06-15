@@ -188,3 +188,120 @@ def test_streaming_summary_dedup_counts() -> None:
             "event_count": 1000,
         }
     ]
+
+def test_streaming_department_summary_pagination() -> None:
+    response = client.get(
+        "/api/v1/streaming/department-summary",
+        params={
+            "limit": 5,
+            "offset": 0,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 56
+    assert body["count"] == 5
+    assert body["limit"] == 5
+    assert body["offset"] == 0
+    assert len(body["data"]) == 5
+
+    assert body["data"][0]["department"] == "DPH Public Health"
+    assert body["data"][0]["event_count"] == 339
+
+
+def test_streaming_department_summary_fiscal_year_filter() -> None:
+    response = client.get(
+        "/api/v1/streaming/department-summary",
+        params={
+            "fiscal_year": 2021,
+            "limit": 5,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 23
+    assert body["count"] == 5
+
+    assert all(
+        item["minimum_fiscal_year"] == 2021
+        and item["maximum_fiscal_year"] == 2021
+        for item in body["data"]
+    )
+
+
+def test_streaming_department_summary_name_filter() -> None:
+    response = client.get(
+        "/api/v1/streaming/department-summary",
+        params={
+            "department": "Public Health",
+            "limit": 5,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 1
+    assert body["count"] == 1
+    assert body["data"][0]["department"] == "DPH Public Health"
+    assert body["data"][0]["event_count"] == 339
+
+
+def test_streaming_department_summary_combined_filters() -> None:
+    response = client.get(
+        "/api/v1/streaming/department-summary",
+        params={
+            "fiscal_year": 2021,
+            "department": "Public Health",
+            "limit": 5,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 1
+    assert body["count"] == 1
+    assert body["data"][0]["department"] == "DPH Public Health"
+    assert body["data"][0]["event_count"] == 31
+    assert body["data"][0]["minimum_fiscal_year"] == 2021
+    assert body["data"][0]["maximum_fiscal_year"] == 2021
+
+
+def test_streaming_department_summary_offset() -> None:
+    response = client.get(
+        "/api/v1/streaming/department-summary",
+        params={
+            "limit": 5,
+            "offset": 5,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 56
+    assert body["count"] == 5
+    assert body["offset"] == 5
+    assert len(body["data"]) == 5
+
+
+def test_streaming_department_summary_invalid_pagination() -> None:
+    response = client.get(
+        "/api/v1/streaming/department-summary",
+        params={
+            "limit": 0,
+            "offset": -1,
+        },
+    )
+
+    assert response.status_code == 422

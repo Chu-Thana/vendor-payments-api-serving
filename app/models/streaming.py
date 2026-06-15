@@ -45,3 +45,19 @@ class StreamingSummaryResponse(BaseModel):
     maximum_fiscal_year: int
     events_by_fiscal_year: list[StreamingYearCount]
     events_by_dedup_status: list[StreamingDedupCount]
+
+class StreamingDepartmentSummaryItem(BaseModel):
+    department: str
+    event_count: int
+    total_payment_amount: float
+    unique_suppliers: int
+    minimum_fiscal_year: int
+    maximum_fiscal_year: int
+
+
+class StreamingDepartmentSummaryResponse(BaseModel):
+    total_count: int
+    count: int
+    limit: int
+    offset: int
+    data: list[StreamingDepartmentSummaryItem]
