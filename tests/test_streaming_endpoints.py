@@ -305,3 +305,132 @@ def test_streaming_department_summary_invalid_pagination() -> None:
     )
 
     assert response.status_code == 422
+
+
+def test_streaming_supplier_summary_pagination() -> None:
+    response = client.get(
+        "/api/v1/streaming/supplier-summary",
+        params={
+            "limit": 5,
+            "offset": 0,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 600
+    assert body["count"] == 5
+    assert body["limit"] == 5
+    assert body["offset"] == 0
+    assert len(body["data"]) == 5
+
+    assert (
+        body["data"][0]["supplier_name"]
+        == "MEDLINE INDUSTRIES INC"
+    )
+    assert body["data"][0]["event_count"] == 196
+
+
+def test_streaming_supplier_summary_fiscal_year_filter() -> None:
+    response = client.get(
+        "/api/v1/streaming/supplier-summary",
+        params={
+            "fiscal_year": 2021,
+            "limit": 5,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 52
+    assert body["count"] == 5
+
+    assert all(
+        item["minimum_fiscal_year"] == 2021
+        and item["maximum_fiscal_year"] == 2021
+        for item in body["data"]
+    )
+
+
+def test_streaming_supplier_summary_name_filter() -> None:
+    response = client.get(
+        "/api/v1/streaming/supplier-summary",
+        params={
+            "supplier_name": "MEDLINE INDUSTRIES INC",
+            "limit": 5,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 1
+    assert body["count"] == 1
+    assert (
+        body["data"][0]["supplier_name"]
+        == "MEDLINE INDUSTRIES INC"
+    )
+    assert body["data"][0]["event_count"] == 196
+    assert body["data"][0]["minimum_fiscal_year"] == 2018
+    assert body["data"][0]["maximum_fiscal_year"] == 2026
+
+
+def test_streaming_supplier_summary_combined_filters() -> None:
+    response = client.get(
+        "/api/v1/streaming/supplier-summary",
+        params={
+            "fiscal_year": 2021,
+            "supplier_name": "MEDLINE INDUSTRIES INC",
+            "limit": 5,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 1
+    assert body["count"] == 1
+    assert (
+        body["data"][0]["supplier_name"]
+        == "MEDLINE INDUSTRIES INC"
+    )
+    assert body["data"][0]["event_count"] == 18
+    assert body["data"][0]["minimum_fiscal_year"] == 2021
+    assert body["data"][0]["maximum_fiscal_year"] == 2021
+
+
+def test_streaming_supplier_summary_offset() -> None:
+    response = client.get(
+        "/api/v1/streaming/supplier-summary",
+        params={
+            "limit": 5,
+            "offset": 5,
+        },
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_count"] == 600
+    assert body["count"] == 5
+    assert body["offset"] == 5
+    assert len(body["data"]) == 5
+
+
+def test_streaming_supplier_summary_invalid_pagination() -> None:
+    response = client.get(
+        "/api/v1/streaming/supplier-summary",
+        params={
+            "limit": 0,
+            "offset": -1,
+        },
+    )
+
+    assert response.status_code == 422

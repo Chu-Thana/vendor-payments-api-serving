@@ -61,3 +61,20 @@ class StreamingDepartmentSummaryResponse(BaseModel):
     limit: int
     offset: int
     data: list[StreamingDepartmentSummaryItem]
+
+
+class StreamingSupplierSummaryItem(BaseModel):
+    supplier_name: str
+    event_count: int
+    total_payment_amount: float
+    unique_departments: int
+    minimum_fiscal_year: int
+    maximum_fiscal_year: int
+
+
+class StreamingSupplierSummaryResponse(BaseModel):
+    total_count: int
+    count: int
+    limit: int
+    offset: int
+    data: list[StreamingSupplierSummaryItem]

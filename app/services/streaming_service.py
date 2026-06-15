@@ -7,6 +7,8 @@ from app.models.streaming import (
     StreamingEventItem,
     StreamingEventsResponse,
     StreamingSummaryResponse,
+    StreamingSupplierSummaryItem,
+    StreamingSupplierSummaryResponse,
     StreamingYearCount,
 )
 
@@ -214,6 +216,88 @@ def get_streaming_department_summary(
     paginated_items = items[offset : offset + limit]
 
     return StreamingDepartmentSummaryResponse(
+        total_count=total_count,
+        count=len(paginated_items),
+        limit=limit,
+        offset=offset,
+        data=paginated_items,
+    )
+
+def get_streaming_supplier_summary(
+    *,
+    fiscal_year: int | None = None,
+    supplier_name: str | None = None,
+    limit: int = 100,
+    offset: int = 0,
+) -> StreamingSupplierSummaryResponse:
+    events = read_streaming_events()
+
+    if fiscal_year is not None:
+        events = [
+            event
+            for event in events
+            if event["fiscal_year"] == fiscal_year
+        ]
+
+    if supplier_name:
+        supplier_query = supplier_name.casefold()
+
+        events = [
+            event
+            for event in events
+            if supplier_query
+            in str(event["supplier_name"]).casefold()
+        ]
+
+    grouped_events: dict[str, list[dict[str, object]]] = {}
+
+    for event in events:
+        current_supplier_name = str(event["supplier_name"])
+
+        grouped_events.setdefault(
+            current_supplier_name,
+            [],
+        ).append(event)
+
+    items = []
+
+    for current_supplier_name, supplier_events in grouped_events.items():
+        fiscal_years = [
+            int(event["fiscal_year"])
+            for event in supplier_events
+        ]
+
+        items.append(
+            StreamingSupplierSummaryItem(
+                supplier_name=current_supplier_name,
+                event_count=len(supplier_events),
+                total_payment_amount=round(
+                    sum(
+                        float(event["payment_amount"])
+                        for event in supplier_events
+                    ),
+                    2,
+                ),
+                unique_departments=len(
+                    {
+                        str(event["department"])
+                        for event in supplier_events
+                    }
+                ),
+                minimum_fiscal_year=min(fiscal_years),
+                maximum_fiscal_year=max(fiscal_years),
+            )
+        )
+
+    items.sort(
+        key=lambda item: item.event_count,
+        reverse=True,
+    )
+
+    total_count = len(items)
+    paginated_items = items[offset : offset + limit]
+
+    return StreamingSupplierSummaryResponse(
         total_count=total_count,
         count=len(paginated_items),
         limit=limit,
