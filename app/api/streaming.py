@@ -2,8 +2,15 @@ from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException, Query
 
-from app.models.streaming import StreamingEventsResponse
-from app.services.streaming_service import get_streaming_events
+from app.models.streaming import (
+    StreamingEventsResponse,
+    StreamingSummaryResponse,
+)
+
+from app.services.streaming_service import (
+    get_streaming_events,
+    get_streaming_summary,
+)
 
 
 router = APIRouter(
@@ -65,4 +72,22 @@ def read_streaming_events_endpoint(
         raise HTTPException(
             status_code=500,
             detail="Streaming sample data is unavailable",
+        ) from exc
+
+
+@router.get(
+    "/summary",
+    response_model=StreamingSummaryResponse,
+    summary="Get streaming payment summary",
+    responses={
+        500: {"description": "Streaming data file unavailable"},
+    },
+)
+def read_streaming_summary_endpoint() -> StreamingSummaryResponse:
+    try:
+        return get_streaming_summary()
+    except (FileNotFoundError, ValueError) as exc:
+        raise HTTPException(
+            status_code=500,
+            detail="Streaming summary data is unavailable",
         ) from exc
