@@ -134,3 +134,57 @@ def test_streaming_events_invalid_pagination() -> None:
     )
 
     assert response.status_code == 422
+
+
+def test_streaming_summary_endpoint() -> None:
+    response = client.get(
+        "/api/v1/streaming/summary",
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["total_events"] == 1000
+    assert body["total_payment_amount"] == 3275248584.18
+    assert body["unique_departments"] == 56
+    assert body["unique_suppliers"] == 600
+    assert body["minimum_fiscal_year"] == 2007
+    assert body["maximum_fiscal_year"] == 2026
+
+
+def test_streaming_summary_fiscal_year_counts() -> None:
+    response = client.get(
+        "/api/v1/streaming/summary",
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+    year_counts = {
+        item["fiscal_year"]: item["event_count"]
+        for item in body["events_by_fiscal_year"]
+    }
+
+    assert len(year_counts) == 20
+    assert year_counts[2007] == 21
+    assert year_counts[2021] == 70
+    assert year_counts[2026] == 77
+    assert sum(year_counts.values()) == 1000
+
+
+def test_streaming_summary_dedup_counts() -> None:
+    response = client.get(
+        "/api/v1/streaming/summary",
+    )
+
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["events_by_dedup_status"] == [
+        {
+            "dedup_status": "accepted",
+            "event_count": 1000,
+        }
+    ]

@@ -1,11 +1,16 @@
 from __future__ import annotations
 
 from app.models.streaming import (
+    StreamingDedupCount,
     StreamingEventItem,
     StreamingEventsResponse,
+    StreamingSummaryResponse,
+    StreamingYearCount,
 )
+
 from app.repositories.streaming_repository import read_streaming_events
 
+from collections import Counter
 
 def get_streaming_events(
     *,
@@ -69,4 +74,65 @@ def get_streaming_events(
         limit=limit,
         offset=offset,
         data=items,
+    )
+
+def get_streaming_summary() -> StreamingSummaryResponse:
+    events = read_streaming_events()
+
+    if not events:
+        raise ValueError("Streaming sample contains no events")
+
+    year_counts = Counter(
+        int(event["fiscal_year"])
+        for event in events
+    )
+
+    dedup_counts = Counter(
+        str(event["dedup_status"])
+        for event in events
+    )
+
+    fiscal_years = list(year_counts)
+
+    total_payment_amount = round(
+        sum(
+            float(event["payment_amount"])
+            for event in events
+        ),
+        2,
+    )
+
+    return StreamingSummaryResponse(
+        total_events=len(events),
+        total_payment_amount=total_payment_amount,
+        unique_departments=len(
+            {
+                str(event["department"])
+                for event in events
+            }
+        ),
+        unique_suppliers=len(
+            {
+                str(event["supplier_name"])
+                for event in events
+            }
+        ),
+        minimum_fiscal_year=min(fiscal_years),
+        maximum_fiscal_year=max(fiscal_years),
+        events_by_fiscal_year=[
+            StreamingYearCount(
+                fiscal_year=fiscal_year,
+                event_count=event_count,
+            )
+            for fiscal_year, event_count
+            in sorted(year_counts.items())
+        ],
+        events_by_dedup_status=[
+            StreamingDedupCount(
+                dedup_status=dedup_status,
+                event_count=event_count,
+            )
+            for dedup_status, event_count
+            in sorted(dedup_counts.items())
+        ],
     )
