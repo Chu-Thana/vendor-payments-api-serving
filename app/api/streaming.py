@@ -6,12 +6,14 @@ from app.models.streaming import (
     StreamingDepartmentSummaryResponse,
     StreamingEventsResponse,
     StreamingSummaryResponse,
+    StreamingSupplierSummaryResponse,
 )
 
 from app.services.streaming_service import (
     get_streaming_department_summary,
     get_streaming_events,
     get_streaming_summary,
+    get_streaming_supplier_summary,
 )
 
 
@@ -136,4 +138,48 @@ def read_streaming_department_summary_endpoint(
         raise HTTPException(
             status_code=500,
             detail="Streaming department summary data is unavailable",
+        ) from exc
+
+
+@router.get(
+    "/supplier-summary",
+    response_model=StreamingSupplierSummaryResponse,
+    summary="Get streaming summary by supplier",
+    responses={
+        500: {"description": "Streaming data file unavailable"},
+    },
+)
+def read_streaming_supplier_summary_endpoint(
+    fiscal_year: int | None = Query(
+        default=None,
+        description="Filter by fiscal year",
+    ),
+    supplier_name: str | None = Query(
+        default=None,
+        min_length=1,
+        description="Filter by supplier name",
+    ),
+    limit: int = Query(
+        default=100,
+        ge=1,
+        le=500,
+        description="Maximum number of suppliers to return",
+    ),
+    offset: int = Query(
+        default=0,
+        ge=0,
+        description="Number of suppliers to skip",
+    ),
+) -> StreamingSupplierSummaryResponse:
+    try:
+        return get_streaming_supplier_summary(
+            fiscal_year=fiscal_year,
+            supplier_name=supplier_name,
+            limit=limit,
+            offset=offset,
+        )
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=500,
+            detail="Streaming supplier summary data is unavailable",
         ) from exc
