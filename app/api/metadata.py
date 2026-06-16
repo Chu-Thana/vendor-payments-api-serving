@@ -20,4 +20,9 @@ def get_metadata() -> MetadataResponse:
         version="1.0.0",
         batch_data_available=True,
         streaming_data_available=True,
+        middleware_enabled=True,
+        request_id_enabled=True,
+        request_timing_enabled=True,
+        structured_logging_enabled=True,
+        cache_enabled=False,
     )
