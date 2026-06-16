@@ -11,6 +11,9 @@ This project is part of the Vendor Payments Data Engineering Portfolio.
 ```text
 Analytics Consumers
         ↓ Request
+Middleware Layer
+Request ID • Request Timing • Structured Logging
+        ↓
 FastAPI Endpoint Layer
         ↓
 Service Layer
@@ -26,11 +29,18 @@ Repository Layer
 Service Layer
         ↑
 FastAPI Endpoint Layer
+        ↑
+Middleware Layer
+Response Headers • Completion Logging
         ↑ JSON Response
 Analytics Consumers
 ```
 
-API contracts are enforced at the FastAPI boundary through Pydantic models, query validation, and OpenAPI documentation. Project-wide quality checks are provided by Pytest, Ruff, Docker builds, and GitHub Actions CI.
+API contracts are enforced at the FastAPI boundary through Pydantic models, query validation, and OpenAPI documentation.
+
+The middleware layer provides request tracking, request timing, structured completion logs, and structured error logs for all API requests.
+
+Project-wide quality checks are provided by Pytest, Ruff, Docker builds, and GitHub Actions CI.
 
 ## Current Features
 
@@ -41,11 +51,79 @@ API contracts are enforced at the FastAPI boundary through Pydantic models, quer
 - Pydantic request and response validation
 - Fiscal year and text-based filtering
 - Limit and offset pagination
+- Request ID generation and propagation
+- API request processing-time measurement
+- Structured request completion logging
+- Structured unhandled-error logging
+- Observability response headers
+- Runtime capability metadata
 - Swagger/OpenAPI documentation
 - Docker container support
 - Pytest automated tests
 - Ruff linting
 - GitHub Actions CI
+
+## Middleware Observability
+
+Every API request passes through the observability middleware before reaching the endpoint layer.
+
+The middleware provides:
+
+- A unique request ID for request tracing
+- Preservation of a client-provided request ID
+- API processing-time measurement
+- Structured JSON logs for completed requests
+- Structured JSON logs for unhandled errors
+- Response headers for request tracking and performance inspection
+
+### Response Headers
+
+Successful API responses include:
+
+```text
+X-Request-ID
+X-Process-Time-MS
+```
+
+Example:
+
+```text
+X-Request-ID: c31a25fa-e360-411d-9415-c6588feb3d7c
+X-Process-Time-MS: 0.51
+```
+
+When a client sends an `X-Request-ID` header, the API preserves that value and returns it in the response. If no request ID is provided, the middleware generates a new UUID.
+
+### Structured Completion Log
+
+Example:
+
+```json
+{
+  "event": "api_request_completed",
+  "request_id": "c31a25fa-e360-411d-9415-c6588feb3d7c",
+  "method": "GET",
+  "path": "/health",
+  "status_code": 200,
+  "process_time_ms": 0.51
+}
+```
+
+### Structured Error Log
+
+Unhandled exceptions are logged with request context before the exception is re-raised for application-level handling.
+
+Example:
+
+```json
+{
+  "event": "api_request_error",
+  "request_id": "error-test-001",
+  "method": "GET",
+  "path": "/raise-error",
+  "process_time_ms": 1.24
+}
+```
 
 ## API Endpoints
 
@@ -67,6 +145,24 @@ GET /health
 
 ```http
 GET /api/v1/metadata
+```
+
+Returns service information, data availability, and enabled runtime capabilities.
+
+Example response:
+
+```json
+{
+  "service": "Vendor Payments API",
+  "version": "1.0.0",
+  "batch_data_available": true,
+  "streaming_data_available": true,
+  "middleware_enabled": true,
+  "request_id_enabled": true,
+  "request_timing_enabled": true,
+  "structured_logging_enabled": true,
+  "cache_enabled": false
+}
 ```
 
 ## Batch Analytics
@@ -253,6 +349,10 @@ vendor-payments-api-serving/
 │   │   ├── batch.py
 │   │   └── streaming.py
 │   │
+│   ├── middleware/
+│   │   ├── __init__.py
+│   │   └── observability.py
+│   │
 │   ├── models/
 │   │   ├── common.py
 │   │   ├── batch.py
@@ -285,6 +385,7 @@ vendor-payments-api-serving/
 ├── tests/
 │   ├── test_health.py
 │   ├── test_metadata.py
+│   ├── test_middleware.py
 │   ├── test_batch_endpoints.py
 │   └── test_streaming_endpoints.py
 │
@@ -384,6 +485,20 @@ Current validation covers:
 - Limit and offset pagination
 - Invalid pagination responses
 - Expected JSON response structures
+- Request ID response headers
+- Client-provided request ID preservation
+- Request processing-time headers
+- Unique generated request IDs
+- Structured successful-request logging
+- Structured unhandled-error logging
+- Middleware capability metadata
+
+Current local validation result:
+
+```text
+49 tests passed
+Ruff passed
+```
 
 ## Continuous Integration
 
@@ -397,13 +512,17 @@ Ruff
 
 ## Planned Development
 
+- In-memory API response caching
+- Cache HIT and MISS response headers
+- TTL-based cache expiration
+- Redis-backed shared cache
 - Power BI integration
 - Browser-based web dashboard
 - Cloud-backed data source integration
 - Production deployment
 - API authentication and authorization
-- Logging, monitoring, and observability
-- Cache and warehouse-backed serving improvements
+- Rate limiting
+- Centralized monitoring and observability
 
 ## Portfolio Integration
 
