@@ -16,6 +16,10 @@ Request ID • Request Timing • Structured Logging
         ↓
 FastAPI Endpoint Layer
         ↓
+Cache Layer
+Cache HIT → Return cached response
+Cache MISS → Continue processing
+        ↓
 Service Layer
         ↓
 Repository Layer
@@ -28,6 +32,9 @@ Repository Layer
         ↑
 Service Layer
         ↑
+Cache Layer
+Store successful response with TTL
+        ↑
 FastAPI Endpoint Layer
         ↑
 Middleware Layer
@@ -39,6 +46,8 @@ Analytics Consumers
 API contracts are enforced at the FastAPI boundary through Pydantic models, query validation, and OpenAPI documentation.
 
 The middleware layer provides request tracking, request timing, structured completion logs, and structured error logs for all API requests.
+
+The cache layer uses an in-memory cache-aside strategy to reuse successful Batch and Streaming API responses. Cache entries expire after 60 seconds, and cache behavior is exposed through the `X-Cache-Status` response header.
 
 Project-wide quality checks are provided by Pytest, Ruff, Docker builds, and GitHub Actions CI.
 
@@ -57,6 +66,12 @@ Project-wide quality checks are provided by Pytest, Ruff, Docker builds, and Git
 - Structured unhandled-error logging
 - Observability response headers
 - Runtime capability metadata
+- In-memory API response caching
+- Cache-aside request flow
+- TTL-based cache expiration
+- Stable cache keys built from endpoint query parameters
+- Cache HIT and MISS response headers
+- Batch and Streaming endpoint cache coverage
 - Swagger/OpenAPI documentation
 - Docker container support
 - Pytest automated tests
@@ -125,6 +140,78 @@ Example:
 }
 ```
 
+## API Response Cache
+
+The API uses an in-memory cache-aside strategy for Batch and Streaming analytics endpoints.
+
+Request flow:
+
+```text
+API Request
+    ↓
+Build cache key from endpoint and query parameters
+    ↓
+Cache lookup
+    ├── HIT  → Return cached response
+    └── MISS → Call Service Layer
+                  ↓
+              Store successful result with TTL
+                  ↓
+              Return response
+```
+
+### Cache Behavior
+
+- Cache backend: In-memory Python cache
+- Cache strategy: Cache-aside
+- Default TTL: 60 seconds
+- Cached responses: Successful Batch and Streaming analytics responses
+- Invalid requests: Not cached
+- Server errors: Not cached
+- Query-aware keys: Filters, limits, and offsets are included in cache keys
+- Text normalization: Text parameters are trimmed and case-normalized
+
+### Cache Response Header
+
+Cached endpoints include:
+
+```text
+X-Cache-Status
+```
+
+Possible values:
+
+```text
+MISS
+HIT
+```
+
+Example first request:
+
+```text
+X-Cache-Status: MISS
+```
+
+Example identical request within the TTL:
+
+```text
+X-Cache-Status: HIT
+```
+
+The response also retains the observability headers:
+
+```text
+X-Request-ID
+X-Process-Time-MS
+X-Cache-Status
+```
+
+### Current Limitations
+
+The current cache is process-local and is cleared whenever the API process restarts. It is suitable for local development and demonstrating cache behavior, but it is not shared between multiple API instances.
+
+Redis-backed shared caching remains a planned production improvement.
+
 ## API Endpoints
 
 ### Core APIs
@@ -161,7 +248,7 @@ Example response:
   "request_id_enabled": true,
   "request_timing_enabled": true,
   "structured_logging_enabled": true,
-  "cache_enabled": false
+  "cache_enabled": true
 }
 ```
 
@@ -349,6 +436,11 @@ vendor-payments-api-serving/
 │   │   ├── batch.py
 │   │   └── streaming.py
 │   │
+│   ├── cache/
+│   │   ├── __init__.py
+│   │   ├── in_memory.py
+│   │   └── keys.py
+│   │
 │   ├── middleware/
 │   │   ├── __init__.py
 │   │   └── observability.py
@@ -386,6 +478,7 @@ vendor-payments-api-serving/
 │   ├── test_health.py
 │   ├── test_metadata.py
 │   ├── test_middleware.py
+│   ├── test_cache.py
 │   ├── test_batch_endpoints.py
 │   └── test_streaming_endpoints.py
 │
@@ -492,11 +585,19 @@ Current validation covers:
 - Structured successful-request logging
 - Structured unhandled-error logging
 - Middleware capability metadata
+- In-memory cache storage and retrieval
+- TTL expiration behavior
+- Stable and normalized cache keys
+- Cache MISS followed by HIT for identical requests
+- Different query parameters creating separate cache entries
+- Invalid requests not being cached
+- Batch and Streaming cache coverage
+- Cache capability metadata
 
 Current local validation result:
 
 ```text
-49 tests passed
+57 tests passed
 Ruff passed
 ```
 
@@ -512,10 +613,8 @@ Ruff
 
 ## Planned Development
 
-- In-memory API response caching
-- Cache HIT and MISS response headers
-- TTL-based cache expiration
 - Redis-backed shared cache
+- Cache invalidation and administration controls
 - Power BI integration
 - Browser-based web dashboard
 - Cloud-backed data source integration

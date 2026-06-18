@@ -24,5 +24,5 @@ def get_metadata() -> MetadataResponse:
         request_id_enabled=True,
         request_timing_enabled=True,
         structured_logging_enabled=True,
-        cache_enabled=False,
+        cache_enabled=True,
     )
