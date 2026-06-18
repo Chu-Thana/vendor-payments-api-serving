@@ -1,242 +1,119 @@
-# Vendor Payments API Serving
+# 🚀 Vendor Payments API Serving
+
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/API-FastAPI-009688?logo=fastapi&logoColor=white)
+![Cache](https://img.shields.io/badge/Cache-In--Memory-orange)
+![Cache Strategy](https://img.shields.io/badge/Cache-HIT%2FMISS-critical)
+![Testing](https://img.shields.io/badge/Testing-57%20Passed-0A9EDC?logo=pytest&logoColor=white)
+![Code Quality](https://img.shields.io/badge/Code%20Quality-Ruff-8A2BE2)
+![Docker](https://img.shields.io/badge/Container-Docker-2496ED?logo=docker&logoColor=white)
+![CI](https://github.com/Chu-Thana/vendor-payments-api-serving/actions/workflows/ci.yml/badge.svg)
+![Architecture](https://img.shields.io/badge/Architecture-Layered-darkblue)
+![Use Case](https://img.shields.io/badge/Use%20Case-BI%20%26%20Web-success)
 
 FastAPI serving layer for trusted Vendor Payments batch and streaming analytics data.
 
-This project is part of the Vendor Payments Data Engineering Portfolio.
+This project is part of the **Vendor Payments Data Engineering Portfolio** and acts as the API bridge between analytics-ready outputs and downstream consumers such as Power BI, web dashboards, and external applications.
 
-## Architecture
+---
 
-![Vendor Payments API Serving Architecture](assets/vendor-payments-api/streaming/00_vendor-payments-api-serving-architecture.png)
+## 📌 Project Summary
 
-```text
-Analytics Consumers
-        ↓ Request
-Middleware Layer
-Request ID • Request Timing • Structured Logging
-        ↓
-FastAPI Endpoint Layer
-        ↓
-Cache Layer
-Cache HIT → Return cached response
-Cache MISS → Continue processing
-        ↓
-Service Layer
-        ↓
-Repository Layer
-        ↓
-Analytics Data Sources
+The application exposes processed Batch and Streaming data through validated REST endpoints instead of requiring consumers to read CSV or JSONL files directly.
 
-Analytics Data Sources
-        ↑ Returned Data
-Repository Layer
-        ↑
-Service Layer
-        ↑
-Cache Layer
-Store successful response with TTL
-        ↑
-FastAPI Endpoint Layer
-        ↑
-Middleware Layer
-Response Headers • Completion Logging
-        ↑ JSON Response
-Analytics Consumers
-```
+It demonstrates:
 
-API contracts are enforced at the FastAPI boundary through Pydantic models, query validation, and OpenAPI documentation.
+- Layered API architecture
+- Batch and Streaming analytics endpoints
+- Pydantic request and response contracts
+- Request observability middleware
+- In-memory cache-aside behavior
+- Query-aware cache keys and TTL expiration
+- Automated testing, linting, Docker validation, and GitHub Actions CI
 
-The middleware layer provides request tracking, request timing, structured completion logs, and structured error logs for all API requests.
+---
 
-The cache layer uses an in-memory cache-aside strategy to reuse successful Batch and Streaming API responses. Cache entries expire after 60 seconds, and cache behavior is exposed through the `X-Cache-Status` response header.
+## 🧭 Architecture
 
-Project-wide quality checks are provided by Pytest, Ruff, Docker builds, and GitHub Actions CI.
+![Vendor Payments API Layered Architecture](assets/vendor-payments-api/architecture/00_vendor-payments-api-serving-architec.png)
 
-## Current Features
-
-- FastAPI application
-- Root, health, and metadata endpoints
-- Batch analytics endpoints backed by trusted Gold marts
-- Streaming event and analytics summary endpoints
-- Pydantic request and response validation
-- Fiscal year and text-based filtering
-- Limit and offset pagination
-- Request ID generation and propagation
-- API request processing-time measurement
-- Structured request completion logging
-- Structured unhandled-error logging
-- Observability response headers
-- Runtime capability metadata
-- In-memory API response caching
-- Cache-aside request flow
-- TTL-based cache expiration
-- Stable cache keys built from endpoint query parameters
-- Cache HIT and MISS response headers
-- Batch and Streaming endpoint cache coverage
-- Swagger/OpenAPI documentation
-- Docker container support
-- Pytest automated tests
-- Ruff linting
-- GitHub Actions CI
-
-## Middleware Observability
-
-Every API request passes through the observability middleware before reaching the endpoint layer.
-
-The middleware provides:
-
-- A unique request ID for request tracing
-- Preservation of a client-provided request ID
-- API processing-time measurement
-- Structured JSON logs for completed requests
-- Structured JSON logs for unhandled errors
-- Response headers for request tracking and performance inspection
-
-### Response Headers
-
-Successful API responses include:
+The request lifecycle follows this path:
 
 ```text
-X-Request-ID
-X-Process-Time-MS
+Analytics Consumer
+→ Middleware
+→ FastAPI Endpoint
+→ Cache Lookup
+
+Cache HIT
+→ Return cached response
+
+Cache MISS
+→ Service
+→ Repository
+→ Analytics Data Source
+→ Store successful result in cache
+→ Return validated JSON response
 ```
 
-Example:
+### Layer Responsibilities
 
-```text
-X-Request-ID: c31a25fa-e360-411d-9415-c6588feb3d7c
-X-Process-Time-MS: 0.51
-```
+- **Analytics Consumption Layer** — Power BI, web dashboards, external applications, and API clients
+- **Middleware Layer** — Request ID, timing, structured request logs, and structured error logs
+- **FastAPI Endpoint Layer** — Routing, query validation, response schemas, and error handling
+- **Cache Layer** — Cache HIT/MISS, query-aware keys, and TTL-based expiration
+- **Service Layer** — Filtering, aggregation, sorting, pagination, and summary metrics
+- **Repository Layer** — CSV and JSONL access, parsing, and value normalization
+- **Analytics Data Sources** — Trusted Batch Gold marts and validated Streaming events
+- **API Contracts & Quality Assurance** — Pydantic, OpenAPI, Pytest, Ruff, Docker, and GitHub Actions
 
-When a client sends an `X-Request-ID` header, the API preserves that value and returns it in the response. If no request ID is provided, the middleware generates a new UUID.
+---
 
-### Structured Completion Log
-
-Example:
-
-```json
-{
-  "event": "api_request_completed",
-  "request_id": "c31a25fa-e360-411d-9415-c6588feb3d7c",
-  "method": "GET",
-  "path": "/health",
-  "status_code": 200,
-  "process_time_ms": 0.51
-}
-```
-
-### Structured Error Log
-
-Unhandled exceptions are logged with request context before the exception is re-raised for application-level handling.
-
-Example:
-
-```json
-{
-  "event": "api_request_error",
-  "request_id": "error-test-001",
-  "method": "GET",
-  "path": "/raise-error",
-  "process_time_ms": 1.24
-}
-```
-
-## API Response Cache
-
-The API uses an in-memory cache-aside strategy for Batch and Streaming analytics endpoints.
-
-Request flow:
-
-```text
-API Request
-    ↓
-Build cache key from endpoint and query parameters
-    ↓
-Cache lookup
-    ├── HIT  → Return cached response
-    └── MISS → Call Service Layer
-                  ↓
-              Store successful result with TTL
-                  ↓
-              Return response
-```
-
-### Cache Behavior
-
-- Cache backend: In-memory Python cache
-- Cache strategy: Cache-aside
-- Default TTL: 60 seconds
-- Cached responses: Successful Batch and Streaming analytics responses
-- Invalid requests: Not cached
-- Server errors: Not cached
-- Query-aware keys: Filters, limits, and offsets are included in cache keys
-- Text normalization: Text parameters are trimmed and case-normalized
-
-### Cache Response Header
-
-Cached endpoints include:
-
-```text
-X-Cache-Status
-```
-
-Possible values:
-
-```text
-MISS
-HIT
-```
-
-Example first request:
-
-```text
-X-Cache-Status: MISS
-```
-
-Example identical request within the TTL:
-
-```text
-X-Cache-Status: HIT
-```
-
-The response also retains the observability headers:
-
-```text
-X-Request-ID
-X-Process-Time-MS
-X-Cache-Status
-```
-
-### Current Limitations
-
-The current cache is process-local and is cleared whenever the API process restarts. It is suitable for local development and demonstrating cache behavior, but it is not shared between multiple API instances.
-
-Redis-backed shared caching remains a planned production improvement.
-
-## API Endpoints
+## ✨ Current Features
 
 ### Core APIs
 
-#### Root
-
 ```http
 GET /
-```
-
-#### Health
-
-```http
 GET /health
-```
-
-#### Metadata
-
-```http
 GET /api/v1/metadata
 ```
 
-Returns service information, data availability, and enabled runtime capabilities.
+### Batch Analytics APIs
 
-Example response:
+```http
+GET /api/v1/batch/spending-by-fiscal-year
+GET /api/v1/batch/spending-by-department
+GET /api/v1/batch/top-suppliers
+GET /api/v1/batch/pending-by-department
+GET /api/v1/batch/fund-category-summary
+```
+
+### Streaming Analytics APIs
+
+```http
+GET /api/v1/streaming/events
+GET /api/v1/streaming/summary
+GET /api/v1/streaming/department-summary
+GET /api/v1/streaming/supplier-summary
+```
+
+Supported capabilities include:
+
+- Fiscal year filtering
+- Department and supplier filtering
+- Fund type and fund category filtering
+- Deduplication status filtering
+- Combined query filters
+- Limit and offset pagination
+- Pydantic response models
+- Swagger/OpenAPI documentation
+
+---
+
+## 🔎 Runtime Capabilities
+
+The metadata endpoint reports the capabilities currently enabled by the API.
 
 ```json
 {
@@ -252,234 +129,182 @@ Example response:
 }
 ```
 
-## Batch Analytics
+![API Runtime Capabilities](assets/vendor-payments-api/evidence/04_api-runtime-capabilities.png)
 
-### Spending by Fiscal Year
+---
 
-```http
-GET /api/v1/batch/spending-by-fiscal-year
+## 🧠 Middleware Observability
+
+Every request passes through the observability middleware before reaching the endpoint layer.
+
+The middleware provides:
+
+- Unique request ID generation
+- Preservation of client-provided request IDs
+- Processing-time measurement
+- Structured completion logs
+- Structured unhandled-error logs
+
+Successful responses include:
+
+```text
+X-Request-ID
+X-Process-Time-MS
 ```
-
-Returns trusted spending metrics aggregated by fiscal year.
-
-### Spending by Department
-
-```http
-GET /api/v1/batch/spending-by-department
-```
-
-Supported query parameters:
-
-- `fiscal_year`
-- `department`
-- `limit`
-- `offset`
 
 Example:
 
-```http
-GET /api/v1/batch/spending-by-department?fiscal_year=2007&limit=5
+```text
+X-Request-ID: c31a25fa-e360-411d-9415-c6588feb3d7c
+X-Process-Time-MS: 0.51
 ```
 
-### Top Suppliers
+---
 
-```http
-GET /api/v1/batch/top-suppliers
+## ⚡ API Response Cache
+
+The API uses an **in-memory cache-aside strategy** for Batch and Streaming analytics endpoints.
+
+### Cache Behavior
+
+- Cache backend: In-memory Python cache
+- Default TTL: 60 seconds
+- Cache key: Endpoint namespace plus normalized query parameters
+- Cache HIT: Return the cached response
+- Cache MISS: Call the service, store the successful result, and return the response
+- Invalid requests: Not cached
+- Server errors: Not cached
+
+Cached endpoints include:
+
+```text
+X-Cache-Status: MISS
 ```
 
-Supported query parameters:
+or:
 
-- `supplier_name`
-- `limit`
-- `offset`
-
-Example:
-
-```http
-GET /api/v1/batch/top-suppliers?supplier_name=BANK&limit=10
+```text
+X-Cache-Status: HIT
 ```
 
-### Pending by Department
+![Observability and Cache Headers](assets/vendor-payments-api/evidence/03_observability-cache-headers.png)
 
-```http
-GET /api/v1/batch/pending-by-department
+The current cache is process-local and is cleared when the API restarts. Redis-backed shared caching remains a planned production improvement.
+
+---
+
+## 📊 Batch Analytics Evidence
+
+The Batch APIs serve trusted Gold mart outputs generated by the Vendor Payments ETL pipeline.
+
+Example: filtered fund category summary for `General Fund` and `Operating`.
+
+![Batch Fund Category Summary Response](assets/vendor-payments-api/batch/10_batch-fund-category-summary-response.png)
+
+---
+
+## 🌊 Streaming Analytics Evidence
+
+The Streaming APIs expose validated event-level data and dashboard-ready summaries.
+
+Example: accepted streaming payment events filtered by fiscal year.
+
+![Streaming Events Response](assets/vendor-payments-api/streaming/13_streaming-events-response-with-cache-headers.png)
+
+---
+
+## ✅ Validation
+
+The project is validated locally with Ruff and Pytest.
+
+```powershell
+python -m ruff check .
+python -m pytest
 ```
 
-Supported query parameters:
+Current result:
 
-- `fiscal_year`
-- `department`
-- `limit`
-- `offset`
-
-Example:
-
-```http
-GET /api/v1/batch/pending-by-department?department=Public%20Health&limit=5
+```text
+Ruff passed
+57 tests passed
 ```
 
-### Fund Category Summary
+![Local Validation](assets/vendor-payments-api/evidence/01_api-local-validation-57-tests.png)
 
-```http
-GET /api/v1/batch/fund-category-summary
+Validation covers:
+
+- Root, health, and metadata endpoints
+- Batch and Streaming API responses
+- Filters and combined filters
+- Pagination and invalid pagination requests
+- Request ID and timing headers
+- Structured request and error logging
+- In-memory cache storage and retrieval
+- TTL expiration
+- Stable normalized cache keys
+- Cache MISS followed by HIT
+- Separate cache entries for different query parameters
+- Invalid requests not being cached
+
+---
+
+## ⚙️ Continuous Integration
+
+GitHub Actions runs automatically on changes to the repository.
+
+```text
+Ruff and Pytest
+→ Docker image build
 ```
 
-Supported query parameters:
+![GitHub Actions CI](assets/vendor-payments-api/evidence/02_api-ci-validation-passed.png)
 
-- `fiscal_year`
-- `fund_type`
-- `fund_category`
-- `limit`
-- `offset`
+The CI workflow acts as a quality gate by checking code quality, API behavior, and container build readiness.
 
-Example:
+---
 
-```http
-GET /api/v1/batch/fund-category-summary?fund_type=General%20Fund&fund_category=Operating&limit=5
-```
-
-## Streaming Analytics
-
-### Streaming Events
-
-```http
-GET /api/v1/streaming/events
-```
-
-Returns paginated vendor payment events from the validated streaming sample dataset.
-
-Supported query parameters:
-
-- `fiscal_year`
-- `department`
-- `supplier_name`
-- `dedup_status`
-- `limit`
-- `offset`
-
-Example:
-
-```http
-GET /api/v1/streaming/events?fiscal_year=2021&supplier_name=ERIE&limit=5
-```
-
-### Streaming Summary
-
-```http
-GET /api/v1/streaming/summary
-```
-
-Returns dashboard-ready streaming metrics, including:
-
-- Total event count
-- Total payment amount
-- Unique department count
-- Unique supplier count
-- Minimum and maximum fiscal year
-- Event counts grouped by fiscal year
-- Event counts grouped by deduplication status
-
-### Department Summary
-
-```http
-GET /api/v1/streaming/department-summary
-```
-
-Returns department-level streaming metrics.
-
-Supported query parameters:
-
-- `fiscal_year`
-- `department`
-- `limit`
-- `offset`
-
-Example:
-
-```http
-GET /api/v1/streaming/department-summary?fiscal_year=2021&limit=5
-```
-
-### Supplier Summary
-
-```http
-GET /api/v1/streaming/supplier-summary
-```
-
-Returns supplier-level streaming metrics.
-
-Supported query parameters:
-
-- `fiscal_year`
-- `supplier_name`
-- `limit`
-- `offset`
-
-Example:
-
-```http
-GET /api/v1/streaming/supplier-summary?supplier_name=MEDLINE%20INDUSTRIES%20INC&limit=5
-```
-
-## Project Structure
+## 🗂️ Project Structure
 
 ```text
 vendor-payments-api-serving/
 │
 ├── app/
-│   ├── main.py
-│   ├── config.py
-│   │
 │   ├── api/
+│   │   ├── batch.py
 │   │   ├── health.py
 │   │   ├── metadata.py
-│   │   ├── batch.py
 │   │   └── streaming.py
 │   │
 │   ├── cache/
-│   │   ├── __init__.py
 │   │   ├── in_memory.py
 │   │   └── keys.py
 │   │
 │   ├── middleware/
-│   │   ├── __init__.py
 │   │   └── observability.py
 │   │
 │   ├── models/
-│   │   ├── common.py
-│   │   ├── batch.py
-│   │   └── streaming.py
-│   │
 │   ├── repositories/
-│   │   ├── batch_repository.py
-│   │   └── streaming_repository.py
-│   │
-│   └── services/
-│       ├── batch_service.py
-│       └── streaming_service.py
+│   ├── services/
+│   ├── config.py
+│   └── main.py
 │
 ├── assets/
 │   └── vendor-payments-api/
+│       ├── architecture/
 │       ├── batch/
+│       ├── evidence/
 │       └── streaming/
 │
 ├── data/
 │   ├── batch/
-│   │   ├── mart_spending_by_fiscal_year.csv
-│   │   ├── mart_spending_by_department.csv
-│   │   ├── mart_spending_by_supplier_top_n.csv
-│   │   ├── mart_pending_by_department.csv
-│   │   └── mart_fund_category_summary.csv
-│   │
 │   └── streaming/
-│       └── vendor_payments_streaming_sample.jsonl
 │
 ├── tests/
+│   ├── test_batch_endpoints.py
+│   ├── test_cache.py
 │   ├── test_health.py
 │   ├── test_metadata.py
 │   ├── test_middleware.py
-│   ├── test_cache.py
-│   ├── test_batch_endpoints.py
 │   └── test_streaming_endpoints.py
 │
 ├── Dockerfile
@@ -488,9 +313,11 @@ vendor-payments-api-serving/
 └── README.md
 ```
 
-## Run Locally
+---
 
-Create and activate the virtual environment:
+## ▶️ Run Locally
+
+Create and activate a virtual environment:
 
 ```powershell
 python -m venv .venv
@@ -516,123 +343,60 @@ Open Swagger documentation:
 http://127.0.0.1:8000/docs
 ```
 
-Open the health endpoint:
+---
 
-```text
-http://127.0.0.1:8000/health
-```
+## 🐳 Run with Docker
 
-## Run with Docker
-
-Build and start the API container:
+Build and start the API:
 
 ```powershell
 docker compose up --build
 ```
 
-Open Swagger documentation:
+Open Swagger:
 
 ```text
 http://localhost:8000/docs
 ```
 
-Open the health endpoint:
-
-```text
-http://localhost:8000/health
-```
-
-Stop the container:
+Stop the containers:
 
 ```powershell
 docker compose down
 ```
 
-## Validation
+---
 
-Run the automated test suite:
-
-```powershell
-python -m pytest -v
-```
-
-Run Ruff:
-
-```powershell
-python -m ruff check app tests
-```
-
-Build the Docker image:
-
-```powershell
-docker build -t vendor-payments-api-serving:test .
-```
-
-Current validation covers:
-
-- Root, health, and metadata endpoints
-- Batch analytics endpoints
-- Streaming events and summary endpoints
-- Fiscal year and text filters
-- Combined filters
-- Limit and offset pagination
-- Invalid pagination responses
-- Expected JSON response structures
-- Request ID response headers
-- Client-provided request ID preservation
-- Request processing-time headers
-- Unique generated request IDs
-- Structured successful-request logging
-- Structured unhandled-error logging
-- Middleware capability metadata
-- In-memory cache storage and retrieval
-- TTL expiration behavior
-- Stable and normalized cache keys
-- Cache MISS followed by HIT for identical requests
-- Different query parameters creating separate cache entries
-- Invalid requests not being cached
-- Batch and Streaming cache coverage
-- Cache capability metadata
-
-Current local validation result:
+## 🔗 Role in the Vendor Payments Data Platform
 
 ```text
-57 tests passed
-Ruff passed
+Project 1 — Batch ETL Pipeline
+Project 2 — API Serving Layer
+Project 3 — Kafka Streaming Pipeline
+Project 4 — Airflow Orchestration
+Project 5 — Cloud Data Platform
 ```
 
-## Continuous Integration
+Project 2 transforms trusted Batch and Streaming analytics outputs into consistent, validated, observable, and cache-aware JSON responses for downstream consumers.
 
-GitHub Actions validates the project by running:
+---
 
-```text
-Ruff
-→ Pytest
-→ Docker image build
-```
-
-## Planned Development
+## 🛣️ Planned Development
 
 - Redis-backed shared cache
 - Cache invalidation and administration controls
 - Power BI integration
 - Browser-based web dashboard
 - Cloud-backed data source integration
-- Production deployment
-- API authentication and authorization
+- Authentication and authorization
 - Rate limiting
+- Production deployment
 - Centralized monitoring and observability
 
-## Portfolio Integration
+---
 
-This API acts as the serving layer for the wider Vendor Payments Data Engineering Portfolio:
+## 🎯 Key Takeaway
 
-```text
-Project 1 — Batch ETL Pipeline
-Project 2 — API and Serving Layer
-Project 3 — Kafka Streaming Pipeline
-Project 4 — Airflow Orchestration
-Project 5 — Cloud Data Platform
-```
+This project is not only a collection of API endpoints.
 
-The goal is to expose trusted analytics-ready data to Power BI, web dashboards, and other external consumers without requiring them to read local files or cloud storage objects directly.
+It demonstrates how a layered analytics serving application can expose trusted data through validated contracts, request observability, cache-aware response handling, automated quality checks, and consumer-ready interfaces.
