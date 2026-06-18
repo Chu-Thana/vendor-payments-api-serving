@@ -31,3 +31,5 @@ STREAMING_SAMPLE_FILE = (
     / "streaming"
     / "vendor_payments_streaming_sample.jsonl"
 )
+
+API_CACHE_TTL_SECONDS = 60.0
