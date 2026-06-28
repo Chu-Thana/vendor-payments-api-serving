@@ -14,6 +14,8 @@ __pycache__/
 # Environment variables
 .env
 *.env
+.env.local
+.env.*.local
 
 # Local databases
 *.db
@@ -23,7 +25,6 @@ __pycache__/
 *.log
 logs/
 data/
-*.db
 
 # OS
 .DS_Store
