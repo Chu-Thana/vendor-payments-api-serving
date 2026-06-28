@@ -8,4 +8,6 @@ services:
       - "8000:8000"
     environment:
       PORT: 8000
+    volumes:
+      - E:/dev/vendor-payments-streaming-pipeline/output/staging/vendor_payments_streaming_staging.jsonl:/app/data/streaming/vendor_payments_streaming_sample.jsonl:ro
     restart: unless-stopped
