@@ -32,4 +32,16 @@ STREAMING_SAMPLE_FILE = (
     / "vendor_payments_streaming_sample.jsonl"
 )
 
+STREAMING_SUMMARY_FILE = (
+    DATA_DIR
+    / "streaming"
+    / "vendor_payments_streaming_summary.json"
+)
+
+STREAMING_DEPARTMENT_SUMMARY_FILE = (
+    DATA_DIR
+    / "streaming"
+    / "vendor_payments_streaming_department_summary.json"
+)
+
 API_CACHE_TTL_SECONDS = 60.0

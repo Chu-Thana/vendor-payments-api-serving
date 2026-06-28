@@ -24,12 +24,13 @@ __pycache__/
 # Logs
 *.log
 logs/
-data/
 
 # OS
 .DS_Store
 Thumbs.db
 
-!data/
-!data/batch/
-!data/batch/mart_spending_by_fiscal_year.csv
+data/*
+!data/streaming/
+data/streaming/*
+!data/streaming/vendor_payments_streaming_summary.json
+!data/streaming/vendor_payments_streaming_department_summary.json

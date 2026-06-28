@@ -4,7 +4,11 @@ import json
 from pathlib import Path
 from typing import Any
 
-from app.config import STREAMING_SAMPLE_FILE
+from app.config import (
+    STREAMING_DEPARTMENT_SUMMARY_FILE,
+    STREAMING_SAMPLE_FILE,
+    STREAMING_SUMMARY_FILE,
+)
 
 
 def read_streaming_events(
@@ -75,3 +79,33 @@ def read_streaming_events(
             )
 
     return events
+
+def read_json_object(file_path: Path) -> dict[str, Any]:
+    if not file_path.exists():
+        raise FileNotFoundError(
+            f"Streaming summary file not found: {file_path}"
+        )
+
+    try:
+        content = json.loads(
+            file_path.read_text(encoding="utf-8")
+        )
+    except json.JSONDecodeError as exc:
+        raise ValueError(
+            f"Invalid JSON summary file: {file_path}"
+        ) from exc
+
+    if not isinstance(content, dict):
+        raise ValueError(
+            f"Streaming summary must be a JSON object: {file_path}"
+        )
+
+    return content
+
+def read_streaming_summary() -> dict[str, Any]:
+    return read_json_object(STREAMING_SUMMARY_FILE)
+
+def read_streaming_department_summary() -> dict[str, Any]:
+    return read_json_object(
+        STREAMING_DEPARTMENT_SUMMARY_FILE
+    )

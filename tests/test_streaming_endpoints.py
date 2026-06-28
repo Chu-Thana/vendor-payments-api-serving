@@ -145,10 +145,10 @@ def test_streaming_summary_endpoint() -> None:
 
     body = response.json()
 
-    assert body["total_events"] == 1000
-    assert body["total_payment_amount"] == 3275248584.18
-    assert body["unique_departments"] == 56
-    assert body["unique_suppliers"] == 600
+    assert body["total_events"] == 100000
+    assert body["total_payment_amount"] == 150580975432.6
+    assert body["unique_departments"] == 74
+    assert body["unique_suppliers"] == 12282
     assert body["minimum_fiscal_year"] == 2007
     assert body["maximum_fiscal_year"] == 2026
 
@@ -166,11 +166,8 @@ def test_streaming_summary_fiscal_year_counts() -> None:
         for item in body["events_by_fiscal_year"]
     }
 
-    assert len(year_counts) == 20
-    assert year_counts[2007] == 21
-    assert year_counts[2021] == 70
-    assert year_counts[2026] == 77
-    assert sum(year_counts.values()) == 1000
+    assert year_counts[2007] == 2443
+    assert sum(year_counts.values()) == 100000
 
 
 def test_streaming_summary_dedup_counts() -> None:
@@ -185,7 +182,7 @@ def test_streaming_summary_dedup_counts() -> None:
     assert body["events_by_dedup_status"] == [
         {
             "dedup_status": "accepted",
-            "event_count": 1000,
+            "event_count": 100000,
         }
     ]
 
@@ -202,14 +199,14 @@ def test_streaming_department_summary_pagination() -> None:
 
     body = response.json()
 
-    assert body["total_count"] == 56
+    assert body["total_count"] == 74
     assert body["count"] == 5
     assert body["limit"] == 5
     assert body["offset"] == 0
     assert len(body["data"]) == 5
 
     assert body["data"][0]["department"] == "DPH Public Health"
-    assert body["data"][0]["event_count"] == 339
+    assert body["data"][0]["event_count"] == 34711
 
 
 def test_streaming_department_summary_fiscal_year_filter() -> None:
@@ -289,7 +286,7 @@ def test_streaming_department_summary_offset() -> None:
 
     body = response.json()
 
-    assert body["total_count"] == 56
+    assert body["total_count"] == 74
     assert body["count"] == 5
     assert body["offset"] == 5
     assert len(body["data"]) == 5

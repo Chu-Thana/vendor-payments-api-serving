@@ -1,0 +1,96 @@
+{
+  "total_events": 100000,
+  "total_payment_amount": 150580975432.6,
+  "unique_departments": 74,
+  "unique_suppliers": 12282,
+  "minimum_fiscal_year": 2007,
+  "maximum_fiscal_year": 2026,
+  "events_by_fiscal_year": [
+    {
+      "fiscal_year": 2007,
+      "event_count": 2443
+    },
+    {
+      "fiscal_year": 2008,
+      "event_count": 2516
+    },
+    {
+      "fiscal_year": 2009,
+      "event_count": 2436
+    },
+    {
+      "fiscal_year": 2010,
+      "event_count": 2313
+    },
+    {
+      "fiscal_year": 2011,
+      "event_count": 2345
+    },
+    {
+      "fiscal_year": 2012,
+      "event_count": 2396
+    },
+    {
+      "fiscal_year": 2013,
+      "event_count": 2536
+    },
+    {
+      "fiscal_year": 2014,
+      "event_count": 2617
+    },
+    {
+      "fiscal_year": 2015,
+      "event_count": 2555
+    },
+    {
+      "fiscal_year": 2016,
+      "event_count": 2720
+    },
+    {
+      "fiscal_year": 2017,
+      "event_count": 2809
+    },
+    {
+      "fiscal_year": 2018,
+      "event_count": 8256
+    },
+    {
+      "fiscal_year": 2019,
+      "event_count": 9872
+    },
+    {
+      "fiscal_year": 2020,
+      "event_count": 8390
+    },
+    {
+      "fiscal_year": 2021,
+      "event_count": 7335
+    },
+    {
+      "fiscal_year": 2022,
+      "event_count": 7461
+    },
+    {
+      "fiscal_year": 2023,
+      "event_count": 7558
+    },
+    {
+      "fiscal_year": 2024,
+      "event_count": 7582
+    },
+    {
+      "fiscal_year": 2025,
+      "event_count": 8232
+    },
+    {
+      "fiscal_year": 2026,
+      "event_count": 7628
+    }
+  ],
+  "events_by_dedup_status": [
+    {
+      "dedup_status": "accepted",
+      "event_count": 100000
+    }
+  ]
+}

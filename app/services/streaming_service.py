@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from app.models.streaming import (
-    StreamingDedupCount,
     StreamingDepartmentSummaryItem,
     StreamingDepartmentSummaryResponse,
     StreamingEventItem,
@@ -9,12 +8,13 @@ from app.models.streaming import (
     StreamingSummaryResponse,
     StreamingSupplierSummaryItem,
     StreamingSupplierSummaryResponse,
-    StreamingYearCount,
 )
 
-from app.repositories.streaming_repository import read_streaming_events
-
-from collections import Counter
+from app.repositories.streaming_repository import (
+    read_streaming_department_summary,
+    read_streaming_events,
+    read_streaming_summary,
+)
 
 def get_streaming_events(
     *,
@@ -81,65 +81,9 @@ def get_streaming_events(
     )
 
 def get_streaming_summary() -> StreamingSummaryResponse:
-    events = read_streaming_events()
+    summary = read_streaming_summary()
 
-    if not events:
-        raise ValueError("Streaming sample contains no events")
-
-    year_counts = Counter(
-        int(event["fiscal_year"])
-        for event in events
-    )
-
-    dedup_counts = Counter(
-        str(event["dedup_status"])
-        for event in events
-    )
-
-    fiscal_years = list(year_counts)
-
-    total_payment_amount = round(
-        sum(
-            float(event["payment_amount"])
-            for event in events
-        ),
-        2,
-    )
-
-    return StreamingSummaryResponse(
-        total_events=len(events),
-        total_payment_amount=total_payment_amount,
-        unique_departments=len(
-            {
-                str(event["department"])
-                for event in events
-            }
-        ),
-        unique_suppliers=len(
-            {
-                str(event["supplier_name"])
-                for event in events
-            }
-        ),
-        minimum_fiscal_year=min(fiscal_years),
-        maximum_fiscal_year=max(fiscal_years),
-        events_by_fiscal_year=[
-            StreamingYearCount(
-                fiscal_year=fiscal_year,
-                event_count=event_count,
-            )
-            for fiscal_year, event_count
-            in sorted(year_counts.items())
-        ],
-        events_by_dedup_status=[
-            StreamingDedupCount(
-                dedup_status=dedup_status,
-                event_count=event_count,
-            )
-            for dedup_status, event_count
-            in sorted(dedup_counts.items())
-        ],
-    )
+    return StreamingSummaryResponse(**summary)
 
 def get_streaming_department_summary(
     *,
@@ -148,6 +92,27 @@ def get_streaming_department_summary(
     limit: int = 100,
     offset: int = 0,
 ) -> StreamingDepartmentSummaryResponse:
+
+    if fiscal_year is None and not department:
+        summary = read_streaming_department_summary()
+        raw_items = summary.get("data", [])
+
+        items = [
+            StreamingDepartmentSummaryItem(**item)
+            for item in raw_items
+        ]
+
+        total_count = len(items)
+        paginated_items = items[offset : offset + limit]
+
+        return StreamingDepartmentSummaryResponse(
+            total_count=total_count,
+            count=len(paginated_items),
+            limit=limit,
+            offset=offset,
+            data=paginated_items,
+        )
+
     events = read_streaming_events()
 
     if fiscal_year is not None:

@@ -1,0 +1,597 @@
+{
+  "total_count": 74,
+  "data": [
+    {
+      "department": "DPH Public Health",
+      "event_count": 34711,
+      "total_payment_amount": 13890229242.38,
+      "unique_suppliers": 2031,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "PUC Public Utilities Commsn",
+      "event_count": 7269,
+      "total_payment_amount": 20083632688.13,
+      "unique_suppliers": 1303,
+      "minimum_fiscal_year": 2018,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "MTA Municipal Transprtn Agncy",
+      "event_count": 7200,
+      "total_payment_amount": 2204119002.8,
+      "unique_suppliers": 1103,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "REC Recreation & Park Commsn",
+      "event_count": 3360,
+      "total_payment_amount": 178731269.35,
+      "unique_suppliers": 822,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "AIR Airport Commission",
+      "event_count": 3308,
+      "total_payment_amount": 47263072741.68,
+      "unique_suppliers": 1032,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "ADM GSA - City Administrator",
+      "event_count": 2996,
+      "total_payment_amount": 2137526273.96,
+      "unique_suppliers": 730,
+      "minimum_fiscal_year": 2018,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "WTR Water Enterprise",
+      "event_count": 2842,
+      "total_payment_amount": 37999751.92,
+      "unique_suppliers": 1006,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2017
+    },
+    {
+      "department": "HSA Human Services Agency",
+      "event_count": 2469,
+      "total_payment_amount": 500150127.68,
+      "unique_suppliers": 795,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "DPW Public Works",
+      "event_count": 2331,
+      "total_payment_amount": 258491958.12,
+      "unique_suppliers": 480,
+      "minimum_fiscal_year": 2018,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "ART Arts Commission",
+      "event_count": 2187,
+      "total_payment_amount": 30378169.43,
+      "unique_suppliers": 1110,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "DPW GSA - Public Works",
+      "event_count": 2078,
+      "total_payment_amount": 100912723.5,
+      "unique_suppliers": 522,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2017
+    },
+    {
+      "department": "PRT Port",
+      "event_count": 2042,
+      "total_payment_amount": 212354627.3,
+      "unique_suppliers": 591,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "POL Police",
+      "event_count": 2000,
+      "total_payment_amount": 55935158.78,
+      "unique_suppliers": 705,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "SHF Sheriff",
+      "event_count": 1664,
+      "total_payment_amount": 424303623.77,
+      "unique_suppliers": 464,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "HHP Hetch Hetchy Water & Power",
+      "event_count": 1403,
+      "total_payment_amount": 27761007.52,
+      "unique_suppliers": 362,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2017
+    },
+    {
+      "department": "REG Elections",
+      "event_count": 1365,
+      "total_payment_amount": 43112571.18,
+      "unique_suppliers": 1190,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "ADM Gen Svcs Agency-City Admin",
+      "event_count": 1330,
+      "total_payment_amount": 49680631.33,
+      "unique_suppliers": 628,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2017
+    },
+    {
+      "department": "ECN Economic & Wrkfrce Dvlpmnt",
+      "event_count": 1271,
+      "total_payment_amount": 189455623.74,
+      "unique_suppliers": 533,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "MYR Mayor",
+      "event_count": 1136,
+      "total_payment_amount": 328406083.2,
+      "unique_suppliers": 493,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "WWE Wastewater Enterprise",
+      "event_count": 1051,
+      "total_payment_amount": 65403559.89,
+      "unique_suppliers": 345,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2017
+    },
+    {
+      "department": "LIB Public Library",
+      "event_count": 1029,
+      "total_payment_amount": 345776660.11,
+      "unique_suppliers": 400,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "PUB Public Utilities Bureaus",
+      "event_count": 939,
+      "total_payment_amount": 164468633.8,
+      "unique_suppliers": 356,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2017
+    },
+    {
+      "department": "DAT District Attorney",
+      "event_count": 909,
+      "total_payment_amount": 14193046.1,
+      "unique_suppliers": 329,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "FIR Fire Department",
+      "event_count": 904,
+      "total_payment_amount": 498909614.95,
+      "unique_suppliers": 285,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "CRT Superior Court",
+      "event_count": 864,
+      "total_payment_amount": 614904335.41,
+      "unique_suppliers": 233,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "JUV Juvenile Probation",
+      "event_count": 731,
+      "total_payment_amount": 107435181.24,
+      "unique_suppliers": 254,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "CHF Children;Youth & Families",
+      "event_count": 730,
+      "total_payment_amount": 65666547.17,
+      "unique_suppliers": 248,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "DEM Emergency Management",
+      "event_count": 675,
+      "total_payment_amount": 160693071.43,
+      "unique_suppliers": 277,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "HRD Human Resources",
+      "event_count": 663,
+      "total_payment_amount": 57784201.01,
+      "unique_suppliers": 231,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "PDR Public Defender",
+      "event_count": 621,
+      "total_payment_amount": 18785206.27,
+      "unique_suppliers": 194,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "DT  GSA - Technology",
+      "event_count": 617,
+      "total_payment_amount": 162806357.74,
+      "unique_suppliers": 168,
+      "minimum_fiscal_year": 2018,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "DT GSA - Technology",
+      "event_count": 566,
+      "total_payment_amount": 19448326.92,
+      "unique_suppliers": 183,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2017
+    },
+    {
+      "department": "HOM Homelessness Services",
+      "event_count": 555,
+      "total_payment_amount": 217547152.97,
+      "unique_suppliers": 211,
+      "minimum_fiscal_year": 2018,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "CON Controller",
+      "event_count": 502,
+      "total_payment_amount": 9571922.51,
+      "unique_suppliers": 182,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "ENV Environment",
+      "event_count": 502,
+      "total_payment_amount": 15234118.3,
+      "unique_suppliers": 201,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "TTX Treasurer-Tax Collector",
+      "event_count": 500,
+      "total_payment_amount": 80263185.55,
+      "unique_suppliers": 103,
+      "minimum_fiscal_year": 2018,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "CII Commty Invest & Infrstrctr",
+      "event_count": 496,
+      "total_payment_amount": 632665942.93,
+      "unique_suppliers": 141,
+      "minimum_fiscal_year": 2013,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "RET Retirement System",
+      "event_count": 407,
+      "total_payment_amount": 51459459.75,
+      "unique_suppliers": 152,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "WAR War Memorial",
+      "event_count": 366,
+      "total_payment_amount": 375240235.66,
+      "unique_suppliers": 130,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "CAT City Attorney",
+      "event_count": 359,
+      "total_payment_amount": 26591843.03,
+      "unique_suppliers": 123,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "ADP Adult Probation",
+      "event_count": 318,
+      "total_payment_amount": 9430878.8,
+      "unique_suppliers": 119,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "HSS Health Service System",
+      "event_count": 290,
+      "total_payment_amount": 47429630770.25,
+      "unique_suppliers": 79,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "DBI Building Inspection",
+      "event_count": 277,
+      "total_payment_amount": 75754402.36,
+      "unique_suppliers": 117,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "CPC City Planning",
+      "event_count": 215,
+      "total_payment_amount": 3403026.39,
+      "unique_suppliers": 106,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "HRC Human Rights Commission",
+      "event_count": 204,
+      "total_payment_amount": 18352064.05,
+      "unique_suppliers": 76,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "ASR Assessor - Recorder",
+      "event_count": 162,
+      "total_payment_amount": 4176733.81,
+      "unique_suppliers": 58,
+      "minimum_fiscal_year": 2018,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "BOS Board of Supervisors",
+      "event_count": 147,
+      "total_payment_amount": 25715162.62,
+      "unique_suppliers": 52,
+      "minimum_fiscal_year": 2018,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "CSS Child Support Services",
+      "event_count": 143,
+      "total_payment_amount": 2190111.59,
+      "unique_suppliers": 64,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "GEN General City - Unallocated",
+      "event_count": 134,
+      "total_payment_amount": 8016644808.37,
+      "unique_suppliers": 49,
+      "minimum_fiscal_year": 2018,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "CFC Children & Families Commsn",
+      "event_count": 131,
+      "total_payment_amount": 8222762.52,
+      "unique_suppliers": 62,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2023
+    },
+    {
+      "department": "TTX Treasurer/Tax Collector",
+      "event_count": 128,
+      "total_payment_amount": 1331714.26,
+      "unique_suppliers": 70,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2017
+    },
+    {
+      "department": "DPA Police Accountabilty",
+      "event_count": 112,
+      "total_payment_amount": 2769404.4,
+      "unique_suppliers": 48,
+      "minimum_fiscal_year": 2018,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "WOM Status of Women",
+      "event_count": 96,
+      "total_payment_amount": 5298782.63,
+      "unique_suppliers": 46,
+      "minimum_fiscal_year": 2018,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "FAM Fine Arts Museum",
+      "event_count": 91,
+      "total_payment_amount": 50378508.84,
+      "unique_suppliers": 25,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "ETH Ethics Commission",
+      "event_count": 84,
+      "total_payment_amount": 18530195.43,
+      "unique_suppliers": 35,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "RNT Rent Arbitration Board",
+      "event_count": 80,
+      "total_payment_amount": 647573.24,
+      "unique_suppliers": 35,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "BOS Board Of Supervisors",
+      "event_count": 66,
+      "total_payment_amount": 706821.14,
+      "unique_suppliers": 39,
+      "minimum_fiscal_year": 2008,
+      "maximum_fiscal_year": 2017
+    },
+    {
+      "department": "ASR Assessor / Recorder",
+      "event_count": 61,
+      "total_payment_amount": 165401.37,
+      "unique_suppliers": 37,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2017
+    },
+    {
+      "department": "WOM Status Of Women",
+      "event_count": 47,
+      "total_payment_amount": 1877393.74,
+      "unique_suppliers": 31,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2017
+    },
+    {
+      "department": "DEC Dept of Early Childhood",
+      "event_count": 38,
+      "total_payment_amount": 117993242.74,
+      "unique_suppliers": 22,
+      "minimum_fiscal_year": 2023,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "GEN General City / Unallocated",
+      "event_count": 33,
+      "total_payment_amount": 58913356.71,
+      "unique_suppliers": 31,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2017
+    },
+    {
+      "department": "CTA SF County Transprtn Auth",
+      "event_count": 33,
+      "total_payment_amount": 0.0,
+      "unique_suppliers": 3,
+      "minimum_fiscal_year": 2007,
+      "maximum_fiscal_year": 2012
+    },
+    {
+      "department": "BOA Board of Appeals",
+      "event_count": 29,
+      "total_payment_amount": 1267220.16,
+      "unique_suppliers": 14,
+      "minimum_fiscal_year": 2018,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "SCI Academy of Sciences",
+      "event_count": 25,
+      "total_payment_amount": 183729252.49,
+      "unique_suppliers": 1,
+      "minimum_fiscal_year": 2018,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "USD County Education Office",
+      "event_count": 23,
+      "total_payment_amount": 1652035618.22,
+      "unique_suppliers": 2,
+      "minimum_fiscal_year": 2013,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "CSC Civil Service Commission",
+      "event_count": 15,
+      "total_payment_amount": 133249.1,
+      "unique_suppliers": 7,
+      "minimum_fiscal_year": 2008,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "CCD SF Communtiy College Dist",
+      "event_count": 14,
+      "total_payment_amount": 1164234500.45,
+      "unique_suppliers": 1,
+      "minimum_fiscal_year": 2013,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "AAM Asian Art Museum",
+      "event_count": 14,
+      "total_payment_amount": 3943091.23,
+      "unique_suppliers": 8,
+      "minimum_fiscal_year": 2011,
+      "maximum_fiscal_year": 2023
+    },
+    {
+      "department": "BOA Board Of Appeals - PAB",
+      "event_count": 13,
+      "total_payment_amount": 18244.01,
+      "unique_suppliers": 11,
+      "minimum_fiscal_year": 2008,
+      "maximum_fiscal_year": 2016
+    },
+    {
+      "department": "HOM HOMELESSNESS SERVICES",
+      "event_count": 11,
+      "total_payment_amount": 2164711.98,
+      "unique_suppliers": 10,
+      "minimum_fiscal_year": 2017,
+      "maximum_fiscal_year": 2017
+    },
+    {
+      "department": "LLB Law Library",
+      "event_count": 9,
+      "total_payment_amount": 7114.7,
+      "unique_suppliers": 6,
+      "minimum_fiscal_year": 2011,
+      "maximum_fiscal_year": 2020
+    },
+    {
+      "department": "SDA Shrf Dept Ofc Inspctr Genl",
+      "event_count": 3,
+      "total_payment_amount": 9918.85,
+      "unique_suppliers": 3,
+      "minimum_fiscal_year": 2025,
+      "maximum_fiscal_year": 2026
+    },
+    {
+      "department": "Unknown",
+      "event_count": 3,
+      "total_payment_amount": 0.0,
+      "unique_suppliers": 1,
+      "minimum_fiscal_year": 2018,
+      "maximum_fiscal_year": 2018
+    },
+    {
+      "department": "HHP CleanPowerSF",
+      "event_count": 3,
+      "total_payment_amount": 197517.64,
+      "unique_suppliers": 3,
+      "minimum_fiscal_year": 2017,
+      "maximum_fiscal_year": 2017
+    }
+  ]
+}
