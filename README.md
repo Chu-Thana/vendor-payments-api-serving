@@ -189,6 +189,22 @@ X-Cache-Status: HIT
 
 ![Observability and Cache Headers](assets/vendor-payments-api/evidence/03_observability-cache-headers.png)
 
+### Cache Performance Benchmark
+
+A repeated request to the Streaming Summary endpoint demonstrates the impact of the cache-aside strategy:
+
+```text
+Endpoint: GET /api/v1/streaming/summary
+Records summarized: 100,000 streaming events
+
+Cache MISS: 7,076.46 ms
+Cache HIT: 0.58 ms
+Latency reduction: 99.99%
+Cached response: approximately 12,200× faster
+```
+
+The first request reads and aggregates the streaming dataset before storing the validated response in the in-memory cache. An identical request made within the configured TTL is served directly from the cache.
+
 The current cache is process-local and is cleared when the API restarts. Redis-backed shared caching remains a planned production improvement.
 
 ---
